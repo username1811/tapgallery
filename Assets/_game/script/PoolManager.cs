@@ -93,7 +93,7 @@ public class PoolManager : Singleton<PoolManager>
     public List<Pool> pools = new List<Pool>();
     private Dictionary<PoolType, Pool> poolDictionary;
 
-    void Start()
+    void Awake()
     {
         poolDictionary = new Dictionary<PoolType, Pool>();
 
