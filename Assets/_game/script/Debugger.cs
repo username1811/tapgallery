@@ -8,7 +8,7 @@ public class Debugger : MonoBehaviour
 {
     public static void DrawCircle(Vector3 center, float radius, Color color, float duration=9999f)
     {
-        int segments = 36;
+        int segments = 90;
         float angleStep = 360f / segments;
         for (int i = 0; i < segments; i++)
         {
