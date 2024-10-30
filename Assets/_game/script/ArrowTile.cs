@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class ArrowTile : MonoBehaviour
@@ -14,6 +15,7 @@ public class ArrowTile : MonoBehaviour
     public float moveDuration;
     public AnimationCurve moveCurve;
     public bool isMoving;
+    public DirectionType directionType;
     [Title("Sorting Order:")]
     public int sortingOrder;
     public SpriteRenderer spriteRenderer;
@@ -22,7 +24,20 @@ public class ArrowTile : MonoBehaviour
     public Arrow arrow;
     [Title("Cover:")]
     public Cover cover;
+    public Vector2 dir => arrow.dir;
+    public bool isRed => cover.redTween.IsPlaying();
 
+
+    private void OnValidate()
+    {
+        RefreshDirection();
+    }
+
+    public void RefreshDirection()
+    {
+        arrow.directionType = this.directionType;
+        arrow.OnInit();
+    }
 
     public void OnInitt(Vector3 pos, DirectionType directionType, int sortingOrder)
     {
@@ -51,27 +66,38 @@ public class ArrowTile : MonoBehaviour
     [Button]
     public void Move()
     {
-        isMoving = true;
-        ArrowTile stuckArrowTile = GetArrowTileOnTheRoad(arrow.dir);
-        if (stuckArrowTile == null)
+        ArrowTile stuckArrowTile = GetArrowTileOnTheRoad(dir);
+        if (!IsCanEat())
         {
-            this.transform.DOMove((Vector2)this.transform.position + moveDistance * arrow.dir, moveDuration).SetEase(moveCurve).OnComplete(() =>
+            Vector2 oldPos = this.transform.position;
+            Vector2 targetMove = (Vector2)stuckArrowTile.transform.position - dir.normalized;
+            float moveDistance = (targetMove - (Vector2)this.transform.position).magnitude;
+            float newMoveDuration = Mathf.Max(0.4f, moveDistance / 33f * moveDuration * 1.8f);
+            this.transform.DOMove(targetMove, newMoveDuration).SetEase(Ease.InSine).OnComplete(() =>
+            {
+                this.transform.DOMove(oldPos, newMoveDuration).SetEase(Ease.OutSine).OnComplete(() =>
+                {
+                    if (isMoving) ClickManager.isCanClick = true;
+                    isMoving = false;
+                });
+            });
+            cover.TurnRed(newMoveDuration*2f);
+            CameraManager.Ins.Punch(dir);
+            isMoving = moveDistance > 0.2f;
+            ClickManager.isCanClick = !isMoving;
+        }
+        else
+        {
+            isMoving = true;
+            this.transform.DOMove((Vector2)this.transform.position + moveDistance * dir, moveDuration).SetEase(moveCurve).OnComplete(() =>
             {
                 isMoving = false;
                 PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
             });
-        }
-        else
-        {
-            Vector2 oldPos = this.transform.position;
-            cover.TurnRed();
-            this.transform.DOMove(stuckArrowTile.transform.position, moveDuration).SetEase(Ease.InSine).OnComplete(() =>
-            {
-                this.transform.DOMove(oldPos, moveDuration).SetEase(Ease.OutSine).OnComplete(() =>
-                {
-                    isMoving = false;
-                });
-            });
+            Dot dot = PoolManager.Ins.Spawn<Dot>(PoolType.Dot);
+            dot.transform.position = this.transform.position - Vector3.up * 0.186f;
+            dot.OnInit(0, arrow.spriteRenderer.color, 1);
+            dot.Scale();
         }
     }
 
@@ -82,7 +108,6 @@ public class ArrowTile : MonoBehaviour
         Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
         Debug.Log(arrowTileMask.ToString());
         Debug.Log(dir);
-        Debug.DrawRay(this.transform.position, dir * 100, Color.red, 2f);
         foreach(var hit in hits)
         {
             if(hit.collider.gameObject != this.gameObject)
@@ -93,13 +118,22 @@ public class ArrowTile : MonoBehaviour
         return null;
     }
 
+    public bool IsCanEat()
+    {
+        ArrowTile stuckArrowTile = GetArrowTileOnTheRoad(dir);
+        return !(stuckArrowTile != null && !stuckArrowTile.isMoving);
+    }
+
     public void SetDirection(DirectionType directionType)
     {
+        this.directionType = directionType;
         arrow.directionType = directionType;
     }
 
-    private void OnMouseDown()
+    private void OnMouseUp()
     {
+        if (!ClickManager.isCanClick) return;
+        if (CameraManager.Ins.isDraggingOver1) return;
         Move();
     }
 }

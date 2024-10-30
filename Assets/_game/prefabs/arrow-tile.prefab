@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2153509576896952212}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.32070267, y: 0.32070267, z: 0.32070267}
   m_ConstrainProportionsScale: 0
@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c26552d975e844b915fd2a845d9728, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  arrowTile: {fileID: 1936901421315176642}
   spriteRenderer: {fileID: 1761144789664510775}
   directionType: 0
   dir: {x: 0, y: 1}
@@ -272,8 +273,8 @@ Transform:
   m_GameObject: {fileID: 8030075757098324255}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.0934, z: 0}
+  m_LocalScale: {x: 1, y: 1.1867995, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8854820207905920885}
@@ -343,6 +344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 8476049694361225035}
+  originColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!1 &8228301821960267735
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,8 +576,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 277365498b03eff4b84217bb4078f388, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDistance: 15
-  moveDuration: 0.6
+  moveDistance: 33
+  moveDuration: 1.2
   moveCurve:
     serializedVersion: 2
     m_Curve:
@@ -589,23 +591,14 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.22049764
-      value: 0.119853444
-      inSlope: 0.708833
-      outSlope: 0.708833
+      time: 0.10303216
+      value: 0.041986592
+      inSlope: 0.27045265
+      outSlope: 0.27045265
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.71417236
-    - serializedVersion: 3
-      time: 0.43683434
-      value: 0.22959697
-      inSlope: 0.6320194
-      outSlope: 0.6320194
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.1963666
     - serializedVersion: 3
       time: 1
       value: 1
@@ -619,6 +612,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   isMoving: 0
+  directionType: 0
   sortingOrder: 1
   spriteRenderer: {fileID: 4716881992959699225}
   edgeSpriteRenderer: {fileID: 2150444101815693174}

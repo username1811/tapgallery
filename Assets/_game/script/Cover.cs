@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Cover : MonoBehaviour
 {
-    Tween redTween;
+    public Tween redTween;
     public SpriteRenderer spriteRenderer;
     public Color originColor;
 
@@ -14,11 +14,11 @@ public class Cover : MonoBehaviour
         originColor = spriteRenderer.color;
     }
 
-    public void TurnRed()
+    public void TurnRed(float duration)
     {
         redTween?.Kill();
         spriteRenderer.color = originColor;
-        redTween = spriteRenderer.DOColor(Color.red, 1).SetEase(Ease.InSine).From().OnComplete(() =>
+        redTween = spriteRenderer.DOColor(new Color(1f,0.4f,0.25f,0.8f), duration).SetEase(Ease.InSine).From().OnComplete(() =>
         {
             redTween=null;
         }) ;

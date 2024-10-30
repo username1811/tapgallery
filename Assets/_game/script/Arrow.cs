@@ -6,9 +6,15 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
+    public ArrowTile arrowTile;
     public SpriteRenderer spriteRenderer;
     public DirectionType directionType;
     public Vector2 dir;
+
+
+
+
+
 
     public void OnInit()
     {
