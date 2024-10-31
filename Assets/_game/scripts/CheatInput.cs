@@ -19,5 +19,9 @@ public class CheatInput : Singleton<CheatInput>
                 LevelManager.Ins.LoadNextLevel();
             });
         }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            LevelManager.Ins.WinImmediately();
+        }
     }
 }

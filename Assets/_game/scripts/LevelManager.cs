@@ -34,6 +34,17 @@ public class LevelManager : Singleton<LevelManager>
         else return levelIndex;
     }
 
+    public Action OnCompleteLoadLevel = () =>
+    {
+        RandomDirectionManager.Ins.InitDict();
+        DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
+        {
+            CameraManager.Ins.OnLoadLevel();
+            MinimapManager.Ins.OnLoadLevel();
+            UIManager.Ins.OpenUI<GamePlay>();
+            UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
+        });
+    };
 
     public void LoadLevel(int levelIndex)
     {
@@ -41,9 +52,8 @@ public class LevelManager : Singleton<LevelManager>
         DestroyCurrentLevel();
         CreateStageFromLevelInfooo(GetLevelInfo(levelIndex), 0);
         currentLevel.OnInit();
-        /*UIManager.Ins.OpenUI<Gameplay>();
-        UIManager.Ins.GetUI<Gameplay>().OnLoadLevel();
-        //FIREBASE
+        OnCompleteLoadLevel?.Invoke();
+        /*//FIREBASE
         //checkpoint start
         if (DataManager.Ins.playerData.currentLevelIndex > DataManager.Ins.playerData.maxCheckPointStartIndex)
         {
@@ -78,13 +88,14 @@ public class LevelManager : Singleton<LevelManager>
             if (isWin)//win
             {
                 isEndLevel = true;
-                DOVirtual.DelayedCall(0.5f, () =>
+                MinimapManager.Ins.OnWin(() =>
                 {
                     SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
                     {
-                        LevelManager.Ins.LoadNextLevel();
+                        LoadNextLevel();
                     });
                 });
+                    
             }
             /*else if(isLose) //lose
             {
@@ -99,6 +110,7 @@ public class LevelManager : Singleton<LevelManager>
         {
             trackingItem.amount = 0;
         }*/
+        currentLevel.remainTiles.Clear();
         CheckWinLose();
     }
 
@@ -129,11 +141,6 @@ public class LevelManager : Singleton<LevelManager>
             arrowTile.transform.SetParent(currentLevel.transform);
             currentLevel.tiles.Add(arrowTile);
         }
-        RandomDirectionManager.Ins.InitDict();
-        DOVirtual.DelayedCall(Time.deltaTime*2f, () =>
-        {
-            CameraManager.Ins.OnLoadLevel();
-        });
     }
 
     /*[Button]

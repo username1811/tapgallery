@@ -25,6 +25,8 @@ public class ArrowTile : MonoBehaviour
     public Arrow arrow;
     [Title("Cover:")]
     public Cover cover;
+    [Title("Minimap:")]
+    public MinimapSquare minimapSquare;
     public Vector2 dir => arrow.dir;
     public bool isRed => cover.redTween.IsPlaying();
     public PixelData pixelData;
@@ -102,6 +104,7 @@ public class ArrowTile : MonoBehaviour
             dot.transform.position = this.transform.position - Vector3.up * 0.186f;
             dot.OnInit(0, arrow.spriteRenderer.color, 1);
             dot.Scale();
+            minimapSquare.ChangeColor();
             LevelManager.Ins.currentLevel.remainTiles.Remove(this);
             LevelManager.Ins.CheckWinLose();
         }
@@ -112,8 +115,6 @@ public class ArrowTile : MonoBehaviour
         LayerMask arrowTileMask = GameManager.Ins.arrowTileMask;
         RaycastHit2D[] hits = Physics2D.RaycastAll(this.transform.position, dir, 100f, arrowTileMask);
         Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-        Debug.Log(arrowTileMask.ToString());
-        Debug.Log(dir);
         foreach(var hit in hits)
         {
             if(hit.collider.gameObject != this.gameObject)
