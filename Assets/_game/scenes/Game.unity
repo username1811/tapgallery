@@ -398,7 +398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dragOrigin: {x: 0, y: 0, z: 0}
   isDraggingOver1: 0
-  draggingOver1Distance: 0.02
+  draggingOver1Distance: 0.04
   cam: {fileID: 411785073}
   zoomSpeed: 8
   minZoom: 6.400001
