@@ -39,7 +39,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                 {
                     if(arrowTile.directionType == DirectionType.Right)
                     {
-                        Debugger.DrawCircle(arrowTile.transform.position, 0.3f, Color.black, 3f);
+                        Debugger.DrawCircle(arrowTile.transform.position, 0.3f, Color.black, 1f);
                         RaycastHit2D[] hits = Physics2D.RaycastAll(arrowTile.transform.position, Vector2.right, 100f, GameManager.Ins.arrowTileMask);
                         foreach(RaycastHit2D hit in hits)
                         {
@@ -143,22 +143,28 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
     }
 
     [Button]
-    public void RandomDirectionAndSave()
+    public void RandomDirectionAndSaveAllLevels()
     {
         StartCoroutine(IERandom());
         IEnumerator IERandom()
         {
             while (DataManager.Ins.playerData.currentLevelIndex < LevelManager.Ins.levelWrapperrr.levels.Count)
             {
-                do
+                yield return null;
+                yield return new WaitForSeconds(0.5f);
+                stuckCount = 999;
+                int tryCount = 50;
+                while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 10 / 100 && tryCount > 0)
                 {
-                    RandomDirectionManager.Ins.RandomDirection();
-                    RandomDirectionManager.Ins.FixStuck();
-                } while (!isFixingStuck && stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 5 / 100);
+                    RandomDirection();
+                    FixStuck();
+                    yield return new WaitUntil(() => !isFixingStuck);
+                    tryCount -= 1;
+                }
                 LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
-                LevelManager.Ins.LoadNextLevel();
                 Debug.Log("done random direction " + LevelManager.Ins.currentLevel.gameObject.name);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.5f);
+                LevelManager.Ins.LoadNextLevel();
             }
             yield return null;
         }

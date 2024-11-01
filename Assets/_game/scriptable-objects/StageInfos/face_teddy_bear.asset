@@ -17,167 +17,167 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 1, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 2, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 3, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 4, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 5, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 6, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 7, y: 0}
     sortingOrder: 9
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 1, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 1
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 2, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 1
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 3, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 1
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 4, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 5, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 6, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 7, y: 1}
     sortingOrder: 8
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 0, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 1, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 3
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 2, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 3, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 4, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 5, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 6, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 7, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 8, y: 2}
     sortingOrder: 7
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 0, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 1, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 3
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 2, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 3
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 3, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 3
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 4, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 2
   - color: {r: 0.7372549, g: 0.74509805, b: 0, a: 1}
     coordinate: {x: 5, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 2
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 6, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 7, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 8, y: 3}
     sortingOrder: 6
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 0, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 2
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 1, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 1
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 2, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 2
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 3, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 4, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 2
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 5, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 2
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 6, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 1
   - color: {r: 1, g: 1, b: 1, a: 1}
     coordinate: {x: 7, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 8, y: 4}
     sortingOrder: 5
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 0, y: 5}
     sortingOrder: 4
@@ -189,7 +189,7 @@ MonoBehaviour:
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 2, y: 5}
     sortingOrder: 4
-    directionType: 0
+    directionType: 2
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 3, y: 5}
     sortingOrder: 4
@@ -197,15 +197,15 @@ MonoBehaviour:
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 4, y: 5}
     sortingOrder: 4
-    directionType: 0
+    directionType: 2
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 5, y: 5}
     sortingOrder: 4
-    directionType: 0
+    directionType: 3
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 6, y: 5}
     sortingOrder: 4
-    directionType: 0
+    directionType: 3
   - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
     coordinate: {x: 7, y: 5}
     sortingOrder: 4
@@ -213,7 +213,7 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 8, y: 5}
     sortingOrder: 4
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 0, y: 6}
     sortingOrder: 3
@@ -225,7 +225,7 @@ MonoBehaviour:
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 2, y: 6}
     sortingOrder: 3
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 3, y: 6}
     sortingOrder: 3
@@ -233,11 +233,11 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 4, y: 6}
     sortingOrder: 3
-    directionType: 0
+    directionType: 2
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 5, y: 6}
     sortingOrder: 3
-    directionType: 0
+    directionType: 3
   - color: {r: 0.94117653, g: 0.73333335, b: 0.52156866, a: 1}
     coordinate: {x: 6, y: 6}
     sortingOrder: 3
@@ -249,15 +249,15 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 8, y: 6}
     sortingOrder: 3
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 1, y: 7}
     sortingOrder: 2
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 2, y: 7}
     sortingOrder: 2
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 3, y: 7}
     sortingOrder: 2
@@ -265,11 +265,11 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 4, y: 7}
     sortingOrder: 2
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 5, y: 7}
     sortingOrder: 2
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 6, y: 7}
     sortingOrder: 2
@@ -281,20 +281,20 @@ MonoBehaviour:
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 2, y: 8}
     sortingOrder: 1
-    directionType: 0
+    directionType: 2
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 3, y: 8}
     sortingOrder: 1
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 4, y: 8}
     sortingOrder: 1
-    directionType: 0
+    directionType: 3
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 5, y: 8}
     sortingOrder: 1
-    directionType: 0
+    directionType: 1
   - color: {r: 0.8352942, g: 0.4431373, b: 0.6431373, a: 1}
     coordinate: {x: 6, y: 8}
     sortingOrder: 1
-    directionType: 0
+    directionType: 1
