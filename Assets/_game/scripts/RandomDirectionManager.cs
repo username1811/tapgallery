@@ -11,11 +11,14 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
     public List<ArrowTile> arrowTiles => LevelManager.Ins.currentLevel.tiles;
     [ShowInInspector]
     public Dictionary<int, List<ArrowTile>> dict = new Dictionary<int, List<ArrowTile>>();
+    public int stuckCount;
+    public bool isFixingStuck;
 
 
     [Button]
     public void FixStuck()
     {
+        isFixingStuck = true;
         List<ArrowTile> tempArrowTiles = new List<ArrowTile>(LevelManager.Ins.currentLevel.tiles);
         StartCoroutine(IEAutoPlay());
         IEnumerator IEAutoPlay()
@@ -29,6 +32,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                 yield return null;
             }
             Debug.Log("tempArrowTiles count = " + tempArrowTiles.Count);
+            stuckCount = tempArrowTiles.Count;
             if(tempArrowTiles.Count > 0) //stuck level 
             {
                 foreach(var arrowTile in  tempArrowTiles)
@@ -51,6 +55,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
             {
                 arrowTile.gameObject.SetActive(true);
             }
+            isFixingStuck = false;
             yield return null;
         }
     }
@@ -134,6 +139,28 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
             {
                 return UnityEngine.Random.Range(0, 4) < 3 ? DirectionType.Down : DirectionType.Up;
             }
+        }
+    }
+
+    [Button]
+    public void RandomDirectionAndSave()
+    {
+        StartCoroutine(IERandom());
+        IEnumerator IERandom()
+        {
+            while (DataManager.Ins.playerData.currentLevelIndex < LevelManager.Ins.levelWrapperrr.levels.Count)
+            {
+                do
+                {
+                    RandomDirectionManager.Ins.RandomDirection();
+                    RandomDirectionManager.Ins.FixStuck();
+                } while (!isFixingStuck && stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 5 / 100);
+                LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
+                LevelManager.Ins.LoadNextLevel();
+                Debug.Log("done random direction " + LevelManager.Ins.currentLevel.gameObject.name);
+                yield return new WaitForSeconds(1f);
+            }
+            yield return null;
         }
     }
 }

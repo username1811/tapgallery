@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CheatInput : Singleton<CheatInput> 
 {
-    public bool isCheatDateTime;
+    public bool isCheatDateTime; 
+    public bool isCheatIAP;
 
     void Update()
     {
@@ -22,6 +23,12 @@ public class CheatInput : Singleton<CheatInput>
         if (Input.GetKeyDown(KeyCode.C))
         {
             LevelManager.Ins.WinImmediately();
+        }
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            RandomDirectionManager.Ins.RandomDirection();
+            RandomDirectionManager.Ins.FixStuck();
+            LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
         }
     }
 }

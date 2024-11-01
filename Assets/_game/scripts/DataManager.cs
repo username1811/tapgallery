@@ -114,6 +114,7 @@ public class PlayerData
     [Header("level index:")]
     public int currentTutLevelIndex;
     public int currentLevelIndex;
+    public List<LevelInfooo> passedLevelInfos = new();
     [Header("spin:")]
     public bool isCanSpin;
     public int levelPassToSpin;
@@ -163,6 +164,7 @@ public class PlayerData
         gold = 1000;
         currentTutLevelIndex = 0;
         currentLevelIndex = 0;
+        passedLevelInfos = new();
         isCanSpin = false;
         isFirstSpined = false;
         isIgnoreSpin = false;

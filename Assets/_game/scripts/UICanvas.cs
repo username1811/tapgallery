@@ -11,7 +11,7 @@ public class UICanvas : MonoBehaviour
     public bool isAllButtonEffect = true;
     [HideInInspector] public RectTransform rectTransform;
 
-    public void Awake()
+    public virtual void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
     }

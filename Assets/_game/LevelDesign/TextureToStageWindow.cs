@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using System.Collections.Generic;
@@ -134,3 +135,4 @@ public class TextureToStageWindow : OdinEditorWindow
         return result;
     }
 }
+#endif

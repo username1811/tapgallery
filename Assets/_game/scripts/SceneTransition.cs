@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class SceneTransition : MonoBehaviour
 {
+    [Header("block UI : ")]
+    public GameObject blockUI;
+
     [Header("top bot : ")]
     public Image top;
     public Image bot;
@@ -13,9 +16,9 @@ public class SceneTransition : MonoBehaviour
     [Header("logo:")]
     public Image logo;
     public float angle;
+    public CanvasGroup logoCanvasGroup;
     public Tween rotateLogoTween;
     public Tween fadeLogoTween;
-    public CanvasGroup logoCanvasGroup;
     public float screenHeight => UIManager.Ins.screenHeight;
 
 

@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,21 +16,22 @@ public class MinimapManager : Singleton<MinimapManager>
     public void OnLoadLevel()
     {
         minimapSquares.Clear();
-        foreach(var tile in LevelManager.Ins.currentLevel.tiles)
+        foreach (var tile in LevelManager.Ins.currentLevel.tiles)
         {
             MinimapSquare minimapSquare = PoolManager.Ins.Spawn<MinimapSquare>(PoolType.MinimapSquare);
             minimapSquare.OnInit(tile);
+            minimapSquare.transform.SetParent(this.transform);
             minimapSquares.Add(minimapSquare);
             tile.minimapSquare = minimapSquare;
         }
         cam.transform.position = CameraManager.Ins.cam.transform.position + (Vector3)offsetFromOriginalLevel;
-        cam.orthographicSize = CameraManager.Ins.cam.orthographicSize;
-        ResetMinimap();
+        ResetMinimapTransform();
+        RefreshCamDistance();
     }
-    
+
     public void OnWin(Action OnComplete)
     {
-        Vector2 targetMove = new Vector2(-UIManager.Ins.screenWidth/2, -UIManager.Ins.screenHeight/2);
+        Vector2 targetMove = new Vector2(-UIManager.Ins.screenWidth / 2, -UIManager.Ins.screenHeight / 2);
         minimap.DOAnchorPos(targetMove, 1.4f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             OnComplete?.Invoke();
@@ -41,9 +42,21 @@ public class MinimapManager : Singleton<MinimapManager>
         });
     }
 
-    public void ResetMinimap()
+    public void ResetMinimapTransform()
     {
         if (originalMinimapPos != Vector2.zero) minimap.position = originalMinimapPos;
         minimap.transform.localScale = Vector3.one;
+    }
+
+    public void RefreshCamDistance()
+    {
+        float objectWidth = CameraManager.Ins.maxX- CameraManager.Ins.minX;
+        float objectHeight = CameraManager.Ins.maxY- CameraManager.Ins.minY;
+
+        // Tính toán tỉ lệ khung hình của màn hình
+        float screenAspect = (float)Screen.width / (float)Screen.height;
+
+        // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
+        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect;
     }
 }

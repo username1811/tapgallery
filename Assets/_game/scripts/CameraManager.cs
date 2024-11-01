@@ -3,6 +3,7 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CameraManager : Singleton<CameraManager>
@@ -13,14 +14,19 @@ public class CameraManager : Singleton<CameraManager>
     public float draggingOver1Distance;
     public Camera cam;
     [Title("Zoom:")]
-    public float zoomSpeed = 1.0f;  // Tốc độ zoom
+    public float zoomMouseSpeed = 1.0f;  // Tốc độ zoom
+    public float zoomFingerSpeed = 1.0f;  // Tốc độ zoom
     public float minZoom = 1.0f;    // Độ zoom nhỏ nhất
     public float maxZoom = 10.0f;   // Độ zoom lớn nhất
+    public bool isDoingAnim;
+    public float eatableZoom;
+    public bool isZoomingFinger;
     [Title("Limit position:")]
     public float minX;
     public float maxX;
     public float minY;
     public float maxY;
+
 
     private void Start()
     {
@@ -29,7 +35,26 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Update()
     {
+        if (isDoingAnim) return;
+
         if (cam == null) cam = Camera.main;
+
+        if (Pinch()) {
+            isZoomingFinger = true;
+            ClickManager.isCanClick = false;
+            return;
+        } 
+
+        if(Input.touchCount == 0)
+        {
+            isZoomingFinger = false;
+            DOVirtual.DelayedCall(Time.deltaTime * 1f, () =>
+            {
+                ClickManager.isCanClick = true;
+            });
+        }
+
+        if (isZoomingFinger) return;
         if (Input.GetMouseButtonDown(0))
         {
             dragOrigin = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -59,7 +84,7 @@ public class CameraManager : Singleton<CameraManager>
 
         if (scroll != 0.0f)
         {
-            cam.orthographicSize -= scroll * zoomSpeed;
+            cam.orthographicSize -= scroll * zoomMouseSpeed;
             cam.orthographicSize = Mathf.Clamp(cam.orthographicSize, minZoom, maxZoom);
         }
     }
@@ -74,11 +99,8 @@ public class CameraManager : Singleton<CameraManager>
     {
         InitLimitPosition();
         MoveToCenter();
-    }
-
-    private void MoveToCenter()
-    {
-        cam.transform.position = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
+        RefreshCamDistance();
+        AnimZoomToEatableTile();
     }
 
     public void InitLimitPosition()
@@ -107,5 +129,77 @@ public class CameraManager : Singleton<CameraManager>
         maxX += padding;
         minY -= padding;
         maxY += padding;
+    }
+
+    private void MoveToCenter()
+    {
+        cam.transform.position = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
+    }
+
+    public ArrowTile GetEatableTile()
+    {
+        return LevelManager.Ins.currentLevel.tiles.FirstOrDefault(x => x.IsCanEat());
+    }
+
+    public void AnimZoomToEatableTile()
+    {
+        float duration = 1f;
+        float delay = 0.6f;
+        Ease ease = Ease.OutSine;
+        isDoingAnim = true;
+        DOVirtual.Float(cam.orthographicSize, eatableZoom, duration, v =>
+        {
+            cam.orthographicSize = v;
+        }).SetEase(ease).SetDelay(delay).OnComplete(() =>
+        {
+            isDoingAnim = false;
+        });
+        Vector3 targetMove = GetEatableTile().transform.position;
+        targetMove.z = -18f;
+        cam.transform.DOMove(targetMove, duration).SetEase(ease).SetDelay(delay);
+    }
+
+    public void RefreshCamDistance()
+    {
+        float objectWidth = CameraManager.Ins.maxX - CameraManager.Ins.minX;
+        float objectHeight = CameraManager.Ins.maxY - CameraManager.Ins.minY;
+
+        // Tính toán tỉ lệ khung hình của màn hình
+        float screenAspect = (float)Screen.width / (float)Screen.height;
+
+        // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
+        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + 3f;
+    }
+
+    bool Pinch()
+    {
+        // 2 fingers
+        if (Input.touchCount == 2)
+        {
+            Touch firstTouch = Input.GetTouch(0);
+            Touch secondTouch = Input.GetTouch(1);
+
+            Vector2 firstTouchPrePos = firstTouch.position - firstTouch.deltaPosition;
+            Vector2 secondTouchPrePos = secondTouch.position - secondTouch.deltaPosition;
+
+            float touchesPrePosDiff = (firstTouchPrePos - secondTouchPrePos).sqrMagnitude;
+            float touchesCurPosDiff = (firstTouch.position - secondTouch.position).sqrMagnitude;
+
+            float deltaPos = (firstTouch.deltaPosition - secondTouch.deltaPosition).sqrMagnitude;
+            deltaPos = Mathf.Clamp(deltaPos, 0, 400f);
+            float zoomModifier = deltaPos * zoomFingerSpeed * Time.deltaTime;
+
+            if (touchesPrePosDiff > touchesCurPosDiff)
+            {
+                Camera.main.orthographicSize += zoomModifier;
+            }
+            else if (touchesPrePosDiff < touchesCurPosDiff)
+            {
+                Camera.main.orthographicSize -= zoomModifier;
+            }
+            Camera.main.orthographicSize = Mathf.Clamp(Camera.main.orthographicSize, minZoom, maxZoom);
+            return true;
+        }
+        return false;
     }
 }

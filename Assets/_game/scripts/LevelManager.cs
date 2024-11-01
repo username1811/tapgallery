@@ -15,6 +15,7 @@ public class LevelManager : Singleton<LevelManager>
     public bool isEndLevel;
     public int levelIndexToReturn;
     public string debugLevelListStr;
+    public LevelInfooo currentLevelInfooo;
 
 
     public void DestroyCurrentLevel()
@@ -50,7 +51,8 @@ public class LevelManager : Singleton<LevelManager>
     {
         isEndLevel = false;
         DestroyCurrentLevel();
-        CreateStageFromLevelInfooo(GetLevelInfo(levelIndex), 0);
+        currentLevelInfooo = GetLevelInfo(levelIndex);
+        CreateStageFromLevelInfooo(currentLevelInfooo, 0);
         currentLevel.OnInit();
         OnCompleteLoadLevel?.Invoke();
         /*//FIREBASE
@@ -90,12 +92,15 @@ public class LevelManager : Singleton<LevelManager>
                 isEndLevel = true;
                 MinimapManager.Ins.OnWin(() =>
                 {
-                    SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+                    DOVirtual.DelayedCall(0.3f, () =>
                     {
-                        LoadNextLevel();
+                        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+                        {
+                            UIManager.Ins.OpenUI<Home>();
+                        });
                     });
                 });
-                    
+                DataManager.Ins.playerData.passedLevelInfos.Add(currentLevelInfooo); 
             }
             /*else if(isLose) //lose
             {

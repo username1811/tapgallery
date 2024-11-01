@@ -141,6 +141,7 @@ public class ArrowTile : MonoBehaviour
     {
         if (!ClickManager.isCanClick) return;
         if (CameraManager.Ins.isDraggingOver1) return;
+        if (CameraManager.Ins.isDoingAnim) return;
         if (LevelManager.Ins.isEndLevel) return;
         Move();
     }

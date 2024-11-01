@@ -31,6 +31,7 @@ public class Loading : MonoBehaviour
 
     public IEnumerator IECompleteLoading()
     {
+        yield return new WaitForSeconds(0.3f);
         Debug.Log("complete loading");
         yield return new WaitUntil(() => GameManager.Ins != null && GameManager.Ins.isInited);
         Debug.Log("GameManager inited");
@@ -38,7 +39,7 @@ public class Loading : MonoBehaviour
         Debug.Log("load scene async isDone");
         WorldTimeAPI.Ins.isFetched = true;
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)SceneType.Game));
-        LevelManager.Ins.LoadCurrentLevel();
+        UIManager.Ins.OpenUI<Home>();
         SceneManagerrr.Ins.UnloadScene(SceneType.Loading);
     }
 }

@@ -23,7 +23,7 @@ public class Level : MonoBehaviour
             tile.OnInitt();
         }*/
     }
-
+#if UNITY_EDITOR
     [Button]
     public void SaveDirectionToStageInfoo()
     {
@@ -32,4 +32,5 @@ public class Level : MonoBehaviour
         }
         EditorUtility.SetDirty(stageInfooo);
     }
+#endif
 }

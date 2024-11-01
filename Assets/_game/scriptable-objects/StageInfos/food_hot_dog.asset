@@ -1,0 +1,196 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7b87a5b4ae754846b82284b21dd35be, type: 3}
+  m_Name: food_hot_dog
+  m_EditorClassIdentifier: 
+  texture2d: {fileID: 2800000, guid: da26596dd1dcc434cba807fcb05e0efe, type: 3}
+  pixelDatas:
+  - color: {r: 0.9450981, g: 0.79215693, b: 0.67058825, a: 1}
+    coordinate: {x: 0, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 0, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.9450981, g: 0.79215693, b: 0.67058825, a: 1}
+    coordinate: {x: 1, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.9450981, g: 0.79215693, b: 0.67058825, a: 1}
+    coordinate: {x: 2, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.9450981, g: 0.79215693, b: 0.67058825, a: 1}
+    coordinate: {x: 3, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 3, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 4, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 5, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.85098046, g: 0.023529414, b: 0.023529414, a: 1}
+    coordinate: {x: 3, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.90196085, g: 0.87843144, b: 0.18823531, a: 1}
+    coordinate: {x: 4, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 5, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 6, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.85098046, g: 0.023529414, b: 0.023529414, a: 1}
+    coordinate: {x: 4, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.90196085, g: 0.87843144, b: 0.18823531, a: 1}
+    coordinate: {x: 5, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 6, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 7, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.90196085, g: 0.87843144, b: 0.18823531, a: 1}
+    coordinate: {x: 5, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.85098046, g: 0.023529414, b: 0.023529414, a: 1}
+    coordinate: {x: 6, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 7, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 8, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.85098046, g: 0.023529414, b: 0.023529414, a: 1}
+    coordinate: {x: 6, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.90196085, g: 0.87843144, b: 0.18823531, a: 1}
+    coordinate: {x: 7, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 8, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.85098046, g: 0.023529414, b: 0.023529414, a: 1}
+    coordinate: {x: 7, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.909804, g: 0.54509807, b: 0.26666668, a: 1}
+    coordinate: {x: 8, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.20784315, g: 0.20784315, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 9}
+    sortingOrder: 1
+    directionType: 0

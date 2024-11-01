@@ -22,6 +22,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
     IEnumerator IEChangeScene(SceneType sceneType, Action OnComplete, bool isFadeOut, bool isFadeIn)
     {
         isLoadingNewScene = true;
+        sceneTransition.blockUI.SetActive(true);
         // Fade Out
         if (isFadeOut)
         {
@@ -40,6 +41,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
 
         PoolManager.Ins.DespawnAll();
         DOTween.KillAll();
+        UIManager.Ins.CloseAll();
 
         // Load Scene
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(SceneTypeToString(sceneType));
@@ -57,7 +59,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
 
         if (isFadeOut)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         // Fade In
@@ -76,6 +78,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
             sceneTransition.gameObject.SetActive(false);
         }
 
+        sceneTransition.blockUI.SetActive(false);
         sceneTransition.gameObject.SetActive(false);
         isLoadingNewScene = false;
 
