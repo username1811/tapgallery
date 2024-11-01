@@ -160,7 +160,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                 yield return new WaitForSeconds(0.5f);
                 stuckCount = 999;
                 int tryCount = 50;
-                while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 10 / 100 && tryCount > 0)
+                while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 5 / 100 && tryCount > 0)
                 {
                     RandomDirection();
                     FixStuck();

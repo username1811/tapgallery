@@ -86,7 +86,7 @@ public class LevelManager : Singleton<LevelManager>
             {
                 yield break;
             }
-            bool isWin = currentLevel.remainTiles.Count <= 0;
+            bool isWin = currentLevel.remainTilesCount <= 0;
             if (isWin)//win
             {
                 isEndLevel = true;
@@ -115,7 +115,7 @@ public class LevelManager : Singleton<LevelManager>
         {
             trackingItem.amount = 0;
         }*/
-        currentLevel.remainTiles.Clear();
+        currentLevel.remainTilesCount = 0;
         CheckWinLose();
     }
 

@@ -12,12 +12,12 @@ using UnityEngine.VFX;
 public class Level : MonoBehaviour
 {
     public List<ArrowTile> tiles = new List<ArrowTile>();
-    public List<ArrowTile> remainTiles = new List<ArrowTile>();
+    public int remainTilesCount;
     public StageInfooo stageInfooo;
 
     public void OnInit()
     {
-        remainTiles = new List<ArrowTile>(tiles);
+        remainTilesCount = tiles.Count;
         /*foreach (var tile in tiles)
         {
             tile.OnInitt();

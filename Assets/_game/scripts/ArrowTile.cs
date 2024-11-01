@@ -105,7 +105,7 @@ public class ArrowTile : MonoBehaviour
             dot.OnInit(0, arrow.spriteRenderer.color, 1);
             dot.Scale();
             minimapSquare.ChangeColor();
-            LevelManager.Ins.currentLevel.remainTiles.Remove(this);
+            LevelManager.Ins.currentLevel.remainTilesCount -= 1;
             LevelManager.Ins.CheckWinLose();
         }
     }
