@@ -23,14 +23,14 @@ public class Level : MonoBehaviour
             tile.OnInitt();
         }*/
     }
-#if UNITY_EDITOR
     [Button]
     public void SaveDirectionToStageInfoo()
     {
         foreach(var tile in tiles) {
             tile.pixelData.directionType = tile.directionType;
         }
+#if UNITY_EDITOR
         EditorUtility.SetDirty(stageInfooo);
-    }
 #endif
+    }
 }

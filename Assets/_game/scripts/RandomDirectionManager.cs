@@ -32,7 +32,8 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                 yield return null;
             }
             Debug.Log("tempArrowTiles count = " + tempArrowTiles.Count);
-            stuckCount = tempArrowTiles.Count;
+            stuckCount = 0;
+            List<ArrowTile> stuckRightTiles = new();
             if(tempArrowTiles.Count > 0) //stuck level 
             {
                 foreach(var arrowTile in  tempArrowTiles)
@@ -47,6 +48,10 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                             needToFixTile.directionType = DirectionType.Right;
                             needToFixTile.RefreshDirection();
                             Debugger.DrawCircle(arrowTile.transform.position, 0.3f, Color.blue, 3f);
+                            if (!stuckRightTiles.Contains(needToFixTile))
+                            {
+                                stuckRightTiles.Add(needToFixTile);
+                            }
                         }
                     }
                 }
@@ -55,6 +60,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
             {
                 arrowTile.gameObject.SetActive(true);
             }
+            stuckCount = stuckRightTiles.Count;
             isFixingStuck = false;
             yield return null;
         }
