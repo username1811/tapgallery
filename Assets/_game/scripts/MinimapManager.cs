@@ -38,7 +38,6 @@ public class MinimapManager : Singleton<MinimapManager>
         });
         minimap.DOScale(3f, 1.4f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
-            OnComplete?.Invoke();
         });
     }
 
