@@ -40,7 +40,6 @@ public class LevelUI : MonoBehaviour
         {
             pixelImg.ResizeImgKeepHeight();
         }
-        Debug.Log("refresh img in ");
     }
 
     public void Refresh()
