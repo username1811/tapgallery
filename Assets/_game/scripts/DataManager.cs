@@ -26,7 +26,6 @@ public class DataManager : Singleton<DataManager>
         if (d != "")
         {
             playerData = JsonUtility.FromJson<PlayerData>(d);
-            FixStartingBoosterAmount();
         }
         else
         {
@@ -64,22 +63,6 @@ public class DataManager : Singleton<DataManager>
             //AFSendEvent.SendEvent("session_start_" + playerData.currentSession.ToString());
         }
     }
-
-    public void FixStartingBoosterAmount()
-    {
-        if (playerData.boosterPropellerAmount < 0)
-        {
-            playerData.boosterPropellerAmount = 0;
-        }
-        if (playerData.boosterTNTAmount < 0)
-        {
-            playerData.boosterTNTAmount = 0;
-        }
-        if (playerData.boosterRainbowAmount < 0)
-        {
-            playerData.boosterRainbowAmount = 0;
-        }
-    }
 }
 
 [Serializable]
@@ -104,17 +87,10 @@ public class PlayerData
     [Header("--------- Game Params ---------")]
     [Header("resource:")]
     public int gold;
-    public int boosterHammerAmount;
-    public int boosterRocketAmount;
-    public int boosterArrowAmount;
-    public int boosterShuffleAmount;
-    public int boosterPropellerAmount;
-    public int boosterTNTAmount;
-    public int boosterRainbowAmount;
     [Header("level index:")]
     public int currentTutLevelIndex;
     public int currentLevelIndex;
-    public List<LevelInfooo> passedLevelInfos = new();
+    public List<string> passedLevelNames = new();
     [Header("spin:")]
     public bool isCanSpin;
     public int levelPassToSpin;
@@ -164,7 +140,7 @@ public class PlayerData
         gold = 1000;
         currentTutLevelIndex = 0;
         currentLevelIndex = 0;
-        passedLevelInfos = new();
+        passedLevelNames = new();
         isCanSpin = false;
         isFirstSpined = false;
         isIgnoreSpin = false;

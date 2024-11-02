@@ -100,7 +100,7 @@ public class LevelManager : Singleton<LevelManager>
                         });
                     });
                 });
-                DataManager.Ins.playerData.passedLevelInfos.Add(currentLevelInfooo); 
+                DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
             }
             /*else if(isLose) //lose
             {

@@ -45,6 +45,6 @@ public class LevelUI : MonoBehaviour
 
     public void Refresh()
     {
-        RefreshImg(DataManager.Ins.playerData.passedLevelInfos.Contains(this.levelInfooo));
+        RefreshImg(DataManager.Ins.playerData.passedLevelNames.Contains(this.levelInfooo.name));
     }
 }
