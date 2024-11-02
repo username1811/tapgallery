@@ -45,7 +45,8 @@ public class ArrowTile : MonoBehaviour
 
     public void OnInitt(PixelData pixelData)
     {
-        this.pixelData = pixelData; 
+        this.pixelData = pixelData;
+        isMoving = false;
         //pos
         this.transform.position = pixelData.coordinate;
         //direction
@@ -97,11 +98,11 @@ public class ArrowTile : MonoBehaviour
             isMoving = true;
             this.transform.DOMove((Vector2)this.transform.position + moveDistance * dir, moveDuration).SetEase(moveCurve).OnComplete(() =>
             {
-                isMoving = false;
                 PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
+                isMoving = false;
             });
             Dot dot = PoolManager.Ins.Spawn<Dot>(PoolType.Dot);
-            dot.transform.position = this.transform.position - Vector3.up * 0.186f;
+            dot.transform.position = this.transform.position - Vector3.up * 0.16f;
             dot.OnInit(0, arrow.spriteRenderer.color, 1);
             dot.Scale();
             minimapSquare.ChangeColor();

@@ -171,7 +171,7 @@ public class CameraManager : Singleton<CameraManager>
         float screenAspect = (float)Screen.width / (float)Screen.height;
 
         // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
-        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + 3f;
+        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + 5f;
     }
 
     bool Pinch()
