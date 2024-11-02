@@ -47,11 +47,14 @@ public class CameraManager : Singleton<CameraManager>
 
         if(Input.touchCount == 0)
         {
-            isZoomingFinger = false;
-            DOVirtual.DelayedCall(Time.deltaTime * 1f, () =>
+            if (isZoomingFinger)
             {
-                ClickManager.isCanClick = true;
-            });
+                DOVirtual.DelayedCall(Time.deltaTime * 1f, () =>
+                {
+                    ClickManager.isCanClick = true;
+                });
+            }
+            isZoomingFinger = false;
         }
 
         if (isZoomingFinger) return;
