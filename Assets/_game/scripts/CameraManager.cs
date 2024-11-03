@@ -110,6 +110,8 @@ public class CameraManager : Singleton<CameraManager>
         MoveToCenter(false);
         RefreshCamDistance(false, 5f);
         isDoingAnim = true;
+        isDraggingOver1 = false;
+        isDragWhenIsMoving = false;
         DOVirtual.DelayedCall(0.6f, () =>
         {
             AnimZoomToEatableTile();
