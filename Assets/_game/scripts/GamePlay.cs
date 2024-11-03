@@ -16,6 +16,7 @@ public class GamePlay : UICanvas
 
     private void Start()
     {
+        return;
         minimapRectTF.AddComponent<Button>().onClick.AddListener(() =>
         {
             UIManager.Ins.OpenUI<CheatPanel>();
