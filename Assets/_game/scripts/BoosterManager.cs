@@ -173,8 +173,6 @@ public class BoosterMagnet : Booster
     public override void FinishUse()
     {
         base.FinishUse();
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false);
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
     }
 
     public void OnChooseDirection(DirectionType directionType)
@@ -184,10 +182,14 @@ public class BoosterMagnet : Booster
             InitMoveArrowTiles(directionType);
             Magnet();
         });
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
     }
 
     public void OnCalcel()
     {
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
         FinishUse();
     }
 
