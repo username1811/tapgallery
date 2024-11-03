@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -22,7 +23,6 @@ public class BoosterManager : Singleton<BoosterManager>
     private void Update()
     {
         currentBooster?.OnUpdate();
-        Debug.Log(UIHover.isHoverUI);
     }
 
     [Button]
@@ -108,6 +108,8 @@ public class BoosterBomb : Booster
         {
         });
         ClickManager.isCanClick = false;
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(true);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false);
         isSpawnBomb = false;
     }
 
@@ -115,7 +117,12 @@ public class BoosterBomb : Booster
     {
         base.OnUpdate();
         if (isSpawnBomb) return;
-        if (Input.GetMouseButtonDown(0))
+        if (CameraManager.Ins.isDraggingOver1) return;
+        if (CameraManager.Ins.isDoingAnim) return;
+        if (LevelManager.Ins.isEndLevel) return;
+        if (UIHover.isHoverUI) return;
+
+        if (Input.GetMouseButtonUp(0))
         {
             Vector3 worldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(worldPosition, Vector2.zero, Mathf.Infinity, GameManager.Ins.arrowTileMask);
@@ -129,16 +136,18 @@ public class BoosterBomb : Booster
                     {
                         FinishUse();
                     });
+                    UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false);
+                    UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
                     isSpawnBomb = true;
                 }
                 else
                 {
-                    FinishUse();
+                    OnCancel();
                 }
             }
             else
             {
-                FinishUse();
+                OnCancel();
             }
         }
     }
@@ -147,6 +156,13 @@ public class BoosterBomb : Booster
     {
         base.FinishUse();
         ClickManager.isCanClick = true;
+    }
+
+    public void OnCancel()
+    {
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+        FinishUse();
     }
 }
 

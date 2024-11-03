@@ -24,4 +24,12 @@ public class BoosterBombUI : BoosterUI
     {
         base.FinishUse();
     }
+
+    public void ButtonCancel()
+    {
+        if(BoosterManager.Ins.currentBooster is BoosterBomb boosterBomb)
+        {
+            boosterBomb.OnCancel();
+        }
+    }
 }

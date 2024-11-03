@@ -96,14 +96,9 @@ public class LevelManager : Singleton<LevelManager>
                 isEndLevel = true;
                 MinimapManager.Ins.OnWin(() =>
                 {
-                    DOVirtual.DelayedCall(0.3f, () =>
-                    {
-                        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
-                        {
-                            UIManager.Ins.OpenUI<Home>();
-                        });
-                    });
+                    UIManager.Ins.OpenUI<Win>();
                 });
+                UIManager.Ins.GetUI<GamePlay>().OnWin();
                 DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
             }
             /*else if(isLose) //lose

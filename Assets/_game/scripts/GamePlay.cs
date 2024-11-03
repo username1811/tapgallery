@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,8 +8,10 @@ using UnityEngine.UI;
 public class GamePlay : UICanvas
 {
     public RectTransform minimapRectTF;
+    public BoosterBombUI boosterBombUI;
     public BoosterMagnetUI boosterMagnetUI;
     public GameObject boosterButtons;
+    public Image blackImg;
 
 
     private void Start()
@@ -23,8 +26,10 @@ public class GamePlay : UICanvas
     {
         base.Open();
         MinimapManager.Ins.originalMinimapPos = minimapRectTF.position;
+        ShowBoosterBombUI(false);
         ShowBoosterMagnetUI(false);
         ShowBoosterButtons(true);
+        blackImg.gameObject.SetActive(false);
     }
 
     public void OnLoadLevel()
@@ -32,12 +37,9 @@ public class GamePlay : UICanvas
 
     }
 
-    public void ButtonBack()
+    public void ShowBoosterBombUI(bool isShow)
     {
-        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
-        {
-            UIManager.Ins.OpenUI<Home>();
-        });
+        boosterBombUI.gameObject.SetActive(isShow);
     }
 
     public void ShowBoosterMagnetUI(bool isShow)
@@ -48,6 +50,23 @@ public class GamePlay : UICanvas
     public void ShowBoosterButtons(bool isShow)
     {
         boosterButtons.gameObject.SetActive(isShow);
+    }
+
+    public void OnWin()
+    {
+        blackImg.gameObject.SetActive(true);
+        blackImg.color = new Color(0f, 0f, 0f, 0f);
+        blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.4f).SetEase(Ease.Linear);
+    }
+
+
+    //BUTTON
+    public void ButtonBack()
+    {
+        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+        {
+            UIManager.Ins.OpenUI<Home>();
+        });
     }
 
     public void ButtonHint()
