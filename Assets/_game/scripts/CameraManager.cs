@@ -13,6 +13,7 @@ public class CameraManager : Singleton<CameraManager>
     public bool isDraggingOver1;
     public float draggingOver1Distance;
     public Camera cam;
+    public bool isDragWhenIsMoving;
     [Title("Zoom:")]
     public float zoomMouseSpeed = 1.0f;  // Tốc độ zoom
     public float zoomFingerSpeed = 1.0f;  // Tốc độ zoom
@@ -35,7 +36,10 @@ public class CameraManager : Singleton<CameraManager>
 
     private void Update()
     {
-        if (isDoingAnim) return;
+        if (isDoingAnim) {
+            isDragWhenIsMoving = Input.GetMouseButton(0);
+            return;
+        }
 
         if (cam == null) cam = Camera.main;
 
@@ -64,6 +68,7 @@ public class CameraManager : Singleton<CameraManager>
         }
         if (Input.GetMouseButton(0))
         {
+            if (isDragWhenIsMoving) return;
             Vector2 diff = (Vector2)dragOrigin - (Vector2)cam.ScreenToWorldPoint(Input.mousePosition);
             if (diff.magnitude > draggingOver1Distance)
             {
@@ -80,6 +85,7 @@ public class CameraManager : Singleton<CameraManager>
             DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
             {
                 isDraggingOver1 = false;
+                isDragWhenIsMoving = false;
             });
         }
 

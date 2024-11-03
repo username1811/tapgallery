@@ -118,6 +118,7 @@ public class BoosterBomb : Booster
         base.OnUpdate();
         if (isSpawnBomb) return;
         if (CameraManager.Ins.isDraggingOver1) return;
+        if (CameraManager.Ins.isDragWhenIsMoving) return;
         if (CameraManager.Ins.isDoingAnim) return;
         if (LevelManager.Ins.isEndLevel) return;
         if (UIHover.isHoverUI) return;

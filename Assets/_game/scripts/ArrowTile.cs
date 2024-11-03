@@ -191,6 +191,7 @@ public class ArrowTile : MonoBehaviour
         if (!ClickManager.isCanClick) return;
         if (CameraManager.Ins.isDraggingOver1) return;
         if (CameraManager.Ins.isDoingAnim) return;
+        if (CameraManager.Ins.isDragWhenIsMoving) return;
         if (LevelManager.Ins.isEndLevel) return;
         if (UIHover.isHoverUI) return;
         if (BoosterManager.Ins.isUsingBooster) return;
