@@ -1,11 +1,8 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.UI;
 
 public class ArrowTile : MonoBehaviour
@@ -16,6 +13,7 @@ public class ArrowTile : MonoBehaviour
     public AnimationCurve moveCurve;
     public bool isMoving;
     public DirectionType directionType;
+    public Sequence stuckSequence;
     [Title("Sorting Order:")]
     public int sortingOrder;
     public SpriteRenderer spriteRenderer;
@@ -70,28 +68,46 @@ public class ArrowTile : MonoBehaviour
         this.transform.position = Vector3.zero;
     }
 
+    public void OnFinishStuck()
+    {
+        if (isMoving) ClickManager.isCanClick = true;
+        isMoving = false;
+    }
+
     [Button]
     public void Move()
     {
         ArrowTile stuckArrowTile = GetArrowTileOnTheRoad(dir);
+        if (stuckSequence != null)
+        {
+            stuckSequence?.Kill();
+            OnFinishStuck();
+        }
         if (!IsCanEat())
         {
             Vector2 oldPos = this.transform.position;
             Vector2 targetMove = (Vector2)stuckArrowTile.transform.position - dir.normalized;
             float moveDistance = (targetMove - (Vector2)this.transform.position).magnitude;
             float newMoveDuration = Mathf.Max(0.4f, moveDistance / 33f * moveDuration * 1.8f);
-            this.transform.DOMove(targetMove, newMoveDuration).SetEase(Ease.InSine).OnComplete(() =>
-            {
-                this.transform.DOMove(oldPos, newMoveDuration).SetEase(Ease.OutSine).OnComplete(() =>
+
+            stuckSequence = DOTween.Sequence()
+                .Append(this.transform.DOMove(targetMove, newMoveDuration).SetEase(Ease.InSine))
+                .Append(this.transform.DOMove(oldPos, newMoveDuration).SetEase(Ease.OutSine))
+                .OnComplete(() =>
                 {
-                    if (isMoving) ClickManager.isCanClick = true;
-                    isMoving = false;
+                    OnFinishStuck();
                 });
-            });
-            cover.TurnRed(newMoveDuration*2f);
+
+            cover.TurnRed(newMoveDuration * 2f);
             CameraManager.Ins.Punch(dir);
             isMoving = moveDistance > 0.2f;
             ClickManager.isCanClick = !isMoving;
+            if (isMoving)
+            {
+                Debug.Break();
+                Selection.activeGameObject = stuckArrowTile.gameObject;
+                Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
+            }
         }
         else
         {
@@ -116,9 +132,9 @@ public class ArrowTile : MonoBehaviour
         LayerMask arrowTileMask = GameManager.Ins.arrowTileMask;
         RaycastHit2D[] hits = Physics2D.RaycastAll(this.transform.position, dir, 100f, arrowTileMask);
         Array.Sort(hits, (a, b) => a.distance.CompareTo(b.distance));
-        foreach(var hit in hits)
+        foreach (var hit in hits)
         {
-            if(hit.collider.gameObject != this.gameObject)
+            if (hit.collider.gameObject != this.gameObject)
             {
                 return hit.collider.GetComponent<ArrowTile>();
             }
