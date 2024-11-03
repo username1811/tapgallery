@@ -177,7 +177,7 @@ public class ArrowTile : MonoBehaviour
 
     public static ArrowTile GetEatableTile()
     {
-        return LevelManager.Ins.currentLevel.tiles.FirstOrDefault(x => x.gameObject.activeInHierarchy && !x.isMoving && && x.IsCanEat());
+        return LevelManager.Ins.currentLevel.tiles.FirstOrDefault(x => x.gameObject.activeInHierarchy && !x.isMoving && x.IsCanEat());
     }
 
     public void OnExplode(bool isShowVFX)
