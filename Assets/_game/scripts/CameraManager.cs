@@ -194,7 +194,7 @@ public class CameraManager : Singleton<CameraManager>
             cam.orthographicSize = v;
         }).SetEase(ease).OnComplete(() =>
         {
-            isDoingAnim = false;
+            if(isAnim) isDoingAnim = false;
             OnComplete?.Invoke();
         });
     }

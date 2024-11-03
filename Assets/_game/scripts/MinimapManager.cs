@@ -32,11 +32,11 @@ public class MinimapManager : Singleton<MinimapManager>
     public void OnWin(Action OnComplete)
     {
         Vector2 targetMove = new Vector2(-UIManager.Ins.screenWidth / 2, -UIManager.Ins.screenHeight / 2);
-        minimap.DOAnchorPos(targetMove, 1.4f).SetEase(Ease.InOutSine).OnComplete(() =>
+        minimap.DOAnchorPos(targetMove, 1.3f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
             OnComplete?.Invoke();
         });
-        minimap.DOScale(3f, 1.4f).SetEase(Ease.InOutSine).OnComplete(() =>
+        minimap.DOScale(3f, 1.3f).SetEase(Ease.InOutSine).OnComplete(() =>
         {
         });
     }
