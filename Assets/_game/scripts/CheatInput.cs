@@ -30,5 +30,17 @@ public class CheatInput : Singleton<CheatInput>
             RandomDirectionManager.Ins.FixStuck();
             LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
         }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            BoosterManager.Ins.UseBooster(BoosterType.Hint);
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            BoosterManager.Ins.UseBooster(BoosterType.Bomb);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            BoosterManager.Ins.UseBooster(BoosterType.Magnet);
+        }
     }
 }

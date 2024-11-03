@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,11 +23,13 @@ public class ArrowTile : MonoBehaviour
     public Color color;
     public Arrow arrow;
     [Title("Cover:")]
-    public Cover cover;
+    public RedCover redCover;
+    public GreenCover greenCover;
     [Title("Minimap:")]
     public MinimapSquare minimapSquare;
     public Vector2 dir => arrow.dir;
-    public bool isRed => cover.redTween.IsPlaying();
+    public bool isRed => redCover.redTween.IsPlaying();
+    public bool isGreen => greenCover.greenTween.IsPlaying();
     public PixelData pixelData;
 
 
@@ -45,6 +48,7 @@ public class ArrowTile : MonoBehaviour
     {
         this.pixelData = pixelData;
         isMoving = false;
+        this.transform.localScale = Vector3.one;
         //pos
         this.transform.position = pixelData.coordinate;
         //direction
@@ -54,18 +58,33 @@ public class ArrowTile : MonoBehaviour
         spriteRenderer.sortingOrder = sortingOrder * 10;
         edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 5;
         arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
-        cover.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 6;
+        redCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder + 1;
+        greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 1;
         //color
         this.color = pixelData.color;
         arrow.spriteRenderer.color = color;
         //arrow
         arrow.OnInit();
+        //cover
+        redCover.OnInitt();
+        greenCover.OnInitt();
     }
 
     [Button]
     public void ResetPosition()
     {
         this.transform.position = Vector3.zero;
+    }
+
+    public void OnSuccessRemove()
+    {
+        Dot dot = PoolManager.Ins.Spawn<Dot>(PoolType.Dot);
+        dot.transform.position = this.transform.position - Vector3.up * 0.16f;
+        dot.OnInit(arrow.spriteRenderer.color, 1);
+        dot.Scale();
+        minimapSquare.ChangeColor();
+        LevelManager.Ins.currentLevel.remainTilesCount -= 1;
+        LevelManager.Ins.CheckWinLose();
     }
 
     public void OnFinishStuck()
@@ -96,16 +115,15 @@ public class ArrowTile : MonoBehaviour
                 .OnComplete(() =>
                 {
                     OnFinishStuck();
+                    stuckSequence = null;
                 });
 
-            cover.TurnRed(newMoveDuration * 2f);
+            redCover.TurnRed(newMoveDuration * 2f);
             CameraManager.Ins.Punch(dir);
             isMoving = moveDistance > 0.2f;
             ClickManager.isCanClick = !isMoving;
             if (isMoving)
             {
-                Debug.Break();
-                Selection.activeGameObject = stuckArrowTile.gameObject;
                 Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
             }
         }
@@ -117,13 +135,7 @@ public class ArrowTile : MonoBehaviour
                 PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
                 isMoving = false;
             });
-            Dot dot = PoolManager.Ins.Spawn<Dot>(PoolType.Dot);
-            dot.transform.position = this.transform.position - Vector3.up * 0.16f;
-            dot.OnInit(0, arrow.spriteRenderer.color, 1);
-            dot.Scale();
-            minimapSquare.ChangeColor();
-            LevelManager.Ins.currentLevel.remainTilesCount -= 1;
-            LevelManager.Ins.CheckWinLose();
+            OnSuccessRemove();
         }
     }
 
@@ -161,5 +173,19 @@ public class ArrowTile : MonoBehaviour
         if (CameraManager.Ins.isDoingAnim) return;
         if (LevelManager.Ins.isEndLevel) return;
         Move();
+    }
+
+    public static ArrowTile GetEatableTile()
+    {
+        return LevelManager.Ins.currentLevel.tiles.FirstOrDefault(x => x.gameObject.activeInHierarchy && !x.isMoving && && x.IsCanEat());
+    }
+
+    public void OnExplode(bool isShowVFX)
+    {
+        this.transform.DOScale(0, 0.1f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
+        });
+        OnSuccessRemove();
     }
 }

@@ -103,7 +103,10 @@ public class CameraManager : Singleton<CameraManager>
         InitLimitPosition();
         MoveToCenter();
         RefreshCamDistance();
-        AnimZoomToEatableTile();
+        DOVirtual.DelayedCall(0.6f, () =>
+        {
+            AnimZoomToEatableTile();
+        });
     }
 
     public void InitLimitPosition()
@@ -139,33 +142,28 @@ public class CameraManager : Singleton<CameraManager>
         cam.transform.position = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
     }
 
-    public ArrowTile GetEatableTile()
-    {
-        return LevelManager.Ins.currentLevel.tiles.FirstOrDefault(x => x.IsCanEat());
-    }
-
-    public void AnimZoomToEatableTile()
+    public void AnimZoomToEatableTile(Action OnComplete = null)
     {
         float duration = 1f;
-        float delay = 0.6f;
         Ease ease = Ease.OutSine;
         isDoingAnim = true;
         DOVirtual.Float(cam.orthographicSize, eatableZoom, duration, v =>
         {
             cam.orthographicSize = v;
-        }).SetEase(ease).SetDelay(delay).OnComplete(() =>
+        }).SetEase(ease).OnComplete(() =>
         {
             isDoingAnim = false;
+            OnComplete?.Invoke();
         });
-        Vector3 targetMove = GetEatableTile().transform.position;
+        Vector3 targetMove = ArrowTile.GetEatableTile().transform.position;
         targetMove.z = -18f;
-        cam.transform.DOMove(targetMove, duration).SetEase(ease).SetDelay(delay);
+        cam.transform.DOMove(targetMove, duration).SetEase(ease);
     }
 
     public void RefreshCamDistance()
     {
-        float objectWidth = CameraManager.Ins.maxX - CameraManager.Ins.minX;
-        float objectHeight = CameraManager.Ins.maxY - CameraManager.Ins.minY;
+        float objectWidth = maxX - minX;
+        float objectHeight = maxY - minY;
 
         // Tính toán tỉ lệ khung hình của màn hình
         float screenAspect = (float)Screen.width / (float)Screen.height;

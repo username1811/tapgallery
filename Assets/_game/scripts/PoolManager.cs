@@ -147,5 +147,5 @@ public class PoolManager : Singleton<PoolManager>
 
 public enum PoolType
 {
-    ArrowTile, Dot, MinimapSquare, LevelUI
+    ArrowTile, Dot, MinimapSquare, LevelUI, Bomb,
 }

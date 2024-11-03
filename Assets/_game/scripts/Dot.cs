@@ -5,14 +5,12 @@ using UnityEngine;
 
 public class Dot : MonoBehaviour
 {
-    public int id;
     public SpriteRenderer spriteRenderer;
     public int sortingOrder;
     
 
-    public void OnInit(int id, Color color, int sortingOrder)
+    public void OnInit(Color color, int sortingOrder)
     {
-        this.id = id;
         spriteRenderer.color = color;
         this.sortingOrder = sortingOrder;
         spriteRenderer.sortingOrder = sortingOrder;

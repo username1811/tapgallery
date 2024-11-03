@@ -3,15 +3,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cover : MonoBehaviour
+public class RedCover : MonoBehaviour
 {
     public Tween redTween;
     public SpriteRenderer spriteRenderer;
     public Color originColor;
 
-    private void Start()
+    private void Awake()
     {
         originColor = spriteRenderer.color;
+    }
+
+    public void OnInitt()
+    {
+        spriteRenderer.color = originColor;
+        redTween?.Kill();
     }
 
     public void TurnRed(float duration)
