@@ -30,8 +30,8 @@ public class ArrowTile : MonoBehaviour
     public Vector2 dir => arrow.dir;
     public bool isRed => redCover.redTween.IsPlaying();
     public bool isGreen => greenCover.greenTween.IsPlaying();
+    [Title("pixel:")]
     public PixelData pixelData;
-
 
     private void OnValidate()
     {
@@ -70,6 +70,16 @@ public class ArrowTile : MonoBehaviour
         greenCover.OnInitt();
     }
 
+    public void IncreaseSortingOrder(int x)
+    {
+        this.sortingOrder += x;
+        spriteRenderer.sortingOrder += x;
+        edgeSpriteRenderer.sortingOrder += x;
+        arrow.spriteRenderer.sortingOrder += x;
+        redCover.spriteRenderer.sortingOrder += x;
+        greenCover.spriteRenderer.sortingOrder += x;
+    }
+
     [Button]
     public void ResetPosition()
     {
@@ -93,6 +103,43 @@ public class ArrowTile : MonoBehaviour
         isMoving = false;
     }
 
+    public void MoveStuck(ArrowTile stuckArrowTile)
+    {
+        Vector2 oldPos = this.transform.position;
+        Vector2 targetMove = (Vector2)stuckArrowTile.transform.position - dir.normalized;
+        float moveDistance = (targetMove - (Vector2)this.transform.position).magnitude;
+        float newMoveDuration = Mathf.Max(0.4f, moveDistance / 33f * moveDuration * 1.8f);
+
+        stuckSequence = DOTween.Sequence()
+            .Append(this.transform.DOMove(targetMove, newMoveDuration).SetEase(Ease.InSine))
+            .Append(this.transform.DOMove(oldPos, newMoveDuration).SetEase(Ease.OutSine))
+            .OnComplete(() =>
+            {
+                OnFinishStuck();
+                stuckSequence = null;
+            });
+
+        redCover.TurnRed(newMoveDuration * 2f);
+        CameraManager.Ins.Punch(dir);
+        isMoving = moveDistance > 0.2f;
+        ClickManager.isCanClick = !isMoving;
+        if (isMoving)
+        {
+            Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
+        }
+    }
+
+    public void MoveThrough()
+    {
+        isMoving = true;
+        this.transform.DOMove((Vector2)this.transform.position + moveDistance * dir, moveDuration).SetEase(moveCurve).OnComplete(() =>
+        {
+            PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
+            isMoving = false;
+        });
+        OnSuccessRemove();
+    }
+
     [Button]
     public void Move()
     {
@@ -104,38 +151,11 @@ public class ArrowTile : MonoBehaviour
         }
         if (!IsCanEat())
         {
-            Vector2 oldPos = this.transform.position;
-            Vector2 targetMove = (Vector2)stuckArrowTile.transform.position - dir.normalized;
-            float moveDistance = (targetMove - (Vector2)this.transform.position).magnitude;
-            float newMoveDuration = Mathf.Max(0.4f, moveDistance / 33f * moveDuration * 1.8f);
-
-            stuckSequence = DOTween.Sequence()
-                .Append(this.transform.DOMove(targetMove, newMoveDuration).SetEase(Ease.InSine))
-                .Append(this.transform.DOMove(oldPos, newMoveDuration).SetEase(Ease.OutSine))
-                .OnComplete(() =>
-                {
-                    OnFinishStuck();
-                    stuckSequence = null;
-                });
-
-            redCover.TurnRed(newMoveDuration * 2f);
-            CameraManager.Ins.Punch(dir);
-            isMoving = moveDistance > 0.2f;
-            ClickManager.isCanClick = !isMoving;
-            if (isMoving)
-            {
-                Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
-            }
+            MoveStuck(stuckArrowTile);
         }
         else
         {
-            isMoving = true;
-            this.transform.DOMove((Vector2)this.transform.position + moveDistance * dir, moveDuration).SetEase(moveCurve).OnComplete(() =>
-            {
-                PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
-                isMoving = false;
-            });
-            OnSuccessRemove();
+            MoveThrough();
         }
     }
 
@@ -172,6 +192,8 @@ public class ArrowTile : MonoBehaviour
         if (CameraManager.Ins.isDraggingOver1) return;
         if (CameraManager.Ins.isDoingAnim) return;
         if (LevelManager.Ins.isEndLevel) return;
+        if (UIHover.isHoverUI) return;
+        if (BoosterManager.Ins.isUsingBooster) return;
         Move();
     }
 
@@ -187,5 +209,31 @@ public class ArrowTile : MonoBehaviour
             PoolManager.Ins.Despawn(PoolType.ArrowTile, this.gameObject);
         });
         OnSuccessRemove();
+    }
+
+    [Button]
+    public void OnMoveByMagnet()
+    {
+        IncreaseSortingOrder(1);
+        MoveThrough();
+    }
+
+    public void OnCrash()
+    {
+        OnExplode(true);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision == null) return;
+        if (!LevelManager.isLoadedLevel) return;
+        if (collision.gameObject.CompareTag(Constant.TAG_ARROW_TILE))
+        {
+            ArrowTile crashArrowTile = collision.gameObject.GetComponent<ArrowTile>();
+            if(!crashArrowTile.isMoving)
+            {
+                crashArrowTile.OnCrash();
+            }
+        }
     }
 }

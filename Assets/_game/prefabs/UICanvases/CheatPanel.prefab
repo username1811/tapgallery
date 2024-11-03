@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2270298617622179298}
   - component: {fileID: 8755179811631440946}
   - component: {fileID: 5341764506676426527}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: iap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 8075567675632899673}
   - component: {fileID: 9160566898763888756}
   - component: {fileID: 2812115891834762534}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: zoomspeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 6636561875716351509}
   - component: {fileID: 8118322660341025618}
   - component: {fileID: 8630257113289956477}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -436,7 +436,7 @@ GameObject:
   - component: {fileID: 263174963724511064}
   - component: {fileID: 8508916513055562029}
   - component: {fileID: 4382727056762509932}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: time
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 995744607552987586}
   - component: {fileID: 2337322856489126521}
   - component: {fileID: 2016639933976236825}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -705,7 +705,7 @@ GameObject:
   - component: {fileID: 4262918740892961856}
   - component: {fileID: 6355659141179714882}
   - component: {fileID: 6030579861768978462}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: bg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -837,7 +837,7 @@ GameObject:
   - component: {fileID: 7118693688983526935}
   - component: {fileID: 4264829430825786699}
   - component: {fileID: 4831252839318252940}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +918,7 @@ GameObject:
   - component: {fileID: 5781094267224108001}
   - component: {fileID: 5106238718708379787}
   - component: {fileID: 207029813670021277}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: InputField (TMP) zoom speed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1091,7 +1091,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4041206013479594890}
   - component: {fileID: 5457194176056316944}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1143,7 +1143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1279450762548355589}
   - component: {fileID: 6884115179882445979}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CheatPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1200,7 +1200,7 @@ GameObject:
   - component: {fileID: 3332049152527305802}
   - component: {fileID: 5790837766626651801}
   - component: {fileID: 4559795471802111020}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: title
   m_TagString: Untagged
   m_Icon: {fileID: 0}

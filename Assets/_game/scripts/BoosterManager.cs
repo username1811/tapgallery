@@ -8,7 +8,7 @@ using UnityEngine;
 public class BoosterManager : Singleton<BoosterManager>
 {
     public Booster currentBooster;
-    public bool isUsingBooster => currentBooster != null;
+    public bool isUsingBooster = false;
 
     [SerializeReference]
     public List<Booster> boosters = new List<Booster>();    
@@ -16,16 +16,19 @@ public class BoosterManager : Singleton<BoosterManager>
     public void OnLoadLevel()
     {
         currentBooster = null;
+        isUsingBooster = false;
     }
 
     private void Update()
     {
         currentBooster?.OnUpdate();
+        Debug.Log(UIHover.isHoverUI);
     }
 
     [Button]
     public void UseBooster(BoosterType boosterType)
     {
+        if (isUsingBooster) return; // đang dùng booster thì k dùng nữa
         currentBooster = GetBooster(boosterType);
         currentBooster?.Use();
     }
@@ -52,7 +55,7 @@ public class Booster
 
     public virtual void Use()
     {
-        Debug.Log("booster use " + this.boosterType);
+        BoosterManager.Ins.isUsingBooster = true;
     }
 
     public virtual void OnUpdate()
@@ -62,8 +65,8 @@ public class Booster
 
     public virtual void FinishUse()
     {
-        Debug.Log("booster finish use " + this.boosterType);
         BoosterManager.Ins.currentBooster = null;
+        BoosterManager.Ins.isUsingBooster = false;
     }
 
 }
@@ -78,7 +81,6 @@ public class BoosterHint : Booster
             ArrowTile.GetEatableTile().greenCover.TurnGreen();
         });
         FinishUse();
-        Debug.Log("hint use");
     }
 
     public override void OnUpdate()
@@ -101,6 +103,10 @@ public class BoosterBomb : Booster
     public override void Use()
     {
         base.Use();
+        CameraManager.Ins.MoveToCenter(true);
+        CameraManager.Ins.RefreshCamDistance(true, 1f, () =>
+        {
+        });
         ClickManager.isCanClick = false;
         isSpawnBomb = false;
     }
@@ -116,12 +122,23 @@ public class BoosterBomb : Booster
             if (hit.collider != null)
             {
                 ArrowTile arrowTile = hit.collider.GetComponent<ArrowTile>();
-                Bomb bomb = PoolManager.Ins.Spawn<Bomb>(PoolType.Bomb);
-                bomb.OnInitt(arrowTile, () =>
+                if(arrowTile != null && !arrowTile.isMoving)
+                {
+                    Bomb bomb = PoolManager.Ins.Spawn<Bomb>(PoolType.Bomb);
+                    bomb.OnInitt(arrowTile, () =>
+                    {
+                        FinishUse();
+                    });
+                    isSpawnBomb = true;
+                }
+                else
                 {
                     FinishUse();
-                });
-                isSpawnBomb = true;
+                }
+            }
+            else
+            {
+                FinishUse();
             }
         }
     }
@@ -135,21 +152,82 @@ public class BoosterBomb : Booster
 
 public class BoosterMagnet : Booster
 {
+    public List<ArrowTile> moveArrowTiles = new();
+
     public override void Use()
     {
         base.Use();
-        FinishUse();
+        CameraManager.Ins.MoveToCenter(true);
+        CameraManager.Ins.RefreshCamDistance(true, 5f, () =>
+        {
+        });
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(true);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false);
     }
 
     public override void OnUpdate()
     {
         base.OnUpdate();
-
     }
 
     public override void FinishUse()
     {
         base.FinishUse();
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+    }
 
+    public void OnChooseDirection(DirectionType directionType)
+    {
+        CameraManager.Ins.OnChooseMagnetDirection(directionType, () =>
+        {
+            InitMoveArrowTiles(directionType);
+            Magnet();
+        });
+    }
+
+    public void OnCalcel()
+    {
+        FinishUse();
+    }
+
+    public void InitMoveArrowTiles(DirectionType directionType)
+    {
+        moveArrowTiles.Clear();
+        moveArrowTiles = LevelManager.Ins.currentLevel.tiles
+            .Where(x => x.gameObject.activeInHierarchy && !x.isMoving && x.directionType == directionType)
+            .ToList();
+
+        if (directionType == DirectionType.Up)
+        {
+            moveArrowTiles = moveArrowTiles.OrderByDescending(tile => tile.transform.position.y).ToList();
+        }
+        else if (directionType == DirectionType.Down)
+        {
+            moveArrowTiles = moveArrowTiles.OrderBy(tile => tile.transform.position.y).ToList();
+        }
+        else if (directionType == DirectionType.Left)
+        {
+            moveArrowTiles = moveArrowTiles.OrderBy(tile => tile.transform.position.x).ToList();
+        }
+        else if (directionType == DirectionType.Right)
+        {
+            moveArrowTiles = moveArrowTiles.OrderByDescending(tile => tile.transform.position.x).ToList();
+        }
+    }
+
+    public void Magnet()
+    {
+        BoosterManager.Ins.StartCoroutine(IEMagnet());
+        IEnumerator IEMagnet()
+        {
+            foreach(var tile in  moveArrowTiles)
+            {
+                tile.OnMoveByMagnet();
+                yield return new WaitForSeconds(0.06f);
+            }
+            FinishUse();
+            yield return null;
+        }
     }
 }

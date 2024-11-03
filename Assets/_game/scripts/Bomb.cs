@@ -49,12 +49,10 @@ public class Bomb : MonoBehaviour
         Vector2 boxSize = new Vector2(3.57f, 3.57f); // Kích thước của hộp (rộng, cao)
         float angle = 45f; // Góc xoay của hộp
         Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, angle);
-
         foreach (Collider2D col in colliders)
         {
-
             ArrowTile hitArrowTile = col.GetComponent<ArrowTile>();
-            if (!explodeArrowTiles.Contains(hitArrowTile))
+            if (!explodeArrowTiles.Contains(hitArrowTile) && hitArrowTile != arrowTile)
             {
                 explodeArrowTiles.Add(hitArrowTile);
             }

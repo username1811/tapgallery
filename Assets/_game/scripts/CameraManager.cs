@@ -101,8 +101,9 @@ public class CameraManager : Singleton<CameraManager>
     public void OnLoadLevel()
     {
         InitLimitPosition();
-        MoveToCenter();
-        RefreshCamDistance();
+        MoveToCenter(false);
+        RefreshCamDistance(false, 5f);
+        isDoingAnim = true;
         DOVirtual.DelayedCall(0.6f, () =>
         {
             AnimZoomToEatableTile();
@@ -137,9 +138,24 @@ public class CameraManager : Singleton<CameraManager>
         maxY += padding;
     }
 
-    private void MoveToCenter()
+    public void MoveToCenter(bool isAnim=false, Action OnComplete=null)
     {
-        cam.transform.position = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
+        Vector3 targetMove = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
+        targetMove.z = -18f;
+        if (isAnim)
+        {
+            Ease ease = Ease.OutSine;
+            isDoingAnim = true;
+            cam.transform.DOMove(targetMove, 1f).SetEase(ease).OnComplete(() =>
+            {
+                isDoingAnim = false;
+                OnComplete?.Invoke();
+            });
+        }
+        else
+        {
+            cam.transform.position = targetMove;
+        }
     }
 
     public void AnimZoomToEatableTile(Action OnComplete = null)
@@ -160,7 +176,7 @@ public class CameraManager : Singleton<CameraManager>
         cam.transform.DOMove(targetMove, duration).SetEase(ease);
     }
 
-    public void RefreshCamDistance()
+    public void RefreshCamDistance(bool isAnim, float offsetY, Action OnComplete = null)
     {
         float objectWidth = maxX - minX;
         float objectHeight = maxY - minY;
@@ -169,7 +185,18 @@ public class CameraManager : Singleton<CameraManager>
         float screenAspect = (float)Screen.width / (float)Screen.height;
 
         // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
-        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + 5f;
+        float duration = isAnim? 1f : 0f;
+        Ease ease = Ease.OutSine;
+        isDoingAnim = true;
+        float targetOrthoSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY;
+        DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
+        {
+            cam.orthographicSize = v;
+        }).SetEase(ease).OnComplete(() =>
+        {
+            isDoingAnim = false;
+            OnComplete?.Invoke();
+        });
     }
 
     bool Pinch()
@@ -202,5 +229,29 @@ public class CameraManager : Singleton<CameraManager>
             return true;
         }
         return false;
+    }
+
+    public void OnChooseMagnetDirection(DirectionType directionType, Action OnComplete=null)
+    {
+        Vector3 dir = Vector3.zero;
+        switch (directionType)
+        {
+            case DirectionType.Up:
+                dir = Vector2.up;
+                break;
+            case DirectionType.Right:
+                dir = Vector2.right;
+                break;
+            case DirectionType.Down:
+                dir = Vector2.down;
+                break;
+            case DirectionType.Left:
+                dir = Vector2.left;
+                break;
+        }
+        cam.transform.DOMove(cam.transform.position + dir * 3f, 0.7f).SetEase(Ease.OutSine).OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
     }
 }

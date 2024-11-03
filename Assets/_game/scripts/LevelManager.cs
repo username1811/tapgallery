@@ -16,6 +16,7 @@ public class LevelManager : Singleton<LevelManager>
     public int levelIndexToReturn;
     public string debugLevelListStr;
     public LevelInfooo currentLevelInfooo;
+    public static bool isLoadedLevel;
 
 
     public void DestroyCurrentLevel()
@@ -44,11 +45,14 @@ public class LevelManager : Singleton<LevelManager>
             MinimapManager.Ins.OnLoadLevel();
             UIManager.Ins.OpenUI<GamePlay>();
             UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
+            BoosterManager.Ins.OnLoadLevel();
+            isLoadedLevel = true;
         });
     };
 
     public void LoadLevel(int levelIndex)
     {
+        isLoadedLevel = false;
         isEndLevel = false;
         DestroyCurrentLevel();
         currentLevelInfooo = GetLevelInfo(levelIndex);
