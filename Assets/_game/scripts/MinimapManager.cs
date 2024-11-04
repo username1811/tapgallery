@@ -102,18 +102,25 @@ public class MinimapManager : Singleton<MinimapManager>
     {
         // Tính toán tỉ lệ khung hình của màn hình
         float screenAspect = (float)Screen.width / (float)Screen.height;
-
-        // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
-        float duration = isAnim ? 1f : 0f;
-        Ease ease = Ease.OutSine;
         float targetOrthoSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY;
-        DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
+
+        if (isAnim)
         {
-            cam.orthographicSize = v;
-        }).SetEase(ease).OnComplete(() =>
+            float duration = isAnim ? 1f : 0f;
+            Ease ease = Ease.OutSine;
+            DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
+            {
+                cam.orthographicSize = v;
+            }).SetEase(ease).OnComplete(() =>
+            {
+                OnComplete?.Invoke();
+            });
+        }
+        else
         {
+            cam.orthographicSize = targetOrthoSize;
             OnComplete?.Invoke();
-        });
+        }
     }
 
     [Button]
