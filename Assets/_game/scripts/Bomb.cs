@@ -8,6 +8,7 @@ using Unity.Burst.CompilerServices;
 public class Bomb : MonoBehaviour
 {
     public List<ArrowTile> explodeArrowTiles = new();
+    public int radius;
 
 
 
@@ -52,7 +53,7 @@ public class Bomb : MonoBehaviour
     {
         explodeArrowTiles.Clear();
         Vector2 boxCenter = arrowTile.transform.position; // Tâm của hộp
-        Vector2 boxSize = new Vector2(3.57f, 3.57f); // Kích thước của hộp (rộng, cao)
+        Vector2 boxSize = Vector2.one * GetBoxSize(); // Kích thước của hộp (rộng, cao)
         float angle = 45f; // Góc xoay của hộp
         Collider2D[] colliders = Physics2D.OverlapBoxAll(boxCenter, boxSize, angle);
         foreach (Collider2D col in colliders)
@@ -63,5 +64,10 @@ public class Bomb : MonoBehaviour
                 explodeArrowTiles.Add(hitArrowTile);
             }
         }
+    }
+
+    public float GetBoxSize()
+    {
+        return Mathf.Sqrt(2) * (radius - 0.5f + 0.05f);
     }
 }

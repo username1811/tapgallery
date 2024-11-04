@@ -45,7 +45,7 @@ public class TextureToStageWindow : OdinEditorWindow
     }
 
     [Button(ButtonStyle.FoldoutButton)]
-    public void TextureToStage(Texture2D texture, bool isRefresh = false)
+    public void TextureToStage(Texture2D texture)
     {
         string texturePath = AssetDatabase.GetAssetPath(texture);
         string fileName = Path.GetFileName(texturePath).Split('.')[0];
@@ -109,11 +109,6 @@ public class TextureToStageWindow : OdinEditorWindow
         stageInfo.AddCenterRainbow();
 
         EditorUtility.SetDirty(stageInfo);
-
-        if (isRefresh)
-        {
-            AssetDatabase.Refresh();
-        }
     }
 
     private int GetMostCenteredIndex(List<float2> coordinates)

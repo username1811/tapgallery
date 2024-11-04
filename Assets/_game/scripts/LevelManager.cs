@@ -42,7 +42,6 @@ public class LevelManager : Singleton<LevelManager>
         DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
         {
             CameraManager.Ins.OnLoadLevel();
-            MinimapManager.Ins.OnLoadLevel();
             UIManager.Ins.OpenUI<GamePlay>();
             UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
             BoosterManager.Ins.OnLoadLevel();
@@ -94,10 +93,7 @@ public class LevelManager : Singleton<LevelManager>
             if (isWin)//win
             {
                 isEndLevel = true;
-                MinimapManager.Ins.OnWin(() =>
-                {
-                    UIManager.Ins.OpenUI<Win>();
-                });
+                UIManager.Ins.OpenUI<Win>();
                 UIManager.Ins.GetUI<GamePlay>().OnWin();
                 DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
             }

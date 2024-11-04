@@ -25,8 +25,6 @@ public class ArrowTile : MonoBehaviour
     [Title("Cover:")]
     public RedCover redCover;
     public GreenCover greenCover;
-    [Title("Minimap:")]
-    public MinimapSquare minimapSquare;
     public Vector2 dir => arrow.dir;
     public bool isRed => redCover.redTween.IsPlaying();
     public bool isGreen => greenCover.greenTween.IsPlaying();
@@ -57,6 +55,7 @@ public class ArrowTile : MonoBehaviour
         this.sortingOrder = pixelData.sortingOrder;
         spriteRenderer.sortingOrder = sortingOrder * 10;
         edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 5;
+        edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
         arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
         redCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder + 1;
         greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 1;
@@ -92,7 +91,6 @@ public class ArrowTile : MonoBehaviour
         dot.transform.position = this.transform.position - Vector3.up * 0.16f;
         dot.OnInit(arrow.spriteRenderer.color, 1);
         dot.Scale();
-        minimapSquare.ChangeColor();
         LevelManager.Ins.currentLevel.remainTilesCount -= 1;
         LevelManager.Ins.CheckWinLose();
     }

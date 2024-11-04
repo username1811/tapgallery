@@ -5,18 +5,30 @@ using UnityEngine;
 
 public class MinimapSquare : MonoBehaviour
 {
-    public ArrowTile arrowTile;
+    public PixelData pixelData;
     public SpriteRenderer spriteRenderer;
 
-    public void OnInit(ArrowTile arrowTile)
+    public void OnInit(PixelData pixelData)
     {
-        this.arrowTile = arrowTile;
+        this.pixelData = pixelData;
         this.spriteRenderer.color = MinimapManager.Ins.initColor;
-        this.transform.position = arrowTile.transform.position + (Vector3)MinimapManager.Ins.offsetFromOriginalLevel;
+        this.transform.position = (Vector3)pixelData.coordinate + (Vector3)MinimapManager.Ins.offsetFromOriginalLevel;
+    }
+
+    public void OnWave()
+    {
+        ChangeColor();
+        Scale();
     }
 
     public void ChangeColor()
     {
-        this.spriteRenderer.color = arrowTile.arrow.spriteRenderer.color;
+        this.spriteRenderer.color = pixelData.color;
+    }
+
+    public void Scale()
+    {
+        this.transform.localScale = Vector3.one * 0.2f;
+        this.transform.DOScale(1f, 0.35f).SetEase(Ease.OutSine);
     }
 }

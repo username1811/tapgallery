@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeArrowTiles: []
+  radius: 2
 --- !u!1 &8840395545710001752
 GameObject:
   m_ObjectHideFlags: 0

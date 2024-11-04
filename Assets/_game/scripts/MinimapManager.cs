@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,50 +13,128 @@ public class MinimapManager : Singleton<MinimapManager>
     public Camera cam;
     public Vector2 originalMinimapPos = Vector2.zero;
     public RectTransform minimap => UIManager.Ins.GetUI<GamePlay>().minimapRectTF;
+    float minX,maxX, minY, maxY;    
+    float objectWidth => maxX - minX;
+    float objectHeight => maxY - minY;
+    public LevelInfooo levelInfooo;
+    public Wave wave;
+    public bool isWin;
 
-    public void OnLoadLevel()
+
+    public void OnOpenHome()
     {
+        wave.gameObject.SetActive(false);
+        if (!isWin)
+        {
+            CreateGreyLevel(LevelManager.Ins.GetLevelInfo(DataManager.Ins.playerData.currentLevelIndex), 0);
+            InitLimitPosition();
+            MoveToCenter(false);
+            RefreshCamDistance(false, 5f);
+        }
+        else
+        {
+            CreateGreyLevel(LevelManager.Ins.GetLevelInfo(DataManager.Ins.playerData.currentLevelIndex-1), 0);
+            InitLimitPosition();
+            MoveToCenter(false);
+            RefreshCamDistance(false, 5f);
+            ShowColor();
+        }
+        isWin = false;
+    }
+
+    public void CreateGreyLevel(LevelInfooo levelInfo, int stageIndex)
+    {
+        this.levelInfooo = levelInfo;
         minimapSquares.Clear();
-        foreach (var tile in LevelManager.Ins.currentLevel.tiles)
+        PoolManager.Ins.GetPool(PoolType.MinimapSquare).ReturnAll();
+        StageInfooo stageInfooo = levelInfo.stages[stageIndex];
+        GameObject stageObj = new GameObject("stage_" + stageInfooo.name);
+        foreach (var pixelData in stageInfooo.pixelDatas)
         {
             MinimapSquare minimapSquare = PoolManager.Ins.Spawn<MinimapSquare>(PoolType.MinimapSquare);
-            minimapSquare.OnInit(tile);
             minimapSquare.transform.SetParent(this.transform);
+            minimapSquare.OnInit(pixelData);
             minimapSquares.Add(minimapSquare);
-            tile.minimapSquare = minimapSquare;
         }
-        cam.transform.position = CameraManager.Ins.cam.transform.position + (Vector3)offsetFromOriginalLevel;
-        ResetMinimapTransform();
-        RefreshCamDistance();
     }
-
-    public void OnWin(Action OnComplete)
+    public void InitLimitPosition()
     {
-        Vector2 targetMove = new Vector2(-UIManager.Ins.screenWidth / 2, -UIManager.Ins.screenHeight / 2);
-        minimap.DOAnchorPos(targetMove, 1.3f).SetEase(Ease.InOutSine).OnComplete(() =>
+        minX = maxX = levelInfooo.stages[0].pixelDatas[0].coordinate.x;
+        minY = maxY = levelInfooo.stages[0].pixelDatas[0].coordinate.y;
+
+        foreach (var pixelData in levelInfooo.stages[0].pixelDatas)
         {
-            OnComplete?.Invoke();
-        });
-        minimap.DOScale(3f, 1.3f).SetEase(Ease.InOutSine).OnComplete(() =>
+            Vector3 position = pixelData.coordinate;
+
+            if (position.x < minX) minX = position.x;
+            if (position.x > maxX) maxX = position.x;
+            if (position.y < minY) minY = position.y;
+            if (position.y > maxY) maxY = position.y;
+        }
+        /*float padding = 5f;
+        minX -= padding;
+        maxX += padding;
+        minY -= padding;
+        maxY += padding;*/
+    }
+
+
+    public void MoveToCenter(bool isAnim = false, Action OnComplete = null)
+    {
+        Vector3 targetMove = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, -18f) + (Vector3)offsetFromOriginalLevel;
+        targetMove.z = -18f;
+        if (isAnim)
         {
-        });
+            Ease ease = Ease.OutSine;
+            cam.transform.DOMove(targetMove, 1f).SetEase(ease).OnComplete(() =>
+            {
+                OnComplete?.Invoke();
+            });
+        }
+        else
+        {
+            cam.transform.position = targetMove;
+        }
+        Debug.Log("minimap cam move to center, targetmove = " + targetMove.ToString());
     }
 
-    public void ResetMinimapTransform()
+    public void RefreshCamDistance(bool isAnim, float offsetY, Action OnComplete = null)
     {
-        if (originalMinimapPos != Vector2.zero) minimap.position = originalMinimapPos;
-        minimap.transform.localScale = Vector3.one;
-    }
-
-    public void RefreshCamDistance()
-    {
-        float objectWidth = CameraManager.Ins.maxX- CameraManager.Ins.minX;
-        float objectHeight = CameraManager.Ins.maxY- CameraManager.Ins.minY;
-
         // Tính toán tỉ lệ khung hình của màn hình
         float screenAspect = (float)Screen.width / (float)Screen.height;
 
         // Đặt orthographicSize của camera dựa trên chiều lớn hơn giữa chiều rộng và chiều cao
-        cam.orthographicSize = Mathf.Max(objectWidth, objectHeight) * screenAspect;
+        float duration = isAnim ? 1f : 0f;
+        Ease ease = Ease.OutSine;
+        float targetOrthoSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY;
+        DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
+        {
+            cam.orthographicSize = v;
+        }).SetEase(ease).OnComplete(() =>
+        {
+            OnComplete?.Invoke();
+        });
+    }
+
+    [Button]
+    public void ShowColor()
+    {
+        wave.gameObject.SetActive(false);
+        wave.transform.position = new Vector3(minX-1f, minY-1f, 0) + (Vector3)offsetFromOriginalLevel;
+        wave.gameObject.SetActive(true);
+        Vector3 targetMove = new Vector3(maxX+1f, maxY+1f, 0) + (Vector3)offsetFromOriginalLevel;
+        wave.transform.DOMove(targetMove, 2.2f).SetEase(Ease.Linear).OnComplete(() =>
+        {
+            wave.gameObject.SetActive(false);
+        });
+    }
+
+    [Button]
+    public void ResetColorGrey()
+    {
+        foreach(var minimapSquare in minimapSquares)
+        {
+            minimapSquare.spriteRenderer.color = initColor;
+        }
     }
 }

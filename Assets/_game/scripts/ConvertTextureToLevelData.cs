@@ -1,4 +1,4 @@
-#if UNITY_EDITOR
+﻿#if UNITY_EDITOR
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
 using System.Collections.Generic;
@@ -48,7 +48,7 @@ public class ConvertTextureToLevelData : OdinEditorWindow
     }
 
     [Button(ButtonStyle.FoldoutButton)]
-    public void TextureToLevelData(Texture2D texture, bool isRefresh = false)
+    public void TextureToLevelData(Texture2D texture)
     {
         string texturePath = AssetDatabase.GetAssetPath(texture);
         string fileName = Path.GetFileName(texturePath).Split('.')[0];
@@ -70,6 +70,11 @@ public class ConvertTextureToLevelData : OdinEditorWindow
             stageInfooo = CreateInstance<StageInfooo>();
             AssetDatabase.CreateAsset(stageInfooo, stagePath);
             AssetDatabase.SaveAssets();
+        }
+        else
+        {
+            // nếu có pixel nào đã set direction type thì level đó đã được random direction rồi
+            if (levelInfooo.stages[0].pixelDatas.Any(x => x.directionType != DirectionType.Up)) return;
         }
 
         stageInfooo.texture2d = texture;
@@ -96,11 +101,7 @@ public class ConvertTextureToLevelData : OdinEditorWindow
         EditorUtility.SetDirty(levelInfooo);
         EditorUtility.SetDirty(stageInfooo);
         AssetDatabase.Refresh();
-
-        if (isRefresh)
-        {
-            AssetDatabase.Refresh();
-        }
+        Debug.Log("texture to level data " +  levelInfooo.name);
     }
 }
 #endif

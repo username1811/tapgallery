@@ -14,6 +14,7 @@ public class Win : UICanvas
         base.Open();
         ShowElements();
         ShowConfetti();
+        DataManager.Ins.playerData.currentLevelIndex += 1;
     }
 
     public void ShowElements()
@@ -51,6 +52,7 @@ public class Win : UICanvas
     {
         SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
         {
+            MinimapManager.Ins.isWin = true;
             UIManager.Ins.OpenUI<Home>();
         });
     }

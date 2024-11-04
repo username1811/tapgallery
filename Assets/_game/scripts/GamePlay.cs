@@ -55,6 +55,7 @@ public class GamePlay : UICanvas
 
     public void OnWin()
     {
+        return;
         blackImg.gameObject.SetActive(true);
         blackImg.color = new Color(0f, 0f, 0f, 0f);
         blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.3f).SetEase(Ease.OutQuad);
