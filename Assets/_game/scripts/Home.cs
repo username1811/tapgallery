@@ -5,11 +5,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Home : UICanvas
 {
     public List<LevelUI> levelUIs = new List<LevelUI>();
     public GridLayoutGroup grid;
+    public RectTransform scrollView;
     public RectTransform content;
     public bool isInited = false;
 
@@ -27,8 +29,14 @@ public class Home : UICanvas
         if (isInited) return;
         InitLevelUIs();
         RefreshGridCellSize();
+        InitScrollViewHeight();
         InitContentHeight();
         isInited = true;
+    }
+
+    private void InitScrollViewHeight()
+    {
+        scrollView.sizeDelta = new Vector2(scrollView.sizeDelta.x, UIManager.Ins.screenHeight-480f);
     }
 
     private void InitContentHeight()
