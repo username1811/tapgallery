@@ -212,7 +212,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -670,7 +670,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -857,7 +857,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
@@ -1078,6 +1078,7 @@ MonoBehaviour:
   - {fileID: 7690668657379473552, guid: f5094e0b585d23242a5b9d25222939ce, type: 3}
   - {fileID: 333633126053078002, guid: 11ddfe652bc91df438227c3c97a874b8, type: 3}
   - {fileID: 6884115179882445979, guid: 41d8d37baf5dc684bab2b88962655634, type: 3}
+  - {fileID: 9121270508570576903, guid: a5f5f1e50b8a60b4ea85a351ac25a60d, type: 3}
   canvasMain: {fileID: 3154111004215419357}
   canvasFly: {fileID: 7539149342031573772}
   screenWidth: 0

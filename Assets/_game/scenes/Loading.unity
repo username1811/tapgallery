@@ -332,14 +332,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3508404664624582874, guid: f978204e6acd75142a30d57f7222b057, type: 3}
-      propertyPath: uiResources.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3508404664624582874, guid: f978204e6acd75142a30d57f7222b057, type: 3}
-      propertyPath: uiResources.Array.data[3]
-      value: 
-      objectReference: {fileID: 9121270508570576903, guid: a5f5f1e50b8a60b4ea85a351ac25a60d, type: 3}
     - target: {fileID: 6747695266554140980, guid: f978204e6acd75142a30d57f7222b057, type: 3}
       propertyPath: m_Name
       value: DontDestroy
@@ -476,7 +468,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1080, y: 1920}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 1
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
