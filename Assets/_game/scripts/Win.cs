@@ -7,14 +7,16 @@ public class Win : UICanvas
 {
     public GameObject titleObj;
     public GameObject buttonContinueObj;
+    public GameObject confettiObj;
 
     public override void Open()
     {
         base.Open();
-        Show();
+        ShowElements();
+        ShowConfetti();
     }
 
-    public void Show()
+    public void ShowElements()
     {
         titleObj.SetActive(false);
         buttonContinueObj.SetActive(false);
@@ -27,6 +29,22 @@ public class Win : UICanvas
             buttonContinueObj.SetActive(true);
             buttonContinueObj.transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack);
         });
+    }
+
+    public void ShowConfetti()
+    {
+        confettiObj.SetActive(false);
+        StartCoroutine(IEShowConfetti());
+        IEnumerator IEShowConfetti()
+        {
+            while(true)
+            {
+                confettiObj.SetActive(true);
+                yield return new WaitForSeconds(7f);
+                confettiObj.SetActive(false);
+                yield return null;
+            }
+        }
     }
 
     public void ButtonContinue()
