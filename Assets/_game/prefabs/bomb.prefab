@@ -46,7 +46,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explodeArrowTiles: []
-  spriteTF: {fileID: 4545240865913814214}
 --- !u!1 &8840395545710001752
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +57,7 @@ GameObject:
   - component: {fileID: 4545240865913814214}
   - component: {fileID: 6802709155342956996}
   m_Layer: 0
-  m_Name: bomb (1)
+  m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

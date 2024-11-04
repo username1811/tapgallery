@@ -31,6 +31,12 @@ public class Bomb : MonoBehaviour
         {
             tile.OnExplode(true);
         }
+        Transform bombVFX = PoolManager.Ins.Spawn<Transform>(PoolType.BombVFX);
+        bombVFX.transform.position = this.transform.position;
+        DOVirtual.DelayedCall(3f, () =>
+        {
+            PoolManager.Ins.Despawn(PoolType.BombVFX, bombVFX.gameObject);
+        });
         PoolManager.Ins.Despawn(PoolType.Bomb, this.gameObject);
     }
 

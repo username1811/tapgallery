@@ -14,7 +14,7 @@ public class PoolManager : Singleton<PoolManager>
 
         public void InstantiateSomeObjs()
         {
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 3; i++)
             {
                 GameObject obj = Instantiate(prefab);
                 obj.SetActive(false);
@@ -147,5 +147,5 @@ public class PoolManager : Singleton<PoolManager>
 
 public enum PoolType
 {
-    ArrowTile, Dot, MinimapSquare, LevelUI, Bomb,
+    ArrowTile, Dot, MinimapSquare, LevelUI, Bomb, BombVFX,
 }
