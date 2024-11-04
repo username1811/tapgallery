@@ -168,7 +168,7 @@ public class CameraManager : Singleton<CameraManager>
 
     public void AnimZoomToEatableTile(Action OnComplete = null)
     {
-        float duration = 1f;
+        float duration = 1.1f;
         Ease ease = Ease.OutSine;
         isDoingAnim = true;
         DOVirtual.Float(cam.orthographicSize, eatableZoom, duration, v =>
