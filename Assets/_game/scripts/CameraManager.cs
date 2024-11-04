@@ -112,7 +112,7 @@ public class CameraManager : Singleton<CameraManager>
         isDoingAnim = true;
         isDraggingOver1 = false;
         isDragWhenIsMoving = false;
-        DOVirtual.DelayedCall(0.6f, () =>
+        DOVirtual.DelayedCall(0.8f, () =>
         {
             AnimZoomToEatableTile();
         });
