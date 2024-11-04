@@ -57,6 +57,7 @@ public class ArrowTile : MonoBehaviour
         edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 5;
         edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
         arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
+        arrow.shadowSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 4;
         redCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder + 1;
         greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 1;
         //color

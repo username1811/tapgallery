@@ -10,8 +10,7 @@ public class Arrow : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public DirectionType directionType;
     public Vector2 dir;
-
-
+    public SpriteRenderer shadowSpriteRenderer;
 
 
 
@@ -20,6 +19,7 @@ public class Arrow : MonoBehaviour
     {
         InitDir();
         RotateAlongDirection();
+        InitShadowPos();
     }
 
     public void InitDir()
@@ -58,6 +58,12 @@ public class Arrow : MonoBehaviour
                 this.transform.rotation = Quaternion.Euler(new Vector3(0, 0, -270));
                 break;
         }
+    }
+
+    public void InitShadowPos()
+    {
+        shadowSpriteRenderer.transform.localPosition = Vector3.zero;
+        shadowSpriteRenderer.transform.position -= Vector3.up * 0.02f;
     }
 }
 
