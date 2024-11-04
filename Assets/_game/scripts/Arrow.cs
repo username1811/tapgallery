@@ -63,7 +63,7 @@ public class Arrow : MonoBehaviour
     public void InitShadowPos()
     {
         shadowSpriteRenderer.transform.localPosition = Vector3.zero;
-        shadowSpriteRenderer.transform.position -= Vector3.up * 0.02f;
+        shadowSpriteRenderer.transform.position -= Vector3.up * 0.03f;
     }
 }
 
