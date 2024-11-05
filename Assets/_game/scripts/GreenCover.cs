@@ -18,12 +18,22 @@ public class GreenCover : MonoBehaviour
     }
 
     [Button]
-    public void TurnGreen()
+    public void OnHint()
     {
         greenTween?.Kill();
         greenTween = spriteRenderer.DOColor(targetColor, duration).SetEase(Ease.Linear).SetLoops(4, LoopType.Yoyo).OnComplete(() =>
         {
             greenTween = null;
-        }) ;
+        });
+    }
+
+    [Button]
+    public void OnMove()
+    {
+        greenTween?.Kill();
+        greenTween = spriteRenderer.DOColor(targetColor, duration).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo).OnComplete(() =>
+        {
+            greenTween = null;
+        });
     }
 }

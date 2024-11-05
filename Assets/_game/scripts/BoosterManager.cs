@@ -78,7 +78,7 @@ public class BoosterHint : Booster
         base.Use();
         CameraManager.Ins.AnimZoomToEatableTile(() =>
         {
-            ArrowTile.GetEatableTile().greenCover.TurnGreen();
+            ArrowTile.GetEatableTile().greenCover.OnHint();
         });
         FinishUse();
     }
@@ -108,8 +108,11 @@ public class BoosterBomb : Booster
         {
         });
         ClickManager.isCanClick = false;
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(true);
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false);
+        
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false, () =>
+        {
+            UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(true);
+        });
         isSpawnBomb = false;
     }
 
@@ -137,8 +140,10 @@ public class BoosterBomb : Booster
                     {
                         FinishUse();
                     });
-                    UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false);
-                    UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+                    UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false, () =>
+                    {
+                        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+                    });
                     isSpawnBomb = true;
                 }
                 else
@@ -161,8 +166,10 @@ public class BoosterBomb : Booster
 
     public void OnCancel()
     {
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false);
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false, () =>
+        {
+            UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+        });
         FinishUse();
     }
 }
@@ -178,8 +185,10 @@ public class BoosterMagnet : Booster
         CameraManager.Ins.RefreshCamDistance(true, 5f, () =>
         {
         });
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(true);
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false, () =>
+        {
+            UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(true);
+        });
     }
 
     public override void OnUpdate()
@@ -199,8 +208,10 @@ public class BoosterMagnet : Booster
             InitMoveArrowTiles(directionType);
             Magnet();
         });
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false);
-        UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false, () =>
+        {
+            UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+        });
     }
 
     public void OnCalcel()

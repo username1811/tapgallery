@@ -59,7 +59,7 @@ public class ArrowTile : MonoBehaviour
         arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
         arrow.shadowSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 4;
         redCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder + 1;
-        greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 1;
+        greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 2;
         //color
         this.color = pixelData.color;
         arrow.spriteRenderer.color = color;
@@ -137,6 +137,7 @@ public class ArrowTile : MonoBehaviour
             isMoving = false;
         });
         OnSuccessRemove();
+        greenCover.OnMove();
     }
 
     [Button]

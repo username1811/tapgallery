@@ -18,6 +18,6 @@ public class Dot : MonoBehaviour
 
     public void Scale()
     {
-        this.transform.DOScale(0.5f, 0.15f).SetEase(Ease.Linear).SetLoops(2,LoopType.Yoyo);
+        this.transform.DOScale(1.3f, 0.15f).SetEase(Ease.Linear).SetLoops(2,LoopType.Yoyo);
     }
 }

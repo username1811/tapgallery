@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿using DG.Tweening;
+using Sirenix.OdinInspector;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,17 @@ using UnityEngine;
 
 public class BoosterMagnetUI : BoosterUI
 {
+    public Transform circle;
+    public Transform buttonCancelTF;
+
+    private void OnEnable()
+    {
+        circle.transform.localScale = Vector3.zero;
+        circle.transform.DOScale(1f, 0.3f).SetEase(Ease.OutSine);
+        buttonCancelTF.transform.localScale = Vector3.zero;
+        buttonCancelTF.transform.DOScale(1f, 0.3f).SetEase(Ease.OutSine);
+    }
+
     public override void Use()
     {
         base.Use();

@@ -1,4 +1,6 @@
 using DG.Tweening;
+using Microsoft.Win32.SafeHandles;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -10,8 +12,9 @@ public class GamePlay : UICanvas
     public RectTransform minimapRectTF;
     public BoosterBombUI boosterBombUI;
     public BoosterMagnetUI boosterMagnetUI;
-    public GameObject boosterButtons;
+    public List<Transform> boosterButtons = new List<Transform>();  
     public Image blackImg;
+    public Hearts hearts;
 
 
     private void Start()
@@ -31,6 +34,7 @@ public class GamePlay : UICanvas
         ShowBoosterMagnetUI(false);
         ShowBoosterButtons(true);
         blackImg.gameObject.SetActive(false);
+        hearts.OnLoadLevel(5);
     }
 
     public void OnLoadLevel()
@@ -38,19 +42,42 @@ public class GamePlay : UICanvas
 
     }
 
-    public void ShowBoosterBombUI(bool isShow)
+    public void ShowBoosterBombUI(bool isShow, Action OnComplete=null)
     {
         boosterBombUI.gameObject.SetActive(isShow);
+        OnComplete?.Invoke();
     }
 
-    public void ShowBoosterMagnetUI(bool isShow)
+    public void ShowBoosterMagnetUI(bool isShow, Action OnComplete = null)
     {
         boosterMagnetUI.gameObject.SetActive(isShow);
+        OnComplete?.Invoke();
     }
 
-    public void ShowBoosterButtons(bool isShow)
+    public void ShowBoosterButtons(bool isShow, Action OnComplete=null)
     {
-        boosterButtons.gameObject.SetActive(isShow);
+        if (isShow)
+        {
+            foreach(var b in boosterButtons)
+            {
+                b.transform.localScale = Vector3.zero;
+                b.transform.DOScale(1f, 0.2f).SetEase(Ease.OutSine).OnComplete(() =>
+                {
+                    OnComplete?.Invoke();
+                });
+            }
+        }
+        else
+        {
+            foreach (var b in boosterButtons)
+            {
+                b.transform.localScale = Vector3.one;
+                b.transform.DOScale(0f, 0.2f).SetEase(Ease.Linear).OnComplete(() =>
+                {
+                    OnComplete?.Invoke();
+                });
+            }
+        }
     }
 
     public void OnWin()

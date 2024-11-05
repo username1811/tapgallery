@@ -138,6 +138,9 @@ MonoBehaviour:
   - poolType: 5
     prefab: {fileID: 783487996518164674, guid: f5420aee756934543b9a38d59bb9e4e4, type: 3}
     objs: []
+  - poolType: 6
+    prefab: {fileID: 1269697212608974702, guid: ff34ae4ac734a164ea5637710ee5609c, type: 3}
+    objs: []
 --- !u!1 &1363577382409368299
 GameObject:
   m_ObjectHideFlags: 0
