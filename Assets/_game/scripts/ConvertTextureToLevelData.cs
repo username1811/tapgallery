@@ -1,6 +1,7 @@
 ﻿#if UNITY_EDITOR
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
+using Sirenix.Utilities;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -74,7 +75,13 @@ public class ConvertTextureToLevelData : OdinEditorWindow
         else
         {
             // nếu có pixel nào đã set direction type thì level đó đã được random direction rồi
-            if (levelInfooo.stages[0].pixelDatas.Any(x => x.directionType != DirectionType.Up)) return;
+            if (levelInfooo.stages != null)
+            {
+                if (levelInfooo.stages.Count > 0)
+                {
+                    if (levelInfooo.stages[0].pixelDatas.Any(x => x.directionType != DirectionType.Up)) return;
+                }
+            }
         }
 
         stageInfooo.texture2d = texture;
@@ -88,7 +95,7 @@ public class ConvertTextureToLevelData : OdinEditorWindow
             for (int x = 0; x < size.x; x++)
             {
                 Color pixel = pixels[x + size.x * y];
-                if (pixel.a == 0) continue;
+                if (pixel.a < 0.8f) continue;
                 float2 c = new float2(x, y);
                 PixelData pixelData = new PixelData(pixel, c, size.y - y, 0);
                 stageInfooo.pixelDatas.Add(pixelData);

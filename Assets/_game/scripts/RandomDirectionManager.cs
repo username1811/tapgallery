@@ -13,6 +13,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
     public Dictionary<int, List<ArrowTile>> dict = new Dictionary<int, List<ArrowTile>>();
     public int stuckCount;
     public bool isFixingStuck;
+    public int acceptPercent;
 
 
     [Button]
@@ -165,7 +166,7 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
                 {
                     stuckCount = 999;
                     int tryCount = 50;
-                    while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * 5 / 100 && tryCount > 0)
+                    while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * (float)acceptPercent / 100f && tryCount > 0)
                     {
                         RandomDirection();
                         FixStuck();

@@ -1795,6 +1795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stuckCount: 0
   isFixingStuck: 0
+  acceptPercent: 10
 --- !u!1 &6915565447994822895
 GameObject:
   m_ObjectHideFlags: 0
