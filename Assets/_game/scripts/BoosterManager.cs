@@ -111,8 +111,8 @@ public class BoosterBomb : Booster
         
         UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false, () =>
         {
-            UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(true);
         });
+        UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(true);
         isSpawnBomb = false;
     }
 

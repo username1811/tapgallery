@@ -45,6 +45,7 @@ public class GamePlay : UICanvas
     public void ShowBoosterBombUI(bool isShow, Action OnComplete=null)
     {
         boosterBombUI.gameObject.SetActive(isShow);
+        boosterBombUI.Show();
         OnComplete?.Invoke();
     }
 
@@ -61,7 +62,7 @@ public class GamePlay : UICanvas
             foreach(var b in boosterButtons)
             {
                 b.transform.localScale = Vector3.zero;
-                b.transform.DOScale(1f, 0.2f).SetEase(Ease.OutSine).OnComplete(() =>
+                b.transform.DOScale(1f, 0.3f).SetEase(Ease.OutSine).OnComplete(() =>
                 {
                     OnComplete?.Invoke();
                 });
@@ -72,7 +73,7 @@ public class GamePlay : UICanvas
             foreach (var b in boosterButtons)
             {
                 b.transform.localScale = Vector3.one;
-                b.transform.DOScale(0f, 0.2f).SetEase(Ease.Linear).OnComplete(() =>
+                b.transform.DOScale(0f, 0.2f).SetEase(Ease.OutSine).OnComplete(() =>
                 {
                     OnComplete?.Invoke();
                 });
