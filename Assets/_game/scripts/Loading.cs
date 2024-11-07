@@ -39,7 +39,16 @@ public class Loading : MonoBehaviour
         Debug.Log("load scene async isDone");
         WorldTimeAPI.Ins.isFetched = true;
         SceneManager.SetActiveScene(SceneManager.GetSceneByBuildIndex((int)SceneType.Game));
-        UIManager.Ins.OpenUI<Home>();
         SceneManagerrr.Ins.UnloadScene(SceneType.Loading);
+        if (DataManager.Ins.playerData.isPassedTutLevel)
+        {
+            UIManager.Ins.OpenUI<Home>();
+        }
+        else
+        {
+            LevelManager.Ins.LoadTut(0);
+            UIManager.Ins.OpenUI<GamePlay>();
+            UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
+        }
     }
 }

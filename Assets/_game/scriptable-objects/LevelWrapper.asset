@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d38790108f5d25b4f9ae7779f0f8d35f, type: 3}
   m_Name: LevelWrapper
   m_EditorClassIdentifier: 
+  tutLevels:
+  - {fileID: 11400000, guid: ea8abe0839e34c74f802d99bdf1c10c5, type: 2}
   levels:
   - {fileID: 11400000, guid: a10b31de6b349db4b9654dda25355ca6, type: 2}
   - {fileID: 11400000, guid: 3ed29e0811f68d84e8e69a92cf0f0018, type: 2}

@@ -29,6 +29,6 @@ public class MinimapSquare : MonoBehaviour
     public void Scale()
     {
         this.transform.localScale = Vector3.one * 0.2f;
-        this.transform.DOScale(1f, 0.25f).SetEase(Ease.OutSine);
+        this.transform.DOScale(1f, 0.4f).SetEase(Ease.OutSine);
     }
 }

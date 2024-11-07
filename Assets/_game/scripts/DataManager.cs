@@ -91,6 +91,7 @@ public class PlayerData
     public int currentTutLevelIndex;
     public int currentLevelIndex;
     public List<string> passedLevelNames = new();
+    public bool isPassedTutLevel;
     [Header("spin:")]
     public bool isCanSpin;
     public int levelPassToSpin;

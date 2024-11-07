@@ -7,4 +7,6 @@ public class LevelInfooo : ScriptableObject
 {
     [ListDrawerSettings(NumberOfItemsPerPage = 10)]
     public List<StageInfooo> stages;
+    public int heartAmount;
+    public bool isTut;
 }

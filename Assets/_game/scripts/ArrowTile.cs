@@ -94,6 +94,7 @@ public class ArrowTile : MonoBehaviour
         dot.Scale();
         LevelManager.Ins.currentLevel.remainTilesCount -= 1;
         LevelManager.Ins.CheckWinLose();
+        if (Tutorial.Ins.IsCurrentTile(this)) Tutorial.Ins.Next();
     }
 
     public void OnFinishStuck()
@@ -126,6 +127,7 @@ public class ArrowTile : MonoBehaviour
         {
             Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
         }
+        LevelManager.Ins.currentLevel.SubtractHeart(1);
     }
 
     public void MoveThrough()
@@ -195,6 +197,7 @@ public class ArrowTile : MonoBehaviour
         if (LevelManager.Ins.isEndLevel) return;
         if (UIHover.isHoverUI) return;
         if (BoosterManager.Ins.isUsingBooster) return;
+        if (LevelManager.Ins.currentLevelInfooo.isTut && !Tutorial.Ins.IsCurrentTile(this) && !Tutorial.Ins.isFinish) return;
         Move();
     }
 

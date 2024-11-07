@@ -8,6 +8,7 @@ public class Hearts : MonoBehaviour
     public RectTransform rectTransform;
     public List<Heart> hearts = new List<Heart>();
     public int remainHeart => hearts.Count(x => x.heartRedObj.gameObject.activeInHierarchy);
+    public GameObject heartInfObj;
 
 
     public void OnLoadLevel(int amount)
@@ -18,6 +19,12 @@ public class Hearts : MonoBehaviour
 
     public void InitHearts(int amount)
     {
+        if(amount == 999)
+        {
+            heartInfObj.gameObject.SetActive(true);
+            return;
+        }
+        heartInfObj.gameObject.SetActive(false);
         hearts.Clear();
         for (int i = 0; i < amount; i++)
         {
@@ -31,13 +38,14 @@ public class Hearts : MonoBehaviour
 
     public void InitWidth()
     {
-        rectTransform.sizeDelta = new Vector2(63*hearts.Count + 10*(hearts.Count-1), 0);
+        rectTransform.sizeDelta = new Vector2(Mathf.Max(63 * hearts.Count + 10 * (hearts.Count - 1), 360f), 0);
     }
 
     public void AddHeart(int amount)
     {
         if (remainHeart >= hearts.Count) return;
-        for (int i = remainHeart; i < Mathf.Min(remainHeart + amount, hearts.Count); i++)
+        int maxx = Mathf.Min(remainHeart + amount, hearts.Count);
+        for (int i = remainHeart; i < maxx; i++)
         {
             Heart heart = hearts[i];
             heart.Show(true);
@@ -47,7 +55,8 @@ public class Hearts : MonoBehaviour
     public void SubtractHeart(int amount)
     {
         if (remainHeart <= 0) return;
-        for (int i = remainHeart - 1; i >= Mathf.Max(remainHeart - amount, 0); i++)
+        int minn = Mathf.Max(remainHeart - amount, 0);
+        for (int i = remainHeart - 1; i >= minn; i--)
         {
             Heart heart = hearts[i];
             heart.Show(false);

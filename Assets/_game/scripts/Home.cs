@@ -5,31 +5,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class Home : UICanvas
 {
     public bool isInited = false;
+    public RectTransform minimapRectTF;
+    public Image nextPictureOutImg;
+    public Image nextPictureInImg;
+    public bool isWin;
+    public RectTransform starRectTF;
+    public RectTransform buttonStarRectTF;
 
 
     public override void Open()
     {
         base.Open();
         Init();
-        MinimapManager.Ins.OnOpenHome();
         Refresh();
+        CameraManager.Ins.cam.transform.position = Vector3.zero;
+        StarAnimManager.Ins.OnOpenHome();
+        isWin = false;
     }
 
     public void Init()
     {
         if (isInited) return;
-
         isInited = true;
     }
 
     [Button]
     public void Refresh()
     {
+        RefreshPicturePositions();
+        RefreshNextPictureSprite();
+        MinimapManager.Ins.OnOpenHome(isWin, MovePictures);
+    }
+
+    public void RefreshPicturePositions()
+    {
+        minimapRectTF.anchoredPosition = new Vector2(0, minimapRectTF.anchoredPosition.y);
+        nextPictureOutImg.rectTransform.anchoredPosition = new Vector2(UIManager.Ins.screenWidth, nextPictureOutImg.rectTransform.anchoredPosition.y);
+    }
+
+    public void RefreshNextPictureSprite()
+    {
+        Debug.Log("curelevindexz " + DataManager.Ins.playerData.currentLevelIndex.ToString());
+        Texture2D texture2d = LevelManager.Ins.GetLevelInfo(DataManager.Ins.playerData.currentLevelIndex).stages[0].texture2d;
+        nextPictureInImg.sprite = SpriteUtility.GetSpriteFromSolidColor(MinimapManager.Ins.initColor, texture2d);
+
+        nextPictureInImg.rectTransform.sizeDelta = nextPictureOutImg.rectTransform.sizeDelta / 2 * 1.34f;
+        if (texture2d.width > texture2d.height)
+        {
+            nextPictureInImg.ResizeImgKeepWidth();
+        }
+        else
+        {
+            nextPictureInImg.ResizeImgKeepHeight();
+        }
+    }
+
+    public void MovePictures()
+    {
+        minimapRectTF.DOAnchorPos(new Vector2(-UIManager.Ins.screenWidth, minimapRectTF.anchoredPosition.y), 0.8f).SetEase(Ease.OutQuad);
+        nextPictureOutImg.rectTransform.DOAnchorPos(new Vector2(0, nextPictureOutImg.rectTransform.anchoredPosition.y), 0.8f).SetEase(Ease.OutQuad).OnComplete(() =>
+        {
+            BlockUI.Ins.UnBlock();
+        });
+    }
+
+    public void ScaleButtonStar()
+    {
+        buttonStarRectTF.transform.DOScale(1.1f, 0.1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 
     public void ButtonPlay()
@@ -38,6 +84,16 @@ public class Home : UICanvas
         {
             LevelManager.Ins.LoadCurrentLevel();
         });
+    }
+
+    public void ButtonGallery()
+    {
+
+    }
+
+    public void ButtonStar()
+    {
+
     }
 
 }

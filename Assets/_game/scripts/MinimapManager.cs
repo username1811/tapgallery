@@ -18,10 +18,9 @@ public class MinimapManager : Singleton<MinimapManager>
     float objectHeight => maxY - minY;
     public LevelInfooo levelInfooo;
     public Wave wave;
-    public bool isWin;
 
 
-    public void OnOpenHome()
+    public void OnOpenHome(bool isWin, Action OnCompleteWave=null)
     {
         wave.gameObject.SetActive(false);
         if (!isWin)
@@ -37,9 +36,9 @@ public class MinimapManager : Singleton<MinimapManager>
             InitLimitPosition();
             MoveToCenter(false);
             RefreshCamDistance(false, 5f);
-            ShowColor();
+            ShowColor(OnCompleteWave);
+            BlockUI.Ins.Block();
         }
-        isWin = false;
     }
 
     public void CreateGreyLevel(LevelInfooo levelInfo, int stageIndex)
@@ -124,15 +123,16 @@ public class MinimapManager : Singleton<MinimapManager>
     }
 
     [Button]
-    public void ShowColor()
+    public void ShowColor(Action OnComplete=null)
     {
         wave.gameObject.SetActive(false);
-        wave.transform.position = new Vector3(minX-1f, minY-1f, 0) + (Vector3)offsetFromOriginalLevel;
+        wave.transform.position = new Vector3(minX-2f, minY-2f, 0) + (Vector3)offsetFromOriginalLevel;
         wave.gameObject.SetActive(true);
-        Vector3 targetMove = new Vector3(maxX+1f, maxY+1f, 0) + (Vector3)offsetFromOriginalLevel;
-        wave.transform.DOMove(targetMove, 4f).SetEase(Ease.Linear).OnComplete(() =>
+        Vector3 targetMove = new Vector3(maxX+2f, maxY+2f, 0) + (Vector3)offsetFromOriginalLevel;
+        wave.transform.DOMove(targetMove, 6f).SetEase(Ease.Linear).OnComplete(() =>
         {
             wave.gameObject.SetActive(false);
+            OnComplete?.Invoke();
         });
     }
 

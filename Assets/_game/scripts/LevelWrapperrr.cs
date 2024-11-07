@@ -6,6 +6,8 @@ using UnityEngine;
 public class LevelWrapperrr : ScriptableObject
 {
     [ListDrawerSettings(NumberOfItemsPerPage = 10)]
+    public List<LevelInfooo> tutLevels;
+    [ListDrawerSettings(NumberOfItemsPerPage = 10)]
     public List<LevelInfooo> levels;
 
     [Button]

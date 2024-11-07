@@ -15,6 +15,8 @@ public class GamePlay : UICanvas
     public List<Transform> boosterButtons = new List<Transform>();  
     public Image blackImg;
     public Hearts hearts;
+    public Hand hand;
+    public GameObject buttonBackObj;
 
 
     private void Start()
@@ -29,17 +31,17 @@ public class GamePlay : UICanvas
     public override void Open()
     {
         base.Open();
+    }
+
+    public void OnLoadLevel()
+    {
         MinimapManager.Ins.originalMinimapPos = minimapRectTF.position;
         ShowBoosterBombUI(false);
         ShowBoosterMagnetUI(false);
         ShowBoosterButtons(true);
         blackImg.gameObject.SetActive(false);
-        hearts.OnLoadLevel(5);
-    }
-
-    public void OnLoadLevel()
-    {
-
+        hearts.OnLoadLevel(LevelManager.Ins.currentLevel.heartAmount);
+        buttonBackObj.SetActive(!LevelManager.Ins.currentLevelInfooo.isTut);
     }
 
     public void ShowBoosterBombUI(bool isShow, Action OnComplete=null)
@@ -89,6 +91,14 @@ public class GamePlay : UICanvas
         blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.3f).SetEase(Ease.OutQuad);
     }
 
+    public void OnLose()
+    {
+        return;
+        blackImg.gameObject.SetActive(true);
+        blackImg.color = new Color(0f, 0f, 0f, 0f);
+        blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.3f).SetEase(Ease.OutQuad);
+    }
+
 
     //BUTTON
     public void ButtonBack()
@@ -97,6 +107,11 @@ public class GamePlay : UICanvas
         {
             UIManager.Ins.OpenUI<Home>();
         });
+    }
+
+    public void ButtonSettings()
+    {
+
     }
 
     public void ButtonHint()

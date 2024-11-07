@@ -14,7 +14,8 @@ public class Win : UICanvas
         base.Open();
         ShowElements();
         ShowConfetti();
-        DataManager.Ins.playerData.currentLevelIndex += 1;
+        if(!LevelManager.Ins.currentLevelInfooo.isTut) DataManager.Ins.playerData.currentLevelIndex += 1;
+        if (LevelManager.Ins.currentLevelInfooo.isTut) DataManager.Ins.playerData.isPassedTutLevel = true;
     }
 
     public void ShowElements()
@@ -50,9 +51,9 @@ public class Win : UICanvas
 
     public void ButtonContinue()
     {
+        if (!LevelManager.Ins.currentLevelInfooo.isTut) UIManager.Ins.GetUI<Home>().isWin = true;
         SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
         {
-            MinimapManager.Ins.isWin = true;
             UIManager.Ins.OpenUI<Home>();
         });
     }

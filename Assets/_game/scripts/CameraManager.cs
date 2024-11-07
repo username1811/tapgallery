@@ -41,6 +41,8 @@ public class CameraManager : Singleton<CameraManager>
             return;
         }
 
+        if (LevelManager.Ins.currentLevelInfooo!=null && LevelManager.Ins.currentLevelInfooo.isTut) return;
+
         if (cam == null) cam = Camera.main;
 
         if (Pinch()) {
@@ -114,7 +116,10 @@ public class CameraManager : Singleton<CameraManager>
         isDragWhenIsMoving = false;
         DOVirtual.DelayedCall(0.8f, () =>
         {
-            AnimZoomToEatableTile();
+            AnimZoomToEatableTile(() =>
+            {
+                Tutorial.Ins.OnInitt(LevelManager.Ins.currentLevelInfooo.isTut);
+            });
         });
     }
 

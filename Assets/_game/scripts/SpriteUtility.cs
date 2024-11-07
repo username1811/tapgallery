@@ -16,7 +16,7 @@ public class SpriteUtility
         for (int i = 0; i < pixels.Length; i++)
         {
             pixels[i] = originalPixels[i];
-            if (pixels[i].a < 0.01f) continue;
+            if (pixels[i].a < 0.7f) continue;
             pixels[i] = color;
         }
         texture2D.SetPixels(pixels);

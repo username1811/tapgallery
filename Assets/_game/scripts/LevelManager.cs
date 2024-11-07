@@ -39,7 +39,7 @@ public class LevelManager : Singleton<LevelManager>
     public Action OnCompleteLoadLevel = () =>
     {
         RandomDirectionManager.Ins.InitDict();
-        DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
+        DOVirtual.DelayedCall(Time.deltaTime * 1f, () =>
         {
             CameraManager.Ins.OnLoadLevel();
             UIManager.Ins.OpenUI<GamePlay>();
@@ -49,6 +49,17 @@ public class LevelManager : Singleton<LevelManager>
         });
     };
 
+    public void LoadTut(int levelIndex)
+    {
+        isLoadedLevel = false;
+        isEndLevel = false;
+        DestroyCurrentLevel();
+        currentLevelInfooo = GetTutLevelInfo(levelIndex);
+        CreateStageFromLevelInfooo(currentLevelInfooo, 0);
+        currentLevel.OnInit(currentLevelInfooo.heartAmount);
+        OnCompleteLoadLevel?.Invoke();
+    }
+
     public void LoadLevel(int levelIndex)
     {
         isLoadedLevel = false;
@@ -56,7 +67,7 @@ public class LevelManager : Singleton<LevelManager>
         DestroyCurrentLevel();
         currentLevelInfooo = GetLevelInfo(levelIndex);
         CreateStageFromLevelInfooo(currentLevelInfooo, 0);
-        currentLevel.OnInit();
+        currentLevel.OnInit(currentLevelInfooo.heartAmount);
         OnCompleteLoadLevel?.Invoke();
         /*//FIREBASE
         //checkpoint start
@@ -90,6 +101,7 @@ public class LevelManager : Singleton<LevelManager>
                 yield break;
             }
             bool isWin = currentLevel.remainTilesCount <= 0;
+            bool isLose = currentLevel.heartAmount <= 0;
             if (isWin)//win
             {
                 isEndLevel = true;
@@ -97,10 +109,12 @@ public class LevelManager : Singleton<LevelManager>
                 UIManager.Ins.GetUI<GamePlay>().OnWin();
                 DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
             }
-            /*else if(isLose) //lose
+            else if (isLose) //lose
             {
                 isEndLevel = true;
-            }*/
+                UIManager.Ins.OpenUI<Revive>();
+                UIManager.Ins.GetUI<GamePlay>().OnLose();
+            }
         }
     }
 
@@ -120,10 +134,14 @@ public class LevelManager : Singleton<LevelManager>
         CheckWinLose();
     }
 
+    public LevelInfooo GetTutLevelInfo(int levelIndex)
+    {
+        return levelWrapperrr.tutLevels[GetLoopLevelIndex(levelIndex)];
+    }
+
     public LevelInfooo GetLevelInfo(int levelIndex)
     {
         return levelWrapperrr.levels[GetLoopLevelIndex(levelIndex)];
-
     }
 
     public void CreateStageFromLevelInfooo(LevelInfooo levelInfo, int stageIndex)
