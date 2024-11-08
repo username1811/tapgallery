@@ -42,13 +42,12 @@ public class Loading : MonoBehaviour
         SceneManagerrr.Ins.UnloadScene(SceneType.Loading);
         if (DataManager.Ins.playerData.isPassedTutLevel)
         {
+            Home.isWaitAnim = false;
             UIManager.Ins.OpenUI<Home>();
         }
         else
         {
             LevelManager.Ins.LoadTut(0);
-            UIManager.Ins.OpenUI<GamePlay>();
-            UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
         }
     }
 }

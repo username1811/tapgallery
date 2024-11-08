@@ -76,6 +76,8 @@ public class BoosterHint : Booster
     public override void Use()
     {
         base.Use();
+        DataManager.Ins.playerData.boosterHintAmount -= 1;
+        UIManager.Ins.GetUI<GamePlay>().Refresh();
         CameraManager.Ins.AnimZoomToEatableTile(() =>
         {
             ArrowTile.GetEatableTile().greenCover.OnHint();
@@ -92,7 +94,6 @@ public class BoosterHint : Booster
     public override void FinishUse()
     {
         base.FinishUse();
-
     }
 }
 
@@ -138,9 +139,11 @@ public class BoosterBomb : Booster
                     {
                         FinishUse();
                     });
+                    DataManager.Ins.playerData.boosterBombAmount -= 1;
                     UIManager.Ins.GetUI<GamePlay>().ShowBoosterBombUI(false, () =>
                     {
                         UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+                        UIManager.Ins.GetUI<GamePlay>().Refresh();
                     });
                     isSpawnBomb = true;
                 }
@@ -206,9 +209,11 @@ public class BoosterMagnet : Booster
             InitMoveArrowTiles(directionType);
             Magnet();
         });
+        DataManager.Ins.playerData.boosterMagnetAmount -= 1;
         UIManager.Ins.GetUI<GamePlay>().ShowBoosterMagnetUI(false, () =>
         {
             UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(true);
+            UIManager.Ins.GetUI<GamePlay>().Refresh();
         });
     }
 

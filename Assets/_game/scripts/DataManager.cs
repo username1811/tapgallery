@@ -92,6 +92,10 @@ public class PlayerData
     public int currentLevelIndex;
     public List<string> passedLevelNames = new();
     public bool isPassedTutLevel;
+    [Header("booster:")]
+    public int boosterHintAmount;
+    public int boosterBombAmount;
+    public int boosterMagnetAmount;
     [Header("spin:")]
     public bool isCanSpin;
     public int levelPassToSpin;

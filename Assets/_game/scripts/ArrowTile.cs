@@ -18,7 +18,6 @@ public class ArrowTile : MonoBehaviour
     [Title("Sorting Order:")]
     public int sortingOrder;
     public SpriteRenderer spriteRenderer;
-    public SpriteRenderer edgeSpriteRenderer;
     [Title("Arrow:")]
     public Color color;
     public Arrow arrow;
@@ -30,6 +29,8 @@ public class ArrowTile : MonoBehaviour
     public bool isGreen => greenCover.greenTween.IsPlaying();
     [Title("pixel:")]
     public PixelData pixelData;
+    [Title("trail:")]
+    public TrailRenderer trailRenderer;
 
     private void OnValidate()
     {
@@ -54,12 +55,11 @@ public class ArrowTile : MonoBehaviour
         //sortingorder
         this.sortingOrder = pixelData.sortingOrder;
         spriteRenderer.sortingOrder = sortingOrder * 10;
-        edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder - 5;
-        edgeSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 1;
-        arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
+        trailRenderer.sortingOrder = spriteRenderer.sortingOrder-1;
+        greenCover.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 3;
         arrow.shadowSpriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 4;
-        redCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder + 1;
-        greenCover.spriteRenderer.sortingOrder = arrow.spriteRenderer.sortingOrder - 2;
+        arrow.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 5;
+        redCover.spriteRenderer.sortingOrder = spriteRenderer.sortingOrder + 6;
         //color
         this.color = pixelData.color;
         arrow.spriteRenderer.color = color;
@@ -74,10 +74,11 @@ public class ArrowTile : MonoBehaviour
     {
         this.sortingOrder += x;
         spriteRenderer.sortingOrder += x;
-        edgeSpriteRenderer.sortingOrder += x;
+        trailRenderer.sortingOrder += x;
+        greenCover.spriteRenderer.sortingOrder += x;
+        arrow.shadowSpriteRenderer.sortingOrder += x;
         arrow.spriteRenderer.sortingOrder += x;
         redCover.spriteRenderer.sortingOrder += x;
-        greenCover.spriteRenderer.sortingOrder += x;
     }
 
     [Button]

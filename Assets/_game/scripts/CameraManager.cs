@@ -114,7 +114,7 @@ public class CameraManager : Singleton<CameraManager>
         isDoingAnim = true;
         isDraggingOver1 = false;
         isDragWhenIsMoving = false;
-        DOVirtual.DelayedCall(0.8f, () =>
+        DOVirtual.DelayedCall(1.2f, () =>
         {
             AnimZoomToEatableTile(() =>
             {
@@ -153,7 +153,8 @@ public class CameraManager : Singleton<CameraManager>
 
     public void MoveToCenter(bool isAnim=false, Action OnComplete=null)
     {
-        Vector3 targetMove = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z);
+        float objectHeight = maxY - minY;
+        Vector3 targetMove = new Vector3((maxX + minX) / 2f, (maxY + minY) / 2f, cam.transform.position.z) - new Vector3(0, objectHeight * 6 / 100,0) ; 
         targetMove.z = -18f;
         if (isAnim)
         {
@@ -201,7 +202,7 @@ public class CameraManager : Singleton<CameraManager>
         float duration = isAnim? 1f : 0f;
         Ease ease = Ease.OutSine;
         isDoingAnim = true;
-        float targetOrthoSize = Mathf.Clamp(Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY, minZoom, maxZoom) ;
+        float targetOrthoSize = Mathf.Clamp(Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY, minZoom, maxZoom);
         DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
         {
             cam.orthographicSize = v;

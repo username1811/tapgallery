@@ -14,7 +14,16 @@ public class Home : UICanvas
     public Image nextPictureInImg;
     public bool isWin;
     public RectTransform starRectTF;
+    [Title("top:")]
+    public RectTransform topRectTF;
+    [Title("bot:")]
+    public RectTransform buttonGalerryRectTF;
     public RectTransform buttonStarRectTF;
+    public RectTransform buttonPlayRectTF;
+    [Title("left:")]
+    [Title("right:")]
+
+    public static bool isWaitAnim = true;
 
 
     public override void Open()
@@ -24,7 +33,9 @@ public class Home : UICanvas
         Refresh();
         CameraManager.Ins.cam.transform.position = Vector3.zero;
         StarAnimManager.Ins.OnOpenHome();
+        Anim();
         isWin = false;
+        isWaitAnim = true;
     }
 
     public void Init()
@@ -78,6 +89,27 @@ public class Home : UICanvas
         buttonStarRectTF.transform.DOScale(1.1f, 0.1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 
+    public void Anim()
+    {
+        float oldYbot = buttonGalerryRectTF.anchoredPosition.y;
+        float oldYtop = topRectTF.anchoredPosition.y;
+        float delay = 0.1f;
+        //reset
+        buttonGalerryRectTF.anchoredPosition = new Vector2(buttonGalerryRectTF.anchoredPosition.x, -160f);
+        buttonStarRectTF.anchoredPosition = new Vector2(buttonStarRectTF.anchoredPosition.x, -160f);
+        buttonPlayRectTF.anchoredPosition = new Vector2(buttonPlayRectTF.anchoredPosition.x, -160f);
+        topRectTF.anchoredPosition = new Vector2(topRectTF.anchoredPosition.x, 300f);
+        //anim
+        float waitTime = isWaitAnim ? 0.5f : 0f;
+        DOVirtual.DelayedCall(waitTime, () =>
+        {
+            buttonGalerryRectTF.DOAnchorPos(new Vector2(buttonGalerryRectTF.anchoredPosition.x, oldYbot), 0.5f).SetEase(Ease.OutBack);
+            buttonPlayRectTF.DOAnchorPos(new Vector2(buttonPlayRectTF.anchoredPosition.x, oldYbot), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 1);
+            buttonStarRectTF.DOAnchorPos(new Vector2(buttonStarRectTF.anchoredPosition.x, oldYbot), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 2);
+            topRectTF.DOAnchorPos(new Vector2(topRectTF.anchoredPosition.x, oldYtop), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 1);
+        });
+    }
+
     public void ButtonPlay()
     {
         SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
@@ -92,6 +124,11 @@ public class Home : UICanvas
     }
 
     public void ButtonStar()
+    {
+
+    }
+
+    public void ButtonSettings()
     {
 
     }
