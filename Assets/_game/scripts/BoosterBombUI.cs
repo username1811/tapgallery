@@ -15,6 +15,7 @@ public class BoosterBombUI : BoosterUI
     public RectTransform buttonCancelRectTF;
     public Transform img;
     public TextMeshProUGUI tutText;
+    public bool isBlockCancel;
 
     public override void Use()
     {
@@ -34,6 +35,11 @@ public class BoosterBombUI : BoosterUI
 
     public void Show()
     {
+        isBlockCancel = true;
+        DOVirtual.DelayedCall(0.7f, () =>
+        {
+            isBlockCancel = false;
+        });
         //btnbombfake
         buttonBombFakeRectTF.anchoredPosition = new Vector2(0, buttonBombFakeRectTF.anchoredPosition.y);
         buttonBombFakeRectTF.DOAnchorPos(new Vector2(-327f, buttonBombFakeRectTF.anchoredPosition.y), 0.4f).SetEase(Ease.OutQuad);
@@ -52,6 +58,7 @@ public class BoosterBombUI : BoosterUI
 
     public void ButtonCancel()
     {
+        if (isBlockCancel) return;
         if(BoosterManager.Ins.currentBooster is BoosterBomb boosterBomb)
         {
             boosterBomb.OnCancel();

@@ -90,7 +90,7 @@ public class GamePlay : UICanvas
         topRectTF.anchoredPosition = new Vector2(topRectTF.anchoredPosition.x, 300f);
         botRectTF.anchoredPosition = new Vector2(botRectTF.anchoredPosition.x, -600f);
         //anim
-        float waitTime = 0.3f;
+        float waitTime = 0.4f;
         DOVirtual.DelayedCall(waitTime, () =>
         {
             topRectTF.DOAnchorPos(new Vector2(topRectTF.anchoredPosition.x, oldYtop), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 1);
