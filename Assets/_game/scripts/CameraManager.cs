@@ -201,7 +201,7 @@ public class CameraManager : Singleton<CameraManager>
         float duration = isAnim? 1f : 0f;
         Ease ease = Ease.OutSine;
         isDoingAnim = true;
-        float targetOrthoSize = Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY;
+        float targetOrthoSize = Mathf.Clamp(Mathf.Max(objectWidth, objectHeight) * screenAspect + offsetY, minZoom, maxZoom) ;
         DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
         {
             cam.orthographicSize = v;
@@ -209,6 +209,21 @@ public class CameraManager : Singleton<CameraManager>
         {
             if(isAnim) isDoingAnim = false;
             OnComplete?.Invoke();
+        });
+    }
+
+    public void OnUseBomb()
+    {
+        float duration = 0.8f;
+        Ease ease = Ease.OutSine;
+        isDoingAnim = true;
+        float targetOrthoSize = 10f;
+        DOVirtual.Float(cam.orthographicSize, targetOrthoSize, duration, v =>
+        {
+            cam.orthographicSize = v;
+        }).SetEase(ease).OnComplete(() =>
+        {
+            isDoingAnim = false;
         });
     }
 

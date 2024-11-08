@@ -103,10 +103,8 @@ public class BoosterBomb : Booster
     public override void Use()
     {
         base.Use();
-        CameraManager.Ins.MoveToCenter(true);
-        CameraManager.Ins.RefreshCamDistance(true, 1f, () =>
-        {
-        });
+        //CameraManager.Ins.MoveToCenter(true);
+        CameraManager.Ins.OnUseBomb();
         ClickManager.isCanClick = false;
         
         UIManager.Ins.GetUI<GamePlay>().ShowBoosterButtons(false, () =>

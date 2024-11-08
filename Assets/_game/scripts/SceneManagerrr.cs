@@ -59,7 +59,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
 
         if (isFadeOut)
         {
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.3f);
         }
 
         // Fade In
