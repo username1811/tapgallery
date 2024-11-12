@@ -61,7 +61,7 @@ public class Home : UICanvas
     public void RefreshNextPictureSprite()
     {
         Debug.Log("curelevindexz " + DataManager.Ins.playerData.currentLevelIndex.ToString());
-        Texture2D texture2d = LevelManager.Ins.GetLevelInfo(DataManager.Ins.playerData.currentLevelIndex).stages[0].texture2d;
+        Texture2D texture2d = LevelManager.Ins.GetLevelInfo(DataManager.Ins.playerData.currentLevelIndex).texture2d;
         nextPictureInImg.sprite = SpriteUtility.GetSpriteFromSolidColor(MinimapManager.Ins.initColor, texture2d);
 
         nextPictureInImg.rectTransform.sizeDelta = nextPictureOutImg.rectTransform.sizeDelta / 2 * 1.34f;

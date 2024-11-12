@@ -13,6 +13,6 @@ public class LevelWrapperrr : ScriptableObject
     [Button]
     public void SortByPixelAmount()
     {
-        levels.Sort((x, y) => x.stages[0].pixelDatas.Count.CompareTo(y.stages[0].pixelDatas.Count));
+        levels.Sort((x, y) => x.pixelDatas.Count.CompareTo(y.pixelDatas.Count));
     }
 }

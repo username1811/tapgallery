@@ -119,6 +119,7 @@ public class CameraManager : Singleton<CameraManager>
             AnimZoomToEatableTile(() =>
             {
                 Tutorial.Ins.OnInitt(LevelManager.Ins.currentLevelInfooo.isTut);
+                BoosterManager.Ins.ShowTutBooster();
             });
         });
     }

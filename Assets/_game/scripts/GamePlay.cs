@@ -13,16 +13,13 @@ public class GamePlay : UICanvas
     public RectTransform minimapRectTF;
     public BoosterBombUI boosterBombUI;
     public BoosterMagnetUI boosterMagnetUI;
-    public List<Transform> boosterButtons = new List<Transform>();  
-    public Image blackImg;
+    public GameObject blackCoverObj;
     public Hearts hearts;
     public Hand hand;
     public GameObject buttonBackObj;
     public RectTransform topRectTF;
     public RectTransform botRectTF;
-    public TextMeshProUGUI boosterHintAmountText;
-    public TextMeshProUGUI boosterBombAmountText;
-    public TextMeshProUGUI boosterMagnetAmountText;
+    public List<ButtonBooster> buttonBoosters = new List<ButtonBooster>();
 
 
     private void Start()
@@ -45,7 +42,6 @@ public class GamePlay : UICanvas
         ShowBoosterBombUI(false);
         ShowBoosterMagnetUI(false);
         ShowBoosterButtons(true);
-        blackImg.gameObject.SetActive(false);
         hearts.OnLoadLevel(LevelManager.Ins.currentLevel.heartAmount);
         buttonBackObj.SetActive(!LevelManager.Ins.currentLevelInfooo.isTut);
         Anim();
@@ -71,7 +67,7 @@ public class GamePlay : UICanvas
         float targetScale = isShow ? 1f : 0f;
         float duration = isShow ? 0.35f : 0.2f;
 
-        foreach (var b in boosterButtons)
+        foreach (var b in buttonBoosters)
         {
             b.transform.localScale = resetScale;
             b.transform.DOScale(targetScale, duration).SetEase(Ease.OutSine).OnComplete(() =>
@@ -102,24 +98,21 @@ public class GamePlay : UICanvas
     public void OnWin()
     {
         return;
-        blackImg.gameObject.SetActive(true);
-        blackImg.color = new Color(0f, 0f, 0f, 0f);
-        blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.3f).SetEase(Ease.OutQuad);
+      
     }
 
     public void OnLose()
     {
         return;
-        blackImg.gameObject.SetActive(true);
-        blackImg.color = new Color(0f, 0f, 0f, 0f);
-        blackImg.DOColor(new Color(0f, 0f, 0f, 0.95f), 1.3f).SetEase(Ease.OutQuad);
+        
     }
 
     public void Refresh()
     {
-        boosterHintAmountText.text = DataManager.Ins.playerData.boosterHintAmount.ToString();
-        boosterBombAmountText.text = DataManager.Ins.playerData.boosterBombAmount.ToString();
-        boosterMagnetAmountText.text = DataManager.Ins.playerData.boosterMagnetAmount.ToString();
+        foreach(var buttonBooster in buttonBoosters)
+        {
+            buttonBooster.Refresh();
+        }
     }
 
 

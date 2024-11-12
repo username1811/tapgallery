@@ -9,9 +9,382 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bfb3fc59d2cc44409cd9328fca177ed, type: 3}
+  m_Script: {fileID: 11500000, guid: d7b87a5b4ae754846b82284b21dd35be, type: 3}
   m_Name: weapons_sickle
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 11400000, guid: 8bd52df6086dc09479b1f33d487c1189, type: 2}
+  texture2d: {fileID: 2800000, guid: 72fa7c1f0ad95e840ad05bd48e3ff353, type: 3}
+  pixelDatas:
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 0, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 1, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 1, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 3, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 2, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 8, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 5, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 6, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 7, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 8, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 5, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 6, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 7, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 0, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 1, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 1, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 3, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 2, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 8, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 5, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 6, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 7, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 8, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 5, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 6, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 7, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 0, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 1, y: 0}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 1, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 1}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 3, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 2}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.7176471, g: 0.46274513, b: 0.21176472, a: 1}
+    coordinate: {x: 2, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 3}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 4}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 5}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 2, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 9, y: 6}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 2, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 3, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 8, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 9, y: 7}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 3, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 4, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 5, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 6, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 1, g: 1, b: 1, a: 1}
+    coordinate: {x: 7, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 8, y: 8}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 4, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 5, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 6, y: 9}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.56078434, g: 0.58431375, b: 0.58431375, a: 1}
+    coordinate: {x: 7, y: 9}
+    sortingOrder: 1
+    directionType: 0
   heartAmount: 5
+  isTut: 0

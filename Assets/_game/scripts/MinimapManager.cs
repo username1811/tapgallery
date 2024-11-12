@@ -41,14 +41,13 @@ public class MinimapManager : Singleton<MinimapManager>
         }
     }
 
-    public void CreateGreyLevel(LevelInfooo levelInfo, int stageIndex)
+    public void CreateGreyLevel(LevelInfooo levelInfo, int levelIndex)
     {
         this.levelInfooo = levelInfo;
         minimapSquares.Clear();
         PoolManager.Ins.GetPool(PoolType.MinimapSquare).ReturnAll();
-        StageInfooo stageInfooo = levelInfo.stages[stageIndex];
-        GameObject stageObj = new GameObject("stage_" + stageInfooo.name);
-        foreach (var pixelData in stageInfooo.pixelDatas)
+        LevelInfooo levelInfoo = levelInfo;
+        foreach (var pixelData in levelInfoo.pixelDatas)
         {
             MinimapSquare minimapSquare = PoolManager.Ins.Spawn<MinimapSquare>(PoolType.MinimapSquare);
             minimapSquare.transform.SetParent(this.transform);
@@ -58,10 +57,10 @@ public class MinimapManager : Singleton<MinimapManager>
     }
     public void InitLimitPosition()
     {
-        minX = maxX = levelInfooo.stages[0].pixelDatas[0].coordinate.x;
-        minY = maxY = levelInfooo.stages[0].pixelDatas[0].coordinate.y;
+        minX = maxX = levelInfooo.pixelDatas[0].coordinate.x;
+        minY = maxY = levelInfooo.pixelDatas[0].coordinate.y;
 
-        foreach (var pixelData in levelInfooo.stages[0].pixelDatas)
+        foreach (var pixelData in levelInfooo.pixelDatas)
         {
             Vector3 position = pixelData.coordinate;
 

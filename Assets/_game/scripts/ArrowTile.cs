@@ -129,6 +129,7 @@ public class ArrowTile : MonoBehaviour
             Debugger.DrawCircle(stuckArrowTile.transform.position, 0.3f, Color.red, 3f);
         }
         LevelManager.Ins.currentLevel.SubtractHeart(1);
+        BoosterManager.Ins.FocusBoosterHint();
     }
 
     public void MoveThrough()

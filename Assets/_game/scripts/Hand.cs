@@ -8,6 +8,12 @@ public class Hand : MonoBehaviour
 {
     public Tween rotateTween;
     public Tween scaleTween;
+    public RectTransform rectTransform;
+
+    private void Awake()
+    {
+        rectTransform = GetComponent<RectTransform>();
+    }
 
     public void Anim()
     {

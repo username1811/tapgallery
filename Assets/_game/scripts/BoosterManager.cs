@@ -12,12 +12,37 @@ public class BoosterManager : Singleton<BoosterManager>
     public bool isUsingBooster = false;
 
     [SerializeReference]
-    public List<Booster> boosters = new List<Booster>();    
+    public List<Booster> boosters = new List<Booster>();
+
+    public Booster tutBooster;
+    public bool isTutorialing => tutBooster != null && UIManager.Ins.IsOpened<GamePlay>() && UIManager.Ins.GetUI<GamePlay>().hand.gameObject.activeInHierarchy;
+    public bool isFocusingHint;
+
+
 
     public void OnLoadLevel()
     {
         currentBooster = null;
         isUsingBooster = false;
+        TutBooster();
+    }
+
+    public void TutBooster()
+    {
+        tutBooster = boosters.FirstOrDefault(x => x.levelIndexToIntroduce == DataManager.Ins.playerData.currentLevelIndex);
+        if (tutBooster != null)
+        {
+            Debug.Log("tut booster " + tutBooster.boosterType.ToString());
+            tutBooster.OnUnlock();
+        }
+    }
+
+    public void ShowTutBooster()
+    {
+        return;
+        if (tutBooster == null) return;
+        ButtonBooster buttonBooster = UIManager.Ins.GetUI<GamePlay>().buttonBoosters.FirstOrDefault(x => x.boosterType == tutBooster.boosterType);
+        buttonBooster.OnTut();
     }
 
     private void Update()
@@ -38,7 +63,16 @@ public class BoosterManager : Singleton<BoosterManager>
         return boosters.FirstOrDefault(x => x.boosterType == boosterType);
     }
 
-
+    public void FocusBoosterHint()
+    {
+        if (DataManager.Ins.playerData.boosterHintAmount <= 0) return;
+        isFocusingHint = true;
+        ButtonBooster buttonBoosterHint = UIManager.Ins.GetUI<GamePlay>().buttonBoosters.FirstOrDefault(x => x.boosterType == BoosterType.Hint);
+        buttonBoosterHint.transform.DOScale(1.1f, 0.5f).SetEase(Ease.Linear).SetLoops(4, LoopType.Yoyo).OnComplete(() =>
+        {
+            isFocusingHint = false;
+        });
+    }
 
 }
 
@@ -52,6 +86,7 @@ public class Booster
 {
     public BoosterType boosterType;
     public Sprite icon;
+    public int levelIndexToIntroduce;
 
     public virtual void Use()
     {
@@ -67,6 +102,24 @@ public class Booster
     {
         BoosterManager.Ins.currentBooster = null;
         BoosterManager.Ins.isUsingBooster = false;
+    }
+
+    public void OnUnlock()
+    {
+        if (DataManager.Ins.playerData.unlockedBoosterTypes.Contains(boosterType)) return;
+        DataManager.Ins.playerData.unlockedBoosterTypes.Add(boosterType);
+        switch (boosterType)
+        {
+            case BoosterType.Hint:
+                DataManager.Ins.playerData.boosterHintAmount = 3; 
+                break;
+            case BoosterType.Bomb:
+                DataManager.Ins.playerData.boosterBombAmount = 3; 
+                break;
+            case BoosterType.Magnet:
+                DataManager.Ins.playerData.boosterMagnetAmount = 3; 
+                break;
+        }
     }
 
 }

@@ -28,7 +28,7 @@ public class CheatInput : Singleton<CheatInput>
         {
             RandomDirectionManager.Ins.RandomDirection();
             RandomDirectionManager.Ins.FixStuck();
-            LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
+            LevelManager.Ins.currentLevel.SaveDirectionToLevelInfoo();
         }
         if (Input.GetKeyDown(KeyCode.E))
         {

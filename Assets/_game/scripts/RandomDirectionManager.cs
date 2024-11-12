@@ -159,21 +159,21 @@ public class RandomDirectionManager : Singleton<RandomDirectionManager>
             {
                 yield return null;
                 yield return new WaitForSeconds(0.5f);
-                if (LevelManager.Ins.currentLevelInfooo.stages[0].pixelDatas.Any(x=>x.directionType != DirectionType.Up))
+                if (LevelManager.Ins.currentLevelInfooo.pixelDatas.Any(x=>x.directionType != DirectionType.Up))
                 {
                 }
                 else
                 {
                     stuckCount = 999;
                     int tryCount = 50;
-                    while (stuckCount > LevelManager.Ins.currentLevel.stageInfooo.pixelDatas.Count * (float)acceptPercent / 100f && tryCount > 0)
+                    while (stuckCount > LevelManager.Ins.currentLevel.levelInfooo.pixelDatas.Count * (float)acceptPercent / 100f && tryCount > 0)
                     {
                         RandomDirection();
                         FixStuck();
                         yield return new WaitUntil(() => !isFixingStuck);
                         tryCount -= 1;
                     }
-                    LevelManager.Ins.currentLevel.SaveDirectionToStageInfoo();
+                    LevelManager.Ins.currentLevel.SaveDirectionToLevelInfoo();
                     Debug.Log("done random direction " + LevelManager.Ins.currentLevel.gameObject.name);
                     yield return new WaitForSeconds(0.5f);
                 }

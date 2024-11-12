@@ -336,6 +336,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: DontDestroy
       objectReference: {fileID: 0}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985856].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: 5fa1d961b8d60614a9d4100f73595f28, type: 3}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985857].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: ee3c5d8e77ad9204e87252c9f2662968, type: 3}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985858].icon
+      value: 
+      objectReference: {fileID: 21300000, guid: a8a49f16254edaa4eadd97cfda3cddff, type: 3}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985856].levelIndexToIntroduce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985857].levelIndexToIntroduce
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8035794698857603203, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: managedReferences[5655389810228985858].levelIndexToIntroduce
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

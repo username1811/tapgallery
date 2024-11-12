@@ -13,7 +13,7 @@ public class Level : MonoBehaviour
 {
     public List<ArrowTile> tiles = new List<ArrowTile>();
     public int remainTilesCount;
-    public StageInfooo stageInfooo;
+    public LevelInfooo levelInfooo;
     public int heartAmount;
     private int initialHeartAmount;
 
@@ -52,13 +52,13 @@ public class Level : MonoBehaviour
 
 
     [Button]
-    public void SaveDirectionToStageInfoo()
+    public void SaveDirectionToLevelInfoo()
     {
         foreach(var tile in tiles) {
             tile.pixelData.directionType = tile.directionType;
         }
 #if UNITY_EDITOR
-        EditorUtility.SetDirty(stageInfooo);
+        EditorUtility.SetDirty(levelInfooo);
 #endif
     }
 }

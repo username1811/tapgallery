@@ -23,8 +23,6 @@ public class ConvertTextureToLevelData : OdinEditorWindow
     public string textureFolderPath;
     [FolderPath(RequireExistingPath = true)]
     public string levelInfoFolderPath;
-    [FolderPath(RequireExistingPath = true)]
-    public string stageInfoFolderPath;
 
     [Button]
     public void Convert()
@@ -55,37 +53,28 @@ public class ConvertTextureToLevelData : OdinEditorWindow
         string fileName = Path.GetFileName(texturePath).Split('.')[0];
         string folderPath = Path.GetDirectoryName(texturePath);
         string folderName = Path.GetFileName(folderPath);
-        string stageName = $"{folderName}_{fileName}.asset";
-        string levelName = stageName;
-        string stagePath = Path.Combine(stageInfoFolderPath, stageName);
+        string levelName = $"{folderName}_{fileName}.asset";
         string levelPath = Path.Combine(levelInfoFolderPath, levelName);
 
         LevelInfooo levelInfooo = AssetDatabase.LoadAssetAtPath<LevelInfooo>(levelPath);
-        StageInfooo stageInfooo = AssetDatabase.LoadAssetAtPath<StageInfooo>(stagePath);
 
 
         if (levelInfooo == null)
         {
             levelInfooo = CreateInstance<LevelInfooo>();
             AssetDatabase.CreateAsset(levelInfooo, levelPath);
-            stageInfooo = CreateInstance<StageInfooo>();
-            AssetDatabase.CreateAsset(stageInfooo, stagePath);
             AssetDatabase.SaveAssets();
         }
         else
         {
-            // nếu có pixel nào đã set direction type thì level đó đã được random direction rồi
-            if (levelInfooo.stages != null)
-            {
-                if (levelInfooo.stages.Count > 0)
-                {
-                    if (levelInfooo.stages[0].pixelDatas.Any(x => x.directionType != DirectionType.Up)) return;
-                }
-            }
+            if (levelInfooo.pixelDatas.Any(x => x.directionType != DirectionType.Up)) return;
         }
 
-        stageInfooo.texture2d = texture;
-        stageInfooo.pixelDatas = new();
+        levelInfooo.texture2d = texture;
+        if (levelInfooo.pixelDatas.IsNullOrEmpty())
+        {
+            levelInfooo.pixelDatas = new();
+        }
 
         int2 size = new(texture.width, texture.height);
         Color[] pixels = texture.GetPixels();
@@ -97,16 +86,14 @@ public class ConvertTextureToLevelData : OdinEditorWindow
                 Color pixel = pixels[x + size.x * y];
                 if (pixel.a < 0.8f) continue;
                 float2 c = new float2(x, y);
-                PixelData pixelData = new PixelData(pixel, c, size.y - y, 0);
-                stageInfooo.pixelDatas.Add(pixelData);
+                PixelData newPixelData = new PixelData(pixel, c, size.y - y, 0);
+                levelInfooo.pixelDatas.Add(newPixelData);
             }
         }
 
-        levelInfooo.stages = new();
-        levelInfooo.stages.Add(stageInfooo);
+        levelInfooo.heartAmount = 5;
 
         EditorUtility.SetDirty(levelInfooo);
-        EditorUtility.SetDirty(stageInfooo);
         AssetDatabase.Refresh();
         Debug.Log("texture to level data " +  levelInfooo.name);
     }

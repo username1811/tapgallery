@@ -96,6 +96,7 @@ public class PlayerData
     public int boosterHintAmount;
     public int boosterBombAmount;
     public int boosterMagnetAmount;
+    public List<BoosterType> unlockedBoosterTypes;
     [Header("spin:")]
     public bool isCanSpin;
     public int levelPassToSpin;
@@ -155,7 +156,7 @@ public class PlayerData
         firstTryWinCount = 0;
         lastClaimDailyReward2 = new DateTime(1999, 1, 1).ToString();
         cappingStarterPackExpire = "";
-
+        unlockedBoosterTypes = new();
 
 
         isMusicOn = true;

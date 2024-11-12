@@ -42,9 +42,9 @@ public class LevelManager : Singleton<LevelManager>
         DOVirtual.DelayedCall(Time.deltaTime * 1f, () =>
         {
             CameraManager.Ins.OnLoadLevel();
+            BoosterManager.Ins.OnLoadLevel();
             UIManager.Ins.OpenUI<GamePlay>();
             UIManager.Ins.GetUI<GamePlay>().OnLoadLevel();
-            BoosterManager.Ins.OnLoadLevel();
             isLoadedLevel = true;
         });
     };
@@ -55,7 +55,7 @@ public class LevelManager : Singleton<LevelManager>
         isEndLevel = false;
         DestroyCurrentLevel();
         currentLevelInfooo = GetTutLevelInfo(levelIndex);
-        CreateStageFromLevelInfooo(currentLevelInfooo, 0);
+        CreateLevelFromLevelInfooo(currentLevelInfooo, 0);
         currentLevel.OnInit(currentLevelInfooo.heartAmount);
         OnCompleteLoadLevel?.Invoke();
     }
@@ -66,7 +66,7 @@ public class LevelManager : Singleton<LevelManager>
         isEndLevel = false;
         DestroyCurrentLevel();
         currentLevelInfooo = GetLevelInfo(levelIndex);
-        CreateStageFromLevelInfooo(currentLevelInfooo, 0);
+        CreateLevelFromLevelInfooo(currentLevelInfooo, 0);
         currentLevel.OnInit(currentLevelInfooo.heartAmount);
         OnCompleteLoadLevel?.Invoke();
         /*//FIREBASE
@@ -144,13 +144,13 @@ public class LevelManager : Singleton<LevelManager>
         return levelWrapperrr.levels[GetLoopLevelIndex(levelIndex)];
     }
 
-    public void CreateStageFromLevelInfooo(LevelInfooo levelInfo, int stageIndex)
+    public void CreateLevelFromLevelInfooo(LevelInfooo levelInfo, int levelIndex)
     {
-        StageInfooo stageInfooo = levelInfo.stages[stageIndex];
-        GameObject stageObj = new GameObject("stage_" + stageInfooo.name);
-        currentLevel = stageObj.AddComponent<Level>();
-        currentLevel.stageInfooo = stageInfooo;
-        foreach (var pixelData in stageInfooo.pixelDatas)
+        LevelInfooo levelInfoo = levelInfo;
+        GameObject levelObj = new GameObject("level_" + levelInfoo.name);
+        currentLevel = levelObj.AddComponent<Level>();
+        currentLevel.levelInfooo = levelInfoo;
+        foreach (var pixelData in levelInfoo.pixelDatas)
         {
             Vector2 pos = pixelData.coordinate;
             ArrowTile arrowTile = PoolManager.Ins.Spawn<ArrowTile>(PoolType.ArrowTile);

@@ -9,9 +9,1610 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bfb3fc59d2cc44409cd9328fca177ed, type: 3}
+  m_Script: {fileID: 11500000, guid: d7b87a5b4ae754846b82284b21dd35be, type: 3}
   m_Name: 20x20_The Scream
   m_EditorClassIdentifier: 
-  stages:
-  - {fileID: 11400000, guid: ea3413135eaeb7849bc7bfe189f6f9d0, type: 2}
+  texture2d: {fileID: 2800000, guid: 1d38f4a52da28194094e00a1e7c1120e, type: 3}
+  pixelDatas:
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 0}
+    sortingOrder: 20
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 0}
+    sortingOrder: 20
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 0}
+    sortingOrder: 20
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 0}
+    sortingOrder: 20
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 6, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 7, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 0}
+    sortingOrder: 20
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 13, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 14, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 15, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 16, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 17, y: 0}
+    sortingOrder: 20
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 18, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 19, y: 0}
+    sortingOrder: 20
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 1}
+    sortingOrder: 19
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 6, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 7, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 13, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 14, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 15, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 16, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 18, y: 1}
+    sortingOrder: 19
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 19, y: 1}
+    sortingOrder: 19
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 2}
+    sortingOrder: 18
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 2}
+    sortingOrder: 18
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 2}
+    sortingOrder: 18
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 6, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 7, y: 2}
+    sortingOrder: 18
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 2}
+    sortingOrder: 18
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 2}
+    sortingOrder: 18
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 2}
+    sortingOrder: 18
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 13, y: 2}
+    sortingOrder: 18
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 14, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 16, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 2}
+    sortingOrder: 18
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 18, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 19, y: 2}
+    sortingOrder: 18
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 3}
+    sortingOrder: 17
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 3}
+    sortingOrder: 17
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 3}
+    sortingOrder: 17
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 6, y: 3}
+    sortingOrder: 17
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 7, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 13, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 14, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 18, y: 3}
+    sortingOrder: 17
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 19, y: 3}
+    sortingOrder: 17
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 4}
+    sortingOrder: 16
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 5, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 6, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 7, y: 4}
+    sortingOrder: 16
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 4}
+    sortingOrder: 16
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 4}
+    sortingOrder: 16
+    directionType: 3
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 4}
+    sortingOrder: 16
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 13, y: 4}
+    sortingOrder: 16
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 14, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 4}
+    sortingOrder: 16
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 19, y: 4}
+    sortingOrder: 16
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 5}
+    sortingOrder: 15
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 5}
+    sortingOrder: 15
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 5}
+    sortingOrder: 15
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 3, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 4, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 6, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 7, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 8, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 10, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 11, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 12, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 13, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 14, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 5}
+    sortingOrder: 15
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 5}
+    sortingOrder: 15
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 6}
+    sortingOrder: 14
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 6}
+    sortingOrder: 14
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 4, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 5, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 7, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 8, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.15686275, g: 0.15686275, b: 0.15686275, a: 1}
+    coordinate: {x: 9, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 11, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 14, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 15, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 6}
+    sortingOrder: 14
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 6}
+    sortingOrder: 14
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 2, y: 7}
+    sortingOrder: 13
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 3, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 7}
+    sortingOrder: 13
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 5, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 7, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 8, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 9, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 11, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 14, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 15, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 16, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 17, y: 7}
+    sortingOrder: 13
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 18, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 7}
+    sortingOrder: 13
+    directionType: 1
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 0, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 1, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 3, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 5, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 7, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 8, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 9, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 11, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 14, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 15, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 8}
+    sortingOrder: 12
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 8}
+    sortingOrder: 12
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 9}
+    sortingOrder: 11
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 3, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 5, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 7, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 8, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 9, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 11, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 14, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 15, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 9}
+    sortingOrder: 11
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 9}
+    sortingOrder: 11
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 3, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 5, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 6, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 7, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 8, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 9, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 10, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 11, y: 10}
+    sortingOrder: 10
+    directionType: 3
+  - color: {r: 0.50980395, g: 0.32941177, b: 0.24705884, a: 1}
+    coordinate: {x: 12, y: 10}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 14, y: 10}
+    sortingOrder: 10
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 15, y: 10}
+    sortingOrder: 10
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 16, y: 10}
+    sortingOrder: 10
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 17, y: 10}
+    sortingOrder: 10
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 18, y: 10}
+    sortingOrder: 10
+    directionType: 0
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 19, y: 10}
+    sortingOrder: 10
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 0, y: 11}
+    sortingOrder: 9
+    directionType: 3
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 1, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 2, y: 11}
+    sortingOrder: 9
+    directionType: 3
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 3, y: 11}
+    sortingOrder: 9
+    directionType: 3
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 4, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 5, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 6, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 7, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 8, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 9, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 11, y: 11}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 11}
+    sortingOrder: 9
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 13, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 14, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 15, y: 11}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 16, y: 11}
+    sortingOrder: 9
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 11}
+    sortingOrder: 9
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 18, y: 11}
+    sortingOrder: 9
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 19, y: 11}
+    sortingOrder: 9
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 0, y: 12}
+    sortingOrder: 8
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 1, y: 12}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 2, y: 12}
+    sortingOrder: 8
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 3, y: 12}
+    sortingOrder: 8
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 4, y: 12}
+    sortingOrder: 8
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 5, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 6, y: 12}
+    sortingOrder: 8
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 7, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 8, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 9, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 10, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 11, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 1, g: 0.98823535, b: 0.9450981, a: 1}
+    coordinate: {x: 12, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 13, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 14, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 12}
+    sortingOrder: 8
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 12}
+    sortingOrder: 8
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 12}
+    sortingOrder: 8
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 0, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 2, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 3, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 4, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 5, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 6, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 10, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 11, y: 13}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 12, y: 13}
+    sortingOrder: 7
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 13, y: 13}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 14, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 15, y: 13}
+    sortingOrder: 7
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 16, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 13}
+    sortingOrder: 7
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 13}
+    sortingOrder: 7
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 13}
+    sortingOrder: 7
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 0, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 14}
+    sortingOrder: 6
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 14}
+    sortingOrder: 6
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 14}
+    sortingOrder: 6
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 14}
+    sortingOrder: 6
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 10, y: 14}
+    sortingOrder: 6
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 11, y: 14}
+    sortingOrder: 6
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 12, y: 14}
+    sortingOrder: 6
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 13, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 14, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 15, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 16, y: 14}
+    sortingOrder: 6
+    directionType: 1
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 17, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 18, y: 14}
+    sortingOrder: 6
+    directionType: 0
+  - color: {r: 0.42352945, g: 0.54509807, b: 0.72156864, a: 1}
+    coordinate: {x: 19, y: 14}
+    sortingOrder: 6
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 15}
+    sortingOrder: 5
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 15}
+    sortingOrder: 5
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 15}
+    sortingOrder: 5
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 7, y: 15}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 8, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 9, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 10, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 11, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 12, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 13, y: 15}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 14, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 15, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 16, y: 15}
+    sortingOrder: 5
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 17, y: 15}
+    sortingOrder: 5
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 18, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 19, y: 15}
+    sortingOrder: 5
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 16}
+    sortingOrder: 4
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 16}
+    sortingOrder: 4
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 3, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 5, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 7, y: 16}
+    sortingOrder: 4
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 8, y: 16}
+    sortingOrder: 4
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 9, y: 16}
+    sortingOrder: 4
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 10, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 11, y: 16}
+    sortingOrder: 4
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 12, y: 16}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 13, y: 16}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 14, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 15, y: 16}
+    sortingOrder: 4
+    directionType: 1
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 16, y: 16}
+    sortingOrder: 4
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 17, y: 16}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 18, y: 16}
+    sortingOrder: 4
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 19, y: 16}
+    sortingOrder: 4
+    directionType: 0
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 0, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 1, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 2, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 3, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 4, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 5, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 6, y: 17}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 7, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 10, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 11, y: 17}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 12, y: 17}
+    sortingOrder: 3
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 13, y: 17}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 14, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 15, y: 17}
+    sortingOrder: 3
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 16, y: 17}
+    sortingOrder: 3
+    directionType: 2
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 17}
+    sortingOrder: 3
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 18, y: 17}
+    sortingOrder: 3
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 19, y: 17}
+    sortingOrder: 3
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 0, y: 18}
+    sortingOrder: 2
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 18}
+    sortingOrder: 2
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 18}
+    sortingOrder: 2
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 9, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 10, y: 18}
+    sortingOrder: 2
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 11, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 12, y: 18}
+    sortingOrder: 2
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 13, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 14, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 15, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 16, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7607844, g: 0.6392157, b: 0.42352945, a: 1}
+    coordinate: {x: 17, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 18, y: 18}
+    sortingOrder: 2
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 19, y: 18}
+    sortingOrder: 2
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 0, y: 19}
+    sortingOrder: 1
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 1, y: 19}
+    sortingOrder: 1
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 2, y: 19}
+    sortingOrder: 1
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 3, y: 19}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 4, y: 19}
+    sortingOrder: 1
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 5, y: 19}
+    sortingOrder: 1
+    directionType: 2
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 6, y: 19}
+    sortingOrder: 1
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 7, y: 19}
+    sortingOrder: 1
+    directionType: 3
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 8, y: 19}
+    sortingOrder: 1
+    directionType: 3
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 9, y: 19}
+    sortingOrder: 1
+    directionType: 2
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 10, y: 19}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 11, y: 19}
+    sortingOrder: 1
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 12, y: 19}
+    sortingOrder: 1
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 13, y: 19}
+    sortingOrder: 1
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 14, y: 19}
+    sortingOrder: 1
+    directionType: 1
+  - color: {r: 0.8313726, g: 0.8117648, b: 0.64705884, a: 1}
+    coordinate: {x: 15, y: 19}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 16, y: 19}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 17, y: 19}
+    sortingOrder: 1
+    directionType: 1
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 18, y: 19}
+    sortingOrder: 1
+    directionType: 0
+  - color: {r: 0.7411765, g: 0.3019608, b: 0.20784315, a: 1}
+    coordinate: {x: 19, y: 19}
+    sortingOrder: 1
+    directionType: 1
   heartAmount: 5
+  isTut: 0
