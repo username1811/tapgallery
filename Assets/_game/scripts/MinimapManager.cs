@@ -128,10 +128,14 @@ public class MinimapManager : Singleton<MinimapManager>
         wave.transform.position = new Vector3(minX-2f, minY-2f, 0) + (Vector3)offsetFromOriginalLevel;
         wave.gameObject.SetActive(true);
         Vector3 targetMove = new Vector3(maxX+2f, maxY+2f, 0) + (Vector3)offsetFromOriginalLevel;
-        wave.transform.DOMove(targetMove, 6f).SetEase(Ease.Linear).OnComplete(() =>
+        wave.transform.DOMove(targetMove, 3f).SetEase(Ease.Linear).SetDelay(1f).OnComplete(() =>
         {
             wave.gameObject.SetActive(false);
-            OnComplete?.Invoke();
+            UIManager.Ins.GetUI<Home>().ShowConfetti(true);
+            DOVirtual.DelayedCall(1.5f, () =>
+            {
+                OnComplete?.Invoke();
+            });
         });
     }
 

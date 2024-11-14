@@ -22,6 +22,8 @@ public class Home : UICanvas
     public RectTransform buttonPlayRectTF;
     [Title("left:")]
     [Title("right:")]
+    [Title("conffetti:")]
+    public GameObject confetti;
 
     public static bool isWaitAnim = true;
 
@@ -36,6 +38,7 @@ public class Home : UICanvas
         Anim();
         isWin = false;
         isWaitAnim = true;
+        ShowConfetti(false);
     }
 
     public void Init()
@@ -55,7 +58,8 @@ public class Home : UICanvas
     public void RefreshPicturePositions()
     {
         minimapRectTF.anchoredPosition = new Vector2(0, minimapRectTF.anchoredPosition.y);
-        nextPictureOutImg.rectTransform.anchoredPosition = new Vector2(UIManager.Ins.screenWidth, nextPictureOutImg.rectTransform.anchoredPosition.y);
+        nextPictureOutImg.rectTransform.anchoredPosition = new Vector2(0, nextPictureOutImg.rectTransform.anchoredPosition.y);
+        minimapRectTF.transform.SetAsLastSibling();
     }
 
     public void RefreshNextPictureSprite()
@@ -77,11 +81,28 @@ public class Home : UICanvas
 
     public void MovePictures()
     {
-        minimapRectTF.DOAnchorPos(new Vector2(-UIManager.Ins.screenWidth, minimapRectTF.anchoredPosition.y), 0.8f).SetEase(Ease.OutQuad);
-        nextPictureOutImg.rectTransform.DOAnchorPos(new Vector2(0, nextPictureOutImg.rectTransform.anchoredPosition.y), 0.8f).SetEase(Ease.OutQuad).OnComplete(() =>
+        Vector2 oldPos = minimapRectTF.anchoredPosition;
+        minimapRectTF.position = buttonGalerryRectTF.position;
+        Vector2 targetMove = minimapRectTF.anchoredPosition;
+        minimapRectTF.anchoredPosition = oldPos;
+        Transform oldParent = minimapRectTF.transform.parent;
+        minimapRectTF.transform.SetParent(this.transform);
+        minimapRectTF.transform.localScale = Vector3.one;
+        minimapRectTF.transform.DOScale(0.22f, 0.8f).SetEase(Ease.OutQuad);
+        minimapRectTF.DOAnchorPos(targetMove, 0.8f).SetEase(Ease.OutQuad).OnComplete(() =>
         {
             BlockUI.Ins.UnBlock();
+            minimapRectTF.transform.SetParent(oldParent);
+            minimapRectTF.anchoredPosition = oldPos;
+            minimapRectTF.transform.SetAsFirstSibling();
+            minimapRectTF.transform.localScale = Vector3.one;
+            ScaleButtonGallery();
         });
+    }
+
+    public void ScaleButtonGallery()
+    {
+        buttonGalerryRectTF.transform.DOScale(1.1f, 0.1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 
     public void ScaleButtonStar()
@@ -108,6 +129,11 @@ public class Home : UICanvas
             buttonStarRectTF.DOAnchorPos(new Vector2(buttonStarRectTF.anchoredPosition.x, oldYbot), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 2);
             topRectTF.DOAnchorPos(new Vector2(topRectTF.anchoredPosition.x, oldYtop), 0.5f).SetEase(Ease.OutBack).SetDelay(delay * 1);
         });
+    }
+
+    public void ShowConfetti(bool isShow)
+    {
+        confetti.SetActive(isShow);
     }
 
     public void ButtonPlay()

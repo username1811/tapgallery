@@ -558,6 +558,10 @@ MonoBehaviour:
     coordinate: {x: 15, y: 8}
     sortingOrder: 9
     directionType: 1
+  - color: {r: 0, g: 0, b: 0, a: 1}
+    coordinate: {x: 16, y: 8}
+    sortingOrder: 9
+    directionType: 1
   - color: {r: 0.58431375, g: 0.85098046, b: 0.91372555, a: 1}
     coordinate: {x: 19, y: 8}
     sortingOrder: 9
@@ -638,6 +642,10 @@ MonoBehaviour:
     coordinate: {x: 16, y: 9}
     sortingOrder: 8
     directionType: 2
+  - color: {r: 0.050980397, g: 0.44705886, b: 0.70980394, a: 1}
+    coordinate: {x: 20, y: 9}
+    sortingOrder: 8
+    directionType: 0
   - color: {r: 0.20000002, g: 0.20784315, b: 0.20000002, a: 1}
     coordinate: {x: 21, y: 9}
     sortingOrder: 8

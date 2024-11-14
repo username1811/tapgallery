@@ -392,7 +392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockUI: {fileID: 5953776683448133382}
   canvasGroup: {fileID: 4184813857713037640}
-  halfDuration: 0.3
+  halfDuration: 0.4
 --- !u!1 &1470634989430787500
 GameObject:
   m_ObjectHideFlags: 0
