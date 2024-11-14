@@ -11,7 +11,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
 {
     public bool isLoadingNewScene;
     public SceneType currentSceneType;
-    public SceneTransition sceneTransition;
+    public SceneTransition2 sceneTransition;
 
 
     public void ChangeScene(SceneType sceneType, Action OnComplete, bool isFadeOut=true, bool isFadeIn=true)
@@ -59,7 +59,7 @@ public class SceneManagerrr : Singleton<SceneManagerrr>
 
         if (isFadeOut)
         {
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.4f);
         }
 
         // Fade In
