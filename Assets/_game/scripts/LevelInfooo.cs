@@ -10,6 +10,7 @@ public class LevelInfooo : ScriptableObject
     public List<PixelData> pixelDatas = new List<PixelData>();
     public int heartAmount;
     public bool isTut;
+    public bool isTheme;
 
     public Sprite GetSprite()
     {

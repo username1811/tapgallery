@@ -220,25 +220,23 @@ public class Home : UICanvas
 
     public void ButtonGallery()
     {
-      
         UIManager.Ins.OpenUI<Gallery>();
-  
-
-        Close(0);
     }
 
     public void ButtonStar()
     {
        
         UIManager.Ins.OpenUI<SpinWheelUI>();
-       
-
-        Close(0);
     }
 
     public void ButtonSettings()
     {
 
+    }
+
+    public void ButtonTheme()
+    {
+        UIManager.Ins.OpenUI<ThemeCollection>();
     }
 
 }

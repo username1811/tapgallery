@@ -1284,3 +1284,4 @@ MonoBehaviour:
     directionType: 0
   heartAmount: 5
   isTut: 0
+  isTheme: 1

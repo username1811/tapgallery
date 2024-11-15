@@ -17,13 +17,14 @@ public class LevelUI : MonoBehaviour
     public void OnInitt(LevelInfooo levelInfooo)
     {
         this.levelInfooo = levelInfooo;
+        Refresh();
     }
 
     public void OnClick()
     {
         SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
         {
-            LevelManager.Ins.LoadLevel(LevelManager.Ins.levelWrapperrr.levels.IndexOf(levelInfooo));
+            LevelManager.Ins.LoadLevel(levelInfooo);    
         });
     }
 
@@ -43,6 +44,17 @@ public class LevelUI : MonoBehaviour
 
     public void Refresh()
     {
-        RefreshImg(DataManager.Ins.playerData.passedLevelNames.Contains(this.levelInfooo.name));
+        bool isPassed = true;
+        ThemeInfo themeInfo = ThemeManager.Ins.currentThemeInfo;
+        ThemeLevelsData themeLevelsData = DataManager.Ins.playerData.themeLevelsDatas.FirstOrDefault(x => x.themeType == themeInfo.themeType);
+        if (themeLevelsData == null) {
+            isPassed = false;
+        }
+        else
+        {
+            isPassed = themeLevelsData.passedIndexs.Contains(themeInfo.levelInfooos.IndexOf(this.levelInfooo));
+        }
+
+        RefreshImg(isPassed);
     }
 }

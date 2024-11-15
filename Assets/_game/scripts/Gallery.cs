@@ -24,8 +24,27 @@ public class Gallery : UICanvas
         base.Open();
         Init();
         Refresh();
-
         getListGallery();
+        AnimOpen();
+    }
+
+    public override void CloseDirectly()
+    {
+        AnimClose();
+    }
+
+    public void AnimOpen()
+    {
+        this.rectTransform.anchoredPosition = new Vector2(-UIManager.Ins.screenWidth, 0);
+        this.rectTransform.DOAnchorPos(Vector2.zero, 0.5f).SetEase(Ease.OutSine);
+        UIManager.Ins.GetUI<Home>().rectTransform.anchoredPosition = Vector2.zero;
+        UIManager.Ins.GetUI<Home>().rectTransform.DOAnchorPos(new Vector2(UIManager.Ins.screenWidth, 0), 0.5f).SetEase(Ease.OutSine);
+    }
+
+    public void AnimClose()
+    {
+        this.rectTransform.DOAnchorPos(new Vector2(-UIManager.Ins.screenWidth, 0), 0.4f).SetEase(Ease.OutSine);
+        UIManager.Ins.GetUI<Home>().rectTransform.DOAnchorPos(Vector2.zero, 0.4f).SetEase(Ease.OutSine);
     }
 
     public void Init()
@@ -75,9 +94,6 @@ public class Gallery : UICanvas
 
     public void BackBtn()
     {
-       
-        UIManager.Ins.OpenUI<Home>();
-     
         Close(0);
     }
 

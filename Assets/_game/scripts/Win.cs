@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,16 +34,41 @@ public class Win : UICanvas
 
     public override void Open()
     {
-        base.Open(); 
-        if (!LevelManager.Ins.currentLevelInfooo.isTut) DataManager.Ins.playerData.currentLevelIndex += 1;
+        base.Open();
         if (LevelManager.Ins.currentLevelInfooo.isTut) DataManager.Ins.playerData.isPassedTutLevel = true;
+        if (!LevelManager.Ins.currentLevelInfooo.isTut && !LevelManager.Ins.currentLevelInfooo.isTheme) {
+            DataManager.Ins.playerData.currentLevelIndex += 1;
+            DataManager.Ins.playerData.passedLevelNames.Add(LevelManager.Ins.currentLevelInfooo.name);
+        }
+        if (LevelManager.Ins.currentLevelInfooo.isTheme)
+        {
+            ThemeInfo themeInfo = ThemeManager.Ins.currentThemeInfo;
+            ThemeLevelsData themeLevelsData = DataManager.Ins.playerData.themeLevelsDatas.FirstOrDefault(x=>x.themeType== themeInfo.themeType);
+            if (themeLevelsData==null) {
+                themeLevelsData = new ThemeLevelsData(themeInfo.themeType);
+                DataManager.Ins.playerData.themeLevelsDatas.Add(themeLevelsData);
+            }
+            themeLevelsData.passedIndexs.Add(themeInfo.levelInfooos.IndexOf(LevelManager.Ins.currentLevelInfooo));
+        }
         OnCompleteFadeOut = () =>
         {
-            if (!LevelManager.Ins.currentLevelInfooo.isTut) UIManager.Ins.GetUI<Home>().isWin = true;
-            PoolManager.Ins.DespawnAll();
-            UIManager.Ins.OpenUI<Home>();
-            this.transform.SetAsLastSibling();
-            AnimDone();
+            if (!LevelManager.Ins.currentLevelInfooo.isTut && !LevelManager.Ins.currentLevelInfooo.isTheme) UIManager.Ins.GetUI<Home>().isWin = true;
+            if (!LevelManager.Ins.currentLevelInfooo.isTut && !LevelManager.Ins.currentLevelInfooo.isTheme)
+            {
+                PoolManager.Ins.DespawnAll();
+                UIManager.Ins.OpenUI<Home>();
+                this.transform.SetAsLastSibling();
+                AnimDone();
+            }
+            if (LevelManager.Ins.currentLevelInfooo.isTheme)
+            {
+                PoolManager.Ins.DespawnAll();
+                UIManager.Ins.OpenUI<Home>();
+                UIManager.Ins.OpenUI<ThemeCollection>();
+                UIManager.Ins.GetUI<ThemeCollection>().ShowThemeLevelsPopUp(true);
+                UIManager.Ins.GetUI<ThemeCollection>().themeLevelsPopUp.OnInitt(ThemeManager.Ins.currentThemeInfo);
+                this.transform.SetAsLastSibling();
+            }
         };
         FadeOut(() =>
         {

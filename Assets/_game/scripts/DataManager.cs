@@ -91,6 +91,7 @@ public class PlayerData
     public int currentTutLevelIndex;
     public int currentLevelIndex;
     public List<string> passedLevelNames = new();
+    public List<ThemeLevelsData> themeLevelsDatas = new();   
     public bool isPassedTutLevel;
     [Header("booster:")]
     public int boosterHintAmount;
@@ -157,7 +158,7 @@ public class PlayerData
         lastClaimDailyReward2 = new DateTime(1999, 1, 1).ToString();
         cappingStarterPackExpire = "";
         unlockedBoosterTypes = new();
-
+        themeLevelsDatas = new();    
 
         isMusicOn = true;
         isSoundOn = true;
@@ -173,4 +174,17 @@ public class PlayerData
 
 
 
+}
+
+[Serializable]
+public class ThemeLevelsData
+{
+    public ThemeType themeType;
+    public List<int> passedIndexs = new();  
+
+    public ThemeLevelsData(ThemeType themeType)
+    {
+        this.themeType = themeType;
+        passedIndexs = new();
+    }
 }

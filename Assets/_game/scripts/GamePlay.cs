@@ -119,10 +119,24 @@ public class GamePlay : UICanvas
     //BUTTON
     public void ButtonBack()
     {
-        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+        if (!LevelManager.Ins.currentLevelInfooo.isTut && !LevelManager.Ins.currentLevelInfooo.isTheme)
         {
-            UIManager.Ins.OpenUI<Home>();
-        });
+            SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+            {
+                UIManager.Ins.OpenUI<Home>();
+            });
+        }
+        if (LevelManager.Ins.currentLevelInfooo.isTheme)
+        {
+            SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
+            {
+                UIManager.Ins.OpenUI<Home>();
+                UIManager.Ins.OpenUI<ThemeCollection>();
+                UIManager.Ins.GetUI<ThemeCollection>().ShowThemeLevelsPopUp(true);
+                UIManager.Ins.GetUI<ThemeCollection>().themeLevelsPopUp.OnInitt(ThemeManager.Ins.currentThemeInfo);
+                this.transform.SetAsLastSibling();
+            });
+        }
     }
 
     public void ButtonSettings()

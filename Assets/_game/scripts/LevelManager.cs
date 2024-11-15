@@ -79,6 +79,25 @@ public class LevelManager : Singleton<LevelManager>
         FirebaseManager.Ins.LevelStart(DataManager.Ins.playerData.currentLevelIndex);*/
     }
 
+    public void LoadLevel(LevelInfooo levelInfooo)
+    {
+        isLoadedLevel = false;
+        isEndLevel = false;
+        DestroyCurrentLevel();
+        currentLevelInfooo = levelInfooo;
+        CreateLevelFromLevelInfooo(currentLevelInfooo, 0);
+        currentLevel.OnInit(currentLevelInfooo.heartAmount);
+        OnCompleteLoadLevel?.Invoke();
+        /*//FIREBASE
+        //checkpoint start
+        if (DataManager.Ins.playerData.currentLevelIndex > DataManager.Ins.playerData.maxCheckPointStartIndex)
+        {
+            FirebaseManager.Ins.CheckPointStart(DataManager.Ins.playerData.currentLevelIndex);
+            DataManager.Ins.playerData.maxCheckPointStartIndex = DataManager.Ins.playerData.currentLevelIndex;
+        }
+        FirebaseManager.Ins.LevelStart(DataManager.Ins.playerData.currentLevelIndex);*/
+    }
+
     public void LoadNextLevel()
     {
         DataManager.Ins.playerData.currentLevelIndex += 1;
@@ -107,7 +126,6 @@ public class LevelManager : Singleton<LevelManager>
                 isEndLevel = true;
                 UIManager.Ins.OpenUI<Win>();
                 UIManager.Ins.GetUI<GamePlay>().OnWin();
-                DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
             }
             else if (isLose) //lose
             {
