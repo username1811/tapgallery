@@ -1445,7 +1445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   points: []
   starWorldTF: {fileID: 4762559174512533214}
-  duration: 0.4
+  duration: 0.5
   starRectTF: {fileID: 0}
 --- !u!1 &5456418757042759529
 GameObject:

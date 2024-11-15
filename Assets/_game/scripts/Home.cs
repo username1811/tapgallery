@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using Sirenix.OdinInspector;
 using System;
 using System.Collections;
@@ -24,9 +24,20 @@ public class Home : UICanvas
     [Title("right:")]
     [Title("conffetti:")]
     public GameObject confetti;
+    [Title("anim picture:")]
+    public Vector3[] points = new Vector3[] { };
+    public RectTransform pictureLeader;
+    public float animPictureDuration;
+    public Vector2 pictureLeaderOldPos;
+
 
     public static bool isWaitAnim = true;
 
+
+    private void Start()
+    {
+        pictureLeaderOldPos = minimapRectTF.position;
+    }
 
     public override void Open()
     {
@@ -35,10 +46,11 @@ public class Home : UICanvas
         Refresh();
         CameraManager.Ins.cam.transform.position = Vector3.zero;
         StarAnimManager.Ins.OnOpenHome();
-        Anim();
+        AnimElements();
         isWin = false;
         isWaitAnim = true;
         ShowConfetti(false);
+        minimapRectTF.gameObject.SetActive(true);
     }
 
     public void Init()
@@ -52,7 +64,7 @@ public class Home : UICanvas
     {
         RefreshPicturePositions();
         RefreshNextPictureSprite();
-        MinimapManager.Ins.OnOpenHome(isWin, MovePictures);
+        MinimapManager.Ins.OnOpenHome(isWin, () => { MovePicture2(); });
     }
 
     public void RefreshPicturePositions()
@@ -110,7 +122,7 @@ public class Home : UICanvas
         buttonStarRectTF.transform.DOScale(1.1f, 0.1f).SetEase(Ease.Linear).SetLoops(2, LoopType.Yoyo);
     }
 
-    public void Anim()
+    public void AnimElements()
     {
         float oldYbot = buttonGalerryRectTF.anchoredPosition.y;
         float oldYtop = topRectTF.anchoredPosition.y;
@@ -134,6 +146,68 @@ public class Home : UICanvas
     public void ShowConfetti(bool isShow)
     {
         confetti.SetActive(isShow);
+    }
+
+
+    public void Follow()
+    {
+        StartCoroutine(IEFollow());
+        IEnumerator IEFollow()
+        {
+            float timer = animPictureDuration+1f;
+            while (timer > 0f)
+            {
+                minimapRectTF.position = pictureLeader.position;
+                timer -= Time.deltaTime;
+                yield return null;
+            }
+            minimapRectTF.position = pictureLeaderOldPos;
+            yield return null;
+        }
+    }
+
+    [Button]
+    public void MovePicture2(Action OnComplete = null)
+    {
+        minimapRectTF.gameObject.SetActive(true);
+        minimapRectTF.transform.localScale = Vector3.one;
+
+
+        pictureLeader.position = pictureLeaderOldPos;
+        Vector2 oldPos = minimapRectTF.anchoredPosition;
+        Transform oldParent = minimapRectTF.transform.parent;
+        minimapRectTF.transform.SetParent(this.transform);
+        Vector2 targetMove = buttonGalerryRectTF.position;
+        Debug.Log("target move : " +  targetMove);
+
+        Follow();
+
+        pictureLeader.DOAnchorPosX(targetMove.x, animPictureDuration).SetEase(Ease.InSine).OnComplete(() =>
+        {
+            StopAllCoroutines();
+            BlockUI.Ins.UnBlock();
+            minimapRectTF.transform.SetParent(oldParent);
+            minimapRectTF.anchoredPosition = oldPos;
+            minimapRectTF.transform.SetAsLastSibling();
+            minimapRectTF.transform.localScale = Vector3.one;
+            minimapRectTF.gameObject.SetActive(false);
+            pictureLeader.position = pictureLeaderOldPos;
+            minimapRectTF.position = pictureLeaderOldPos;
+            ScaleButtonGallery();
+            OnComplete?.Invoke();
+        });
+        pictureLeader.DOAnchorPosY(targetMove.y, animPictureDuration+Time.deltaTime*2f).SetEase(Ease.InBack).OnComplete(() =>
+        {
+            pictureLeader.position = pictureLeaderOldPos;
+        });
+        minimapRectTF.DOScale(0.22f, animPictureDuration).OnComplete(() =>
+        {
+            minimapRectTF.transform.localScale = Vector3.one;
+        });
+        minimapRectTF.DORotate(new Vector3(0, 0, 359f), animPictureDuration, RotateMode.FastBeyond360).SetEase(Ease.InSine).OnComplete(() =>
+        {
+            minimapRectTF.rotation = Quaternion.Euler(Vector3.zero);
+        });
     }
 
     public void ButtonPlay()
