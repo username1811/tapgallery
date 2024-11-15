@@ -131,12 +131,12 @@ public class MinimapManager : Singleton<MinimapManager>
         wave.transform.DOMove(targetMove, 3f).SetEase(Ease.Linear).SetDelay(1f).OnComplete(() =>
         {
             wave.gameObject.SetActive(false);
-            DOVirtual.DelayedCall(1f, () =>
+            DOVirtual.DelayedCall(0.8f, () =>
             {
                 OnComplete?.Invoke();
             });
         });
-        DOVirtual.DelayedCall(3.5f, () =>
+        DOVirtual.DelayedCall(3.3f, () =>
         {
             UIManager.Ins.GetUI<Home>().ShowConfetti(true);
         });

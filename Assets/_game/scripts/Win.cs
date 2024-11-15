@@ -113,9 +113,9 @@ public class Win : UICanvas
         });
         //logo
         SetLogoAlpha(1);
-        fadeLogoTween = logoCanvasGroup.DOFade(0, halfDuration * 0.8f * 0.5f).SetEase(Ease.InSine);
+        fadeLogoTween = logoCanvasGroup.DOFade(0, halfDuration * 0.7f * 0.5f).SetEase(Ease.InSine);
         SetLogoRotation(0);
-        rotateLogoTween = logo.transform.DORotate(new Vector3(0, 0, angle), halfDuration * 0.8f * 0.5f).SetEase(Ease.InSine);
+        rotateLogoTween = logo.transform.DORotate(new Vector3(0, 0, angle), halfDuration * 0.7f * 0.5f).SetEase(Ease.InSine);
     }
 
     public void SetLogoAlpha(float a)
