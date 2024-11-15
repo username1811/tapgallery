@@ -38,7 +38,10 @@ public class Win : UICanvas
         if (LevelManager.Ins.currentLevelInfooo.isTut) DataManager.Ins.playerData.isPassedTutLevel = true;
         if (!LevelManager.Ins.currentLevelInfooo.isTut && !LevelManager.Ins.currentLevelInfooo.isTheme) {
             DataManager.Ins.playerData.currentLevelIndex += 1;
-            DataManager.Ins.playerData.passedLevelNames.Add(LevelManager.Ins.currentLevelInfooo.name);
+            if (!DataManager.Ins.playerData.passedLevelNames.Contains(LevelManager.Ins.currentLevelInfooo.name))
+            {
+                DataManager.Ins.playerData.passedLevelNames.Add(LevelManager.Ins.currentLevelInfooo.name);
+            }
         }
         if (LevelManager.Ins.currentLevelInfooo.isTheme)
         {
@@ -48,7 +51,10 @@ public class Win : UICanvas
                 themeLevelsData = new ThemeLevelsData(themeInfo.themeType);
                 DataManager.Ins.playerData.themeLevelsDatas.Add(themeLevelsData);
             }
-            themeLevelsData.passedIndexs.Add(themeInfo.levelInfooos.IndexOf(LevelManager.Ins.currentLevelInfooo));
+            if (!themeLevelsData.passedIndexs.Contains(themeInfo.levelInfooos.IndexOf(LevelManager.Ins.currentLevelInfooo)))
+            {
+                themeLevelsData.passedIndexs.Add(themeInfo.levelInfooos.IndexOf(LevelManager.Ins.currentLevelInfooo));
+            }
         }
         OnCompleteFadeOut = () =>
         {

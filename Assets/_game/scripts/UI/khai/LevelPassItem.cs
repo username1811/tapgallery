@@ -11,12 +11,21 @@ public class LevelPassItem : UICanvas
     public void InitImage(LevelInfooo levelInfooo)
     {
 
-        if (ImageFrame.Count > 0)
+        /*if (ImageFrame.Count > 0)
         {
             int randomIndex = Random.Range(0, ImageFrame.Count);
             ImageFrame[randomIndex].gameObject.SetActive(true);
-        }
+        }*/
+        ImageFrame[1].gameObject.SetActive(true);
         ImageLevel.sprite = SpriteUtility.GetSpriteFromTexture2D(levelInfooo.texture2d);
+        if(levelInfooo.texture2d.width > levelInfooo.texture2d.height)
+        {
+            ImageLevel.ResizeImgKeepWidth();
+        }
+        else
+        {
+            ImageLevel.ResizeImgKeepHeight();
+        }
     }
 
     public void ShowImageLevel()
@@ -24,8 +33,6 @@ public class LevelPassItem : UICanvas
        
         var galleryItem = UIManager.Ins.OpenUI<GalleryItem>();
         galleryItem.SetImage(ImageLevel.sprite); 
-     
-        Close(0);
     }
 
 

@@ -6,28 +6,38 @@ using UnityEngine.UI;
 public class GalleryItem : UICanvas
 {
 
-    public Image images;
+    public Image img;
+    public Vector2 oldImgSize;
     public override void Open()
     {
         base.Open();
        
     }
+    public override void Awake()
+    {
+        base.Awake();
+        oldImgSize = img.rectTransform.sizeDelta;    
+    }
 
     public void SetImage(Sprite sprite)
     {
-        images.sprite = sprite;
-        ImageUtility.ResizeImgKeepHeight(images);
-        ImageUtility.ResizeImgKeepWidth(images);
-       
+        img.rectTransform.sizeDelta = oldImgSize;
+        img.sprite = sprite;
+        if (sprite.rect.width > sprite.rect.height)
+        {
+            img.ResizeImgKeepWidth();
+        }
+        else
+        {
+            img.ResizeImgKeepHeight();
+        }
+
     }
 
 
     public void BackBtn()
     {
-      
-        UIManager.Ins.OpenUI<Gallery>();
-     
-        Close(0);
+        UIManager.Ins.CloseUI<GalleryItem>();
     }
 
 

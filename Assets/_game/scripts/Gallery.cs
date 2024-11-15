@@ -16,21 +16,23 @@ public class Gallery : UICanvas
 
     public LevelPassItem itemLevel;
 
-    public Transform Content;
+    public RectTransform contentRectTF;
 
 
     public override void Open()
     {
         base.Open();
         Init();
-        Refresh();
         getListGallery();
-        AnimOpen();
+        Refresh();
+        //AnimOpen();
+        contentRectTF.anchoredPosition = new Vector2(0, -50f);
     }
 
     public override void CloseDirectly()
     {
-        AnimClose();
+        base.CloseDirectly();
+        //AnimClose();
     }
 
     public void AnimOpen()
@@ -56,7 +58,7 @@ public class Gallery : UICanvas
     [Button]
     public void Refresh()
     {
-  
+        RefreshContentHeight();
     }
 
     public void getListGallery()
@@ -65,10 +67,7 @@ public class Gallery : UICanvas
 
         listLevelInfo.Clear();
 
-        foreach (Transform child in Content)
-        {
-            Destroy(child.gameObject);
-        }
+        PoolManager.Ins.GetPool(PoolType.LevelPassItem).ReturnAll();
 
         if (listGallery.Count > 0)
         {
@@ -84,17 +83,23 @@ public class Gallery : UICanvas
 
             for (int i = 0; i < listLevelInfo.Count; i++)
             {
-                LevelPassItem newItem = Instantiate(itemLevel, Content);
-
+                LevelPassItem newItem = PoolManager.Ins.Spawn<LevelPassItem>(PoolType.LevelPassItem);
+                newItem.transform.SetParent(contentRectTF.transform);
+                newItem.transform.localScale = Vector3.one;
                 newItem.InitImage(listLevelInfo[i]);
             }
         }
     }
 
+    public void RefreshContentHeight()
+    {
+        contentRectTF.sizeDelta = new Vector2(contentRectTF.sizeDelta.x, (Mathf.Ceil(listLevelInfo.Count / 3)+1) * 340f + 60 * (Mathf.Ceil(listLevelInfo.Count / 3)) + 100f);
+    }
+
 
     public void BackBtn()
     {
-        Close(0);
+        UIManager.Ins.CloseUI<Gallery>();
     }
 
 }

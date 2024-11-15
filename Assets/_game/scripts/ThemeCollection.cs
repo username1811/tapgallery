@@ -18,6 +18,7 @@ public class ThemeCollection : UICanvas
         RefreshThemeUIs();
         RefreshContentHeight();
         ShowThemeLevelsPopUp(false);
+        contentRectTF.anchoredPosition = new Vector2(0, -50f);
     }
 
     public void Initt()
