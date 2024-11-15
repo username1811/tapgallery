@@ -40,6 +40,14 @@ public class CameraManager : Singleton<CameraManager>
             isDragWhenIsMoving = Input.GetMouseButton(0);
             return;
         }
+        if (Input.GetMouseButtonUp(0))
+        {
+            DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
+            {
+                isDraggingOver1 = false;
+                isDragWhenIsMoving = false;
+            });
+        }
 
         if (LevelManager.Ins.currentLevelInfooo!=null && LevelManager.Ins.currentLevelInfooo.isTut) return;
 
@@ -81,14 +89,6 @@ public class CameraManager : Singleton<CameraManager>
             float clampedX = Mathf.Clamp(cam.transform.position.x, minX, maxX);
             float clampedY = Mathf.Clamp(cam.transform.position.y, minY, maxY);
             cam.transform.position = new Vector3(clampedX, clampedY, cam.transform.position.z);
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            DOVirtual.DelayedCall(Time.deltaTime * 2f, () =>
-            {
-                isDraggingOver1 = false;
-                isDragWhenIsMoving = false;
-            });
         }
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");

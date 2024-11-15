@@ -15,4 +15,20 @@ public class LevelWrapperrr : ScriptableObject
     {
         levels.Sort((x, y) => x.pixelDatas.Count.CompareTo(y.pixelDatas.Count));
     }
+
+    [Button]
+    public void SortByHard()
+    {
+        SortByPixelAmount();
+        List<LevelInfooo> newLevels = new();
+        int groupCount = levels.Count / 5;
+        for (int i = 0; i < groupCount; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                newLevels.Add(levels[i+groupCount*j]);
+            }
+        }
+        levels = newLevels;
+    }
 }
