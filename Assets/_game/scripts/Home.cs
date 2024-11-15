@@ -178,8 +178,9 @@ public class Home : UICanvas
         Transform oldParent = minimapRectTF.transform.parent;
         minimapRectTF.transform.SetParent(this.transform);
         Vector2 targetMove = buttonGalerryRectTF.position;
-        Debug.Log("target move : " +  targetMove);
-
+        pictureLeader.position = buttonGalerryRectTF.position;
+        targetMove = pictureLeader.anchoredPosition;
+        pictureLeader.position = pictureLeaderOldPos;
         Follow();
 
         pictureLeader.DOAnchorPosX(targetMove.x, animPictureDuration).SetEase(Ease.InSine).OnComplete(() =>
