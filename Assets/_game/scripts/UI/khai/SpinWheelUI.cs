@@ -73,10 +73,9 @@ public class SpinWheelUI : UICanvas
 
     public void BackBtn()
     {
-        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
-        {
-            UIManager.Ins.OpenUI<Home>();
-        });
+     
+        UIManager.Ins.OpenUI<Home>();
+      
         Close(0);
     }
 

@@ -146,20 +146,18 @@ public class Home : UICanvas
 
     public void ButtonGallery()
     {
-        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
-        {
-            UIManager.Ins.OpenUI<Gallery>();
-        });
+      
+        UIManager.Ins.OpenUI<Gallery>();
+  
 
         Close(0);
     }
 
     public void ButtonStar()
     {
-        SceneManagerrr.Ins.ChangeScene(SceneType.Game, () =>
-        {
-            UIManager.Ins.OpenUI<SpinWheelUI>();
-        });
+       
+        UIManager.Ins.OpenUI<SpinWheelUI>();
+       
 
         Close(0);
     }
