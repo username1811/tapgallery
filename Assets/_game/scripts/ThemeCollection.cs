@@ -43,7 +43,7 @@ public class ThemeCollection : UICanvas
 
     public void RefreshContentHeight()
     {
-        contentRectTF.sizeDelta = new Vector2(contentRectTF.sizeDelta.x, 400f * themeUIs.Count + VerticalLayoutGroup.spacing * (themeUIs.Count-1));
+        contentRectTF.sizeDelta = new Vector2(contentRectTF.sizeDelta.x, 360f * themeUIs.Count + VerticalLayoutGroup.spacing * (themeUIs.Count-1));
     }
 
     public void ShowThemeLevelsPopUp(bool isShow)
