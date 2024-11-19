@@ -13,34 +13,16 @@ MonoBehaviour:
   m_Name: Daily Quest Data
   m_EditorClassIdentifier: 
   dataList:
-  - id: 0
+  - id: 2
     Description: Pass 10 level
-    CurrentValue: 12
-    GoalValue: 12
+    CurrentValue: 0
+    GoalValue: 10
     RewardAmount: 100
     DataReward: 0
   - id: 1
-    Description: Pass 666 level
-    CurrentValue: 11
-    GoalValue: 11
-    RewardAmount: 0
-    DataReward: 1
-  - id: 0
-    Description: Pass 777 level
-    CurrentValue: 44
-    GoalValue: 44
-    RewardAmount: 0
-    DataReward: 0
-  - id: 0
-    Description: "P\xE2sss 999 level"
-    CurrentValue: 44
-    GoalValue: 0
-    RewardAmount: 0
-    DataReward: 0
-  - id: 0
-    Description: "P\xE2sss 888 level"
+    Description: Earn 100 gold to day
     CurrentValue: 0
-    GoalValue: 0
-    RewardAmount: 0
-    DataReward: 0
+    GoalValue: 100
+    RewardAmount: 2
+    DataReward: 2
   complete: 0

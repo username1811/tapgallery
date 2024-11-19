@@ -334,7 +334,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3508404664624582874, guid: f978204e6acd75142a30d57f7222b057, type: 3}
       propertyPath: uiResources.Array.size
-      value: 8
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3508404664624582874, guid: f978204e6acd75142a30d57f7222b057, type: 3}
       propertyPath: uiResources.Array.data[6]
@@ -344,6 +344,50 @@ PrefabInstance:
       propertyPath: uiResources.Array.data[7]
       value: 
       objectReference: {fileID: 1711277990889050940, guid: 2d3274bb01ca70949aef1fd08745f073, type: 3}
+    - target: {fileID: 3508404664624582874, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: uiResources.Array.data[8]
+      value: 
+      objectReference: {fileID: 719039550785263017, guid: 572ed2541943c944f98228c1bfaad239, type: 3}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: isLoaded
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.dayLogin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.is1stDay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.daysInstall
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.daysLastOpen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.totalDayLogin
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.isPassedTutLevel
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.boosterHintAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.firstOpenDateTimeStr
+      value: 11/19/2024 8:40:09 AM
+      objectReference: {fileID: 0}
+    - target: {fileID: 5888007292002398613, guid: f978204e6acd75142a30d57f7222b057, type: 3}
+      propertyPath: playerData.unlockedBoosterTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6747695266554140980, guid: f978204e6acd75142a30d57f7222b057, type: 3}
       propertyPath: m_Name
       value: DontDestroy

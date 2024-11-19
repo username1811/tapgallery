@@ -26,6 +26,8 @@ public class DataManager : Singleton<DataManager>
         if (d != "")
         {
             playerData = JsonUtility.FromJson<PlayerData>(d);
+            LoadDataToday();
+
         }
         else
         {
@@ -38,8 +40,45 @@ public class DataManager : Singleton<DataManager>
         }
 
         isLoaded = true;
+
+
     }
 
+    public void LoadDataToday()
+    {
+        DateTime now = WorldTimeAPI.Ins.GetCurrentDateTime();
+        string todayStr = now.ToString("yyyy-MM-dd");
+
+        int dayNow = (int)now.Subtract(Constant.ORIGINAL_TIME).TotalDays;
+
+        if (playerData.currentDayStr != todayStr)
+        {
+            playerData.goldDay = 0;
+            playerData.levelPassDay = 0;
+            playerData.todayClaim = false;
+            playerData.currentDayStr = todayStr;
+            playerData.daysPlayed++;
+        }
+        if (dayNow > playerData.daysLastOpen)
+        {
+            playerData.daysPlayed++; ;
+            playerData.totalDays = dayNow - playerData.daysInstall;
+            playerData.dayLogin++; 
+        }
+
+        playerData.daysLastOpen = dayNow;
+    }
+
+    public bool CheckIsToDay()
+    {
+        DateTime now = WorldTimeAPI.Ins.GetCurrentDateTime();
+        string todayStr = now.ToString("yyyy-MM-dd");
+        if (playerData.currentDayStr != todayStr)
+        {
+            return false;
+        }
+        else return true;
+    }
     public void SaveData()
     {
         if (!isLoaded) return;
@@ -63,6 +102,25 @@ public class DataManager : Singleton<DataManager>
             //AFSendEvent.SendEvent("session_start_" + playerData.currentSession.ToString());
         }
     }
+
+    #region CHANGE DATA
+    public void AddGoldToDay(int amount)
+    {
+        playerData.goldDay += amount;
+        SaveData();
+    }
+
+    public void PassLevelToDay()
+    {
+        playerData.levelPassDay++; 
+        SaveData();
+    }
+
+
+
+    #endregion
+
+
 }
 
 [Serializable]
@@ -127,6 +185,24 @@ public class PlayerData
     public bool isSoundOn;
     public bool isVibrateOn;
 
+
+    [Header("LOGIN")]
+    public bool todayClaim;
+    public int dayLogin;
+    public int totalDayLogin;
+
+    [Header("GENERAL TIME")]
+    public int daysInstall;
+    public int daysLastOpen;
+    public int totalDays;
+
+    [Header("DAILY QUEST")]
+    public string currentDayStr;
+    public int goldDay;
+    public int levelPassDay;
+    public int TaskComplete;
+
+    [Header("FIREBASE")]
     #region firebase
     public bool isFirstOpen = false;
     public string lastExitTime;
@@ -158,6 +234,24 @@ public class PlayerData
         cappingStarterPackExpire = "";
         unlockedBoosterTypes = new();
 
+
+
+        // login
+        todayClaim = false;
+        dayLogin = 1;
+        totalDayLogin = 1;
+
+        // General Time
+        daysInstall = (int)DateTime.Now.Subtract(Constant.ORIGINAL_TIME).TotalDays;
+        daysLastOpen = daysInstall;
+        daysPlayed = 1;
+        totalDays = 0;
+
+        // Daily quest
+        currentDayStr = DateTime.Now.ToString("yyyy-MM-dd");
+        goldDay = 0;
+        levelPassDay = 0;
+        TaskComplete = 0;
 
         isMusicOn = true;
         isSoundOn = true;

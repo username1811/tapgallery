@@ -529,6 +529,7 @@ MonoBehaviour:
   IsDestroyOnClose: 0
   isAllButtonEffect: 1
   rectTransform: {fileID: 0}
+  QuestData: {fileID: 11400000, guid: 95fdb8bdc15914947bac6e407a4967f3, type: 2}
 --- !u!1 &4333143000459350257
 GameObject:
   m_ObjectHideFlags: 0

@@ -107,7 +107,14 @@ public class LevelManager : Singleton<LevelManager>
                 isEndLevel = true;
                 UIManager.Ins.OpenUI<Win>();
                 UIManager.Ins.GetUI<GamePlay>().OnWin();
-                DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name); 
+                DataManager.Ins.playerData.passedLevelNames.Add(currentLevelInfooo.name);
+
+                if (DataManager.Ins.CheckIsToDay() == true)
+                {
+                    DataManager.Ins.PassLevelToDay();
+
+                    Debug.Log("dung la trong ngay");
+                }
             }
             else if (isLose) //lose
             {

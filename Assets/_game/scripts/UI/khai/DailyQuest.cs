@@ -12,7 +12,6 @@ public class DailyQuestData : ScriptableObject
         return dataList.Find(x => x.id == idItem);
     }
 
-    public int complete;
 }
 
 [System.Serializable]

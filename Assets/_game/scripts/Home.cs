@@ -147,7 +147,7 @@ public class Home : UICanvas
     public void ButtonGallery()
     {
       
-        UIManager.Ins.OpenUI<Gallery>();
+        UIManager.Ins.OpenUI<DailyQuestUI>();
   
 
         Close(0);
